@@ -220,7 +220,8 @@ p strong{color:var(--tx); font-weight:600}
 .fine.page strong{color:#8d9aa4}
 .ctl{
   position:relative; z-index:3; flex:none;
-  display:flex; align-items:center; gap:14px; padding:10px 20px calc(14px + env(safe-area-inset-bottom));
+  display:flex; align-items:center; justify-content:center; gap:12px;
+  padding:10px 20px calc(14px + env(safe-area-inset-bottom));
 }
 .nav{
   width:40px; height:40px; flex:none; border-radius:50%;
@@ -231,8 +232,9 @@ p strong{color:var(--tx); font-weight:600}
 .nav:disabled{opacity:.28; cursor:default}
 .nav svg{width:16px; height:16px; fill:none; stroke:currentColor; stroke-width:2.2; stroke-linecap:round; stroke-linejoin:round}
 .pager{
-  flex:1; min-width:0; display:flex; align-items:baseline; justify-content:center;
-  gap:6px; user-select:none; -webkit-user-select:none; overflow:hidden;
+  flex:none; min-width:196px;
+  display:flex; align-items:baseline; justify-content:center;
+  gap:6px; user-select:none; -webkit-user-select:none;
 }
 .pager .now{
   font-size:20px; font-weight:800; color:var(--jade);
@@ -268,7 +270,8 @@ p strong{color:var(--tx); font-weight:600}
   .card::before{left:18px; right:18px}
   h2{font-size:18px}
   .cover h1{font-size:26px}
-  .ctl{padding:8px 16px calc(12px + env(safe-area-inset-bottom))}
+  .ctl{padding:8px 16px calc(12px + env(safe-area-inset-bottom)); gap:10px}
+  .pager{min-width:168px}
 }
 @media (prefers-reduced-motion:reduce){
   .track{scroll-behavior:auto}
