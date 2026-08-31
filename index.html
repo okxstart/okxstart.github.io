@@ -1,0 +1,909 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>OKX 시작 가이드</title>
+<meta name="description" content="OKX 가입부터 입금·레버리지까지, 실제 화면 캡처로 따라가는 18장 가이드.">
+<link rel="canonical" href="https://okxstart.github.io/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://okxstart.github.io/">
+<meta property="og:title" content="OKX 시작 가이드">
+<meta property="og:description" content="가입 · 보안 · 본인인증 · 입금까지, 실제 화면 캡처로 따라가는 18장 가이드.">
+<meta property="og:image" content="https://okxstart.github.io/shots/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+KR:wght@400;500;700;900&display=swap">
+<style>
+:root{
+  --ink:#0b1015; --line:#1e2a33;
+  --jade:#35d999; --jade2:#2fe6a0; --jade-dim:#17d78a;
+  --amber:#ffb454; --rose:#ff6b6b;
+  --tx:#e8eef4; --tx2:#9fb0bd; --tx3:#63757f;
+  --card-w:min(500px, 90vw);
+  --card-h:min(100%, 690px);
+  --media-h:242px;                          /* ★캡처/자리 박스 = 전 카드 동일 높이 */
+  --media-in:calc(var(--media-h) - 35px);   /* 위10 + 아래25 패딩 제외한 실제 그림 높이 */
+  --h2-h:55px;                              /* ★제목 = 전 카드 두 줄 높이로 고정 */
+  --font:'Inter','Noto Sans KR',-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Malgun Gothic',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{height:100%}
+body{
+  background:var(--ink); color:var(--tx); font-family:var(--font);
+  -webkit-font-smoothing:antialiased; overflow:hidden;
+  display:flex; flex-direction:column;
+}
+body::before{
+  content:''; position:fixed; inset:0; pointer-events:none; z-index:0;
+  background:
+    radial-gradient(900px 520px at 12% -8%, rgba(53,217,153,.13), transparent 62%),
+    radial-gradient(760px 460px at 92% 108%, rgba(53,217,153,.07), transparent 60%);
+}
+
+header{
+  position:relative; z-index:3; flex:none;
+  padding:16px 20px 10px; display:flex; align-items:center; gap:12px;
+}
+.brand{display:flex; align-items:center; gap:9px; font-weight:800; font-size:13px; letter-spacing:.14em}
+.dot{width:8px; height:8px; border-radius:50%; background:var(--jade); box-shadow:0 0 12px var(--jade)}
+.hcount{margin-left:auto; font-size:12px; color:var(--tx3); font-variant-numeric:tabular-nums; letter-spacing:.06em}
+.hcount b{color:var(--jade); font-weight:700}
+.bar{position:relative; z-index:3; flex:none; height:2px; background:var(--line); margin:0 20px; border-radius:2px; overflow:hidden}
+.bar i{display:block; height:100%; width:0; background:linear-gradient(90deg,var(--jade-dim),var(--jade2)); transition:width .35s cubic-bezier(.4,0,.2,1)}
+
+.track{
+  position:relative; z-index:2; flex:1 1 auto; min-height:0;
+  display:flex; align-items:center; gap:16px; padding:14px 20px 8px;
+  overflow-x:auto; overflow-y:hidden;
+  scroll-snap-type:x mandatory; scroll-behavior:smooth; scrollbar-width:none;
+}
+.track::-webkit-scrollbar{display:none}
+.card{
+  scroll-snap-align:center;
+  flex:0 0 var(--card-w); width:var(--card-w); height:var(--card-h);
+  background:linear-gradient(168deg,#131c24 0%,#0d141a 100%);
+  border:1px solid var(--line); border-radius:20px;
+  padding:24px 26px 20px; position:relative;
+  display:flex; flex-direction:column; overflow:hidden;
+}
+.card::before{
+  content:''; position:absolute; left:26px; right:26px; top:0; height:2px;
+  background:linear-gradient(90deg,var(--jade),transparent); border-radius:2px;
+}
+.card.cover::before{background:linear-gradient(90deg,var(--jade),var(--amber),transparent)}
+.card.warn::before{background:linear-gradient(90deg,var(--amber),transparent)}
+.card.end::before{background:linear-gradient(90deg,var(--jade2),var(--jade),transparent)}
+.body{
+  flex:1 1 auto; min-height:0; overflow-y:auto; scrollbar-width:thin;
+  display:flex; flex-direction:column;      /* ↓ .tip을 바닥에 붙이기 위한 컨테이너 */
+}
+.body > .tip:last-child{margin-top:auto}    /* ★경고 박스는 항상 카드 아래쪽 같은 자리에 */
+.body::-webkit-scrollbar{width:3px}
+.body::-webkit-scrollbar-thumb{background:#22303a; border-radius:3px}
+
+.head{flex:none; display:flex; align-items:baseline; gap:10px; margin-bottom:8px}
+.sect{font-size:11px; letter-spacing:.16em; font-weight:700; color:var(--jade); text-transform:uppercase}
+.card.warn .sect{color:var(--amber)}
+.num{margin-left:auto; font-size:13px; font-weight:800; color:#2a3944; font-variant-numeric:tabular-nums; letter-spacing:.08em}
+h2{
+  flex:none; font-size:20px; line-height:1.36; font-weight:800; letter-spacing:-.02em;
+  text-wrap:balance; margin-bottom:12px;
+  min-height:var(--h2-h);                   /* 한 줄짜리도 두 줄 자리를 차지 → 카드끼리 줄 맞음 */
+}
+h2 em{font-style:normal; color:var(--jade)}
+.card.warn h2 em{color:var(--amber)}
+p{font-size:15px; line-height:1.68; color:var(--tx2); margin-bottom:10px; word-break:keep-all; text-wrap:pretty}
+p:last-child{margin-bottom:0}
+p strong{color:var(--tx); font-weight:600}
+
+/* ── 화면 캡처 ── */
+.shot{
+  flex:none; display:flex; align-items:center; justify-content:center;
+  background:#070c10; border:1px solid #1b2731; border-radius:13px;
+  padding:10px 10px 25px; margin-bottom:13px; position:relative; overflow:hidden; cursor:zoom-in;
+  height:var(--media-h);
+}
+/* .fr = 이미지 박스 그 자체 → 마크(%) 좌표가 항상 정확히 맞는다 (확대 보기에서도 그대로) */
+.fr{position:relative; aspect-ratio:var(--ar)}
+.fr img{display:block; width:100%; height:100%; border-radius:5px}
+.shot .fr{width:min(100%, calc(var(--media-in) * var(--ar)))}
+.mark{
+  position:absolute; left:var(--x); top:var(--y); width:var(--w); height:var(--h);
+  border:2px solid var(--jade); border-radius:7px;
+  box-shadow:0 0 0 3px rgba(53,217,153,.15); pointer-events:none;
+}
+.mark::after{
+  content:attr(data-n); position:absolute; left:-10px; top:-10px;
+  width:20px; height:20px; border-radius:50%; background:var(--jade); color:#04120c;
+  font-family:'Inter',var(--font); font-size:11.5px; font-weight:800;
+  display:grid; place-items:center;
+}
+.mark[data-side="r"]::after{left:auto; right:-10px}
+.zoom{
+  position:absolute; left:0; right:0; bottom:7px; text-align:center;
+  font-size:10.5px; letter-spacing:.04em; color:var(--tx3); pointer-events:none;
+}
+
+/* ── 캡처 자리(내 계정 화면 필요) ── */
+.slot{
+  flex:none; height:var(--media-h); border:1.5px dashed #2b3d49; border-radius:13px;
+  margin-bottom:13px; padding:14px; text-align:center;
+  display:flex; flex-direction:column; align-items:center; justify-content:center; gap:8px;
+  background:repeating-linear-gradient(135deg,#0a1015,#0a1015 9px,#0c1319 9px,#0c1319 18px);
+}
+.slot svg{width:24px; height:24px; stroke:#3d5563; fill:none; stroke-width:1.5; stroke-linecap:round; stroke-linejoin:round}
+.slot b{font-size:12px; color:var(--tx2); font-weight:600}
+.slot .p{font-size:11.5px; color:var(--jade2); font-weight:600; letter-spacing:.01em; line-height:1.6}
+
+/* ── 단계 리스트 ── */
+.steps{list-style:none; display:flex; flex-direction:column; gap:9px}
+.steps li{
+  display:flex; gap:9px; align-items:flex-start;
+  font-size:16px; line-height:1.64; color:var(--tx2); word-break:keep-all;
+  text-wrap:pretty;                     /* 마지막 줄에 한 단어만 남는 것 방지 */
+  min-height:calc(16px * 1.64 * 2);   /* ★한 줄이든 두 줄이든 같은 자리 → 카드끼리 줄 맞음 */
+}
+.steps i{
+  flex:none; width:19px; height:19px; margin-top:2px; border-radius:50%;
+  background:rgba(53,217,153,.13); border:1px solid rgba(53,217,153,.34); color:var(--jade2);
+  font-family:'Inter',var(--font); font-style:normal; font-size:11px; font-weight:800;
+  display:grid; place-items:center;
+}
+.steps b{color:var(--tx); font-weight:600; white-space:nowrap}
+.steps code{
+  font-family:'Inter',var(--font); font-weight:600; color:var(--jade2); font-size:14px;
+  background:rgba(53,217,153,.09); border:1px solid rgba(53,217,153,.18);
+  border-radius:5px; padding:1px 6px;
+  white-space:nowrap;                   /* 010-1234-5678 이 두 줄로 쪼개지지 않게 */
+}
+
+.tip{
+  border-left:3px solid var(--amber); background:rgba(255,180,84,.06);
+  border-radius:0 10px 10px 0; padding:10px 13px; margin:12px 0 0;
+}
+.tip > b{display:block; font-size:11.5px; color:var(--amber); margin-bottom:3px; font-weight:700}
+.tip p{font-size:13.5px; line-height:1.62; color:#cdd8e0; margin:0}
+.tip p b{display:inline; font-size:inherit; color:#fff; font-weight:700; margin:0}  /* 문장 속 강조가 블록이 되어 줄이 쪼개지던 버그 */
+.tip.hard{border-color:var(--rose); background:rgba(255,107,107,.07)}
+.tip.hard > b{color:var(--rose)}
+
+/* ── 흐름도 ── */
+.flow{display:flex; flex-direction:column; margin-bottom:6px}
+.flow .n{background:#0a1015; border:1px solid #1b2731; border-radius:11px; padding:11px 14px}
+.flow .n.on{border-color:rgba(53,217,153,.35); background:rgba(53,217,153,.06)}
+.flow .n b{display:block; font-size:13.5px; color:var(--tx); font-weight:700; margin-bottom:2px}
+.flow .n span{font-size:11.5px; color:var(--tx3); line-height:1.5}
+.flow .ar{height:20px; display:grid; place-items:center; color:#2e4a41; font-size:13px}
+
+.card.cover .body{display:flex; flex-direction:column; justify-content:center}
+.cover .kick{font-size:11.5px; letter-spacing:.2em; color:var(--jade); font-weight:700; margin-bottom:14px}
+.cover h1{font-size:31px; line-height:1.28; font-weight:900; letter-spacing:-.03em; margin-bottom:13px; text-wrap:balance}
+.cover h1 em{font-style:normal; color:var(--jade)}
+.cover .lead{font-size:13.5px; line-height:1.75; color:var(--tx2); margin-bottom:16px}
+.chips{display:flex; flex-wrap:wrap; gap:6px; margin-bottom:16px}
+.chip{font-size:11px; font-weight:600; color:var(--tx2); border:1px solid var(--line); background:#0d141a; border-radius:99px; padding:6px 11px}
+.chip b{color:var(--jade); font-weight:700}
+
+.cta{
+  display:block; text-align:center; background:linear-gradient(135deg,var(--jade),var(--jade-dim));
+  color:#04120c; font-weight:800; font-size:15px; padding:14px 20px; border-radius:12px;
+  text-decoration:none; margin:2px 0 9px; box-shadow:0 10px 28px rgba(53,217,153,.2);
+}
+.cta.sm{font-size:14px; padding:12px 18px; margin:0 0 10px; box-shadow:0 8px 22px rgba(53,217,153,.18)}
+.cta.ghost{background:none; border:1px solid var(--line); color:var(--tx2); box-shadow:none; font-weight:600; font-size:13.5px}
+.code{
+  display:flex; align-items:center; gap:10px; flex-wrap:wrap;
+  background:#0a1015; border:1px solid #1b2731; border-radius:11px;
+  padding:10px 12px; margin:0 0 12px;
+}
+.code span{font-size:11.5px; color:var(--tx3); line-height:1.5; flex:1 1 150px}
+.code button{
+  font-family:inherit; cursor:pointer; display:flex; align-items:center; gap:9px;
+  background:rgba(53,217,153,.09); border:1px solid rgba(53,217,153,.28);
+  border-radius:8px; padding:6px 10px; transition:.18s;
+}
+.code button:hover{background:rgba(53,217,153,.16); border-color:var(--jade)}
+.code b{font-size:15px; font-weight:800; color:var(--jade2); letter-spacing:.09em; font-variant-numeric:tabular-nums}
+.code i{font-style:normal; font-size:10.5px; color:var(--tx3); letter-spacing:.04em}
+.code button.done i{color:var(--jade)}
+.code.slim{padding:7px 10px; margin:0}
+.code.slim span{font-size:11px; flex:1 1 130px}
+.code.slim b{font-size:14px}
+.fine{flex:none; padding-top:12px; margin-top:10px; font-size:10.5px; color:var(--tx3); line-height:1.6; border-top:1px solid #16212a}
+
+.fine.page{
+  flex:none; margin:0; padding:8px 18px 0; border-top:1px solid #16212a;
+  font-size:9.8px; line-height:1.55; color:#55666f; text-align:center;
+}
+.fine.page strong{color:#8d9aa4}
+.ctl{
+  position:relative; z-index:3; flex:none;
+  display:flex; align-items:center; gap:14px; padding:10px 20px calc(14px + env(safe-area-inset-bottom));
+}
+.nav{
+  width:40px; height:40px; flex:none; border-radius:50%;
+  border:1px solid var(--line); background:#0f171e; color:var(--tx);
+  display:grid; place-items:center; cursor:pointer; transition:.18s;
+}
+.nav:hover:not(:disabled){border-color:var(--jade); color:var(--jade)}
+.nav:disabled{opacity:.28; cursor:default}
+.nav svg{width:16px; height:16px; fill:none; stroke:currentColor; stroke-width:2.2; stroke-linecap:round; stroke-linejoin:round}
+.dots{flex:1; display:flex; gap:6px; justify-content:center}
+.dots i{width:6px; height:6px; border-radius:50%; background:#22303a; cursor:pointer; transition:.22s}
+.dots i.on{background:var(--jade); width:20px; border-radius:99px}
+
+/* ── 확대 보기 ── */
+.lb{
+  position:fixed; inset:0; z-index:50; background:rgba(4,8,11,.94);
+  display:none; align-items:center; justify-content:center; padding:24px; overflow:auto;
+}
+.lb.on{display:flex}
+.lb .fr{width:min(92vw,560px); flex:none}
+.lb .fr img{border-radius:8px}
+.lb .x{
+  position:fixed; top:16px; right:18px; width:38px; height:38px; border-radius:50%;
+  background:#0f171e; border:1px solid var(--line); color:var(--tx);
+  display:grid; place-items:center; cursor:pointer; font-size:17px; font-family:inherit;
+}
+
+@media (max-width:560px){
+  :root{--card-w:88vw; --card-h:min(100%, 648px)}
+  header{padding:13px 16px 8px}
+  .bar{margin:0 16px}
+  .track{padding:12px 16px 6px; gap:12px}
+  .card{padding:20px 18px 16px; border-radius:17px}
+  .card::before{left:18px; right:18px}
+  h2{font-size:18px}
+  .cover h1{font-size:26px}
+  .ctl{padding:8px 16px calc(12px + env(safe-area-inset-bottom))}
+}
+@media (prefers-reduced-motion:reduce){
+  .track{scroll-behavior:auto}
+  .bar i{transition:none}
+}
+
+/* ── 인쇄 / PDF ─────────────────────────────────────────
+   화면에서 넘겨 보던 카드 모양 그대로 한 장에 한 페이지.
+   글자가 살아 있어 링크는 클릭되고 코드는 복사됩니다. */
+@page{ size:A4; margin:0 }
+@media print{
+  html,body{height:auto!important; overflow:visible!important; display:block!important}
+  body{
+    background:#070c10!important; -webkit-print-color-adjust:exact; print-color-adjust:exact;
+  }
+  header,.bar,.ctl,.lb,.zoom{display:none!important}
+  .track{
+    display:block!important; transform:none!important; overflow:visible!important;
+    padding:0!important; gap:0!important; scroll-snap-type:none!important;
+  }
+  .card{
+    display:flex!important; flex-direction:column!important;
+    width:172mm!important; max-width:none!important; flex:none!important;
+    height:auto!important; min-height:257mm!important;
+    margin:20mm auto!important; padding:13mm 12mm 10mm!important;
+    border:1px solid var(--line)!important; border-radius:6mm!important;
+    background:linear-gradient(168deg,#131c24 0%,#0d141a 100%)!important;
+    overflow:hidden!important;
+    page-break-after:always; break-after:page;
+    page-break-inside:avoid; break-inside:avoid;
+  }
+  .card::before{left:12mm; right:12mm; height:1.2mm}
+  .body{overflow:visible!important}
+  .shot{height:auto!important; cursor:default}
+  .shot .fr{width:100%!important; max-width:none!important; margin:0 auto}
+  .cta{box-shadow:none!important}
+  /* 마지막 고지 페이지 */
+  .fine.page{
+    display:flex!important; flex-direction:column; justify-content:center;
+    width:172mm!important; min-height:257mm!important; margin:20mm auto!important;
+    padding:13mm 14mm!important; border:1px solid var(--line)!important;
+    border-radius:6mm!important; background:#0d141a!important;
+    font-size:11px!important; line-height:1.9!important; text-align:center;
+    page-break-before:always; break-before:page;
+  }
+  .prt{display:block!important; margin-bottom:8mm; font-size:12.5px; color:var(--tx2)}
+  .prt b{color:var(--jade2)}
+}
+.prt{display:none}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand"><span class="dot"></span><span>OKX START GUIDE</span></div>
+  <div class="hcount"><b id="cur">01</b> / <span id="tot">10</span></div>
+</header>
+<div class="bar"><i id="prog"></i></div>
+
+<div class="track" id="track" tabindex="0">
+
+  <!-- 표지 -->
+  <article class="card cover">
+    <div class="body">
+      <div class="kick">가입 · 입금 · 레버리지</div>
+      <h1>OKX,<br><em>화면 그대로</em><br>따라만 하면 됩니다</h1>
+      <p class="lead">실제 화면을 하나씩 보면서 갑니다. 초록 네모만 순서대로 누르면 끝이에요.</p>
+      <div class="chips">
+        <span class="chip"><b>01–04</b> 가입</span>
+        <span class="chip"><b>05–08</b> 보안</span>
+        <span class="chip"><b>09–11</b> 본인인증</span>
+        <span class="chip"><b>12–16</b> 입금</span>
+        <span class="chip"><b>17</b> 레버리지</span>
+      </div>
+      <a class="cta" href="#" id="ref0" style="margin-top:15px">가입 화면으로 바로 가기 →</a>
+      <p style="font-size:12px;line-height:1.6;color:var(--tx3);margin:-3px 0 0">
+        이 버튼으로 들어가면 <b style="color:var(--tx2);font-weight:700">수수료 10% 할인</b>이 걸린 채로 가입 화면이 열립니다.
+      </p>
+      <div class="tip">
+        <b>화면이 영어라도 괜찮습니다</b>
+        <p>주소창의 번역 아이콘을 누르면 한국어로 볼 수 있어요. 다만 번역된 이름은 브라우저마다 달라서, 이 가이드는 화면에 실제로 찍히는 영어를 그대로 씁니다.</p>
+      </div>
+    </div>
+  </article>
+
+  <!-- 01 가입 시작 -->
+  <article class="card">
+    <div class="head"><span class="sect">가입 1</span><span class="num">01</span></div>
+    <h2>국가<br><em>고르기</em></h2>
+    <figure class="shot">
+      <div class="fr" style="--ar:1.124;">
+        <img src="shots/c01_join.jpg" alt="OKX 가입 첫 화면 — Select your location">
+        <b class="mark" data-n="1" data-side="r" style="--x:4.96%;--y:34.92%;--w:90.07%;--h:11.98%"></b>
+        <b class="mark" data-n="2" data-side="r" style="--x:9.38%;--y:53.10%;--w:84.19%;--h:8.68%"></b>
+        <b class="mark" data-n="3" style="--x:4.96%;--y:67.98%;--w:90.07%;--h:11.98%"></b>
+      </div>
+      <span class="zoom">탭하면 크게</span>
+    </figure>
+    <div class="body">
+      <ol class="steps">
+        <li><i>1</i><span><b>South Korea</b> 그대로 두세요.<br>여기서 고른 나라가 나중에 낼 신분증 종류를 정합니다.</span></li>
+        <li><i>2</i><span>약관 체크박스를 눌러야 <b>Next</b>가 켜집니다.</span></li>
+        <li><i>3</i><span><b>Next</b> 누르면 다음 화면으로.</span></li>
+      </ol>
+    </div>
+  </article>
+
+  <!-- 02 이메일 -->
+  <article class="card">
+    <div class="head"><span class="sect">가입 2</span><span class="num">02</span></div>
+    <h2>이메일<br><em>인증하기</em></h2>
+    <figure class="shot">
+      <div class="fr" style="--ar:1.1826;">
+        <img src="shots/c02_email.jpg" alt="OKX 가입 2단계 — 이메일 입력과 추천 코드 적용 확인">
+        <b class="mark" data-n="1" data-side="r" style="--x:7.35%;--y:43.91%;--w:85.29%;--h:12.17%"></b>
+        <b class="mark" data-n="2" data-side="r" style="--x:4.96%;--y:59.35%;--w:90.07%;--h:16.74%"></b>
+        <b class="mark" data-n="3" style="--x:4.96%;--y:82.83%;--w:90.07%;--h:12.61%"></b>
+      </div>
+      <span class="zoom">탭하면 크게</span>
+    </figure>
+    <div class="body">
+      <ol class="steps">
+        <li><i>1</i><span>이메일을 넣습니다. 인증 코드는 <b>10분 안에</b> 입력해야 해요.</span></li>
+        <li><i>2</i><span><code>10% rebate rate applied</code>을 펼치면 코드 <b>s2ena2</b>에<br>초록 체크가 떠 있습니다.</span></li>
+        <li><i>3</i><span><b>Sign up</b>으로 마무리. 구글·애플 계정으로도 됩니다.</span></li>
+      </ol>
+      <div class="code slim">
+        <span>앱이면 코드 직접 입력</span>
+        <button type="button" class="copy" aria-label="추천 코드 복사"><b>S2ENA2</b><i>복사</i></button>
+      </div>
+    </div>
+  </article>
+
+  <!-- 03 휴대폰 번호 -->
+  <article class="card">
+    <div class="head"><span class="sect">가입 3</span><span class="num">03</span></div>
+    <h2>휴대폰 번호<br><em>입력하기</em></h2>
+    <figure class="shot">
+      <div class="fr" style="--ar:1.1102;">
+        <img src="shots/c03_phone.jpg" alt="OKX 가입 3단계 — 휴대폰 번호 입력 화면">
+        <b class="mark" data-n="1" data-side="r" style="--x:4.96%;--y:53.27%;--w:90.07%;--h:11.84%"></b>
+        <b class="mark" data-n="2" data-side="r" style="--x:5.15%;--y:67.96%;--w:36.60%;--h:5.71%"></b>
+        <b class="mark" data-n="3" style="--x:4.96%;--y:80.20%;--w:90.07%;--h:11.84%"></b>
+      </div>
+      <span class="zoom">탭하면 크게</span>
+    </figure>
+    <div class="body">
+      <ol class="steps">
+        <li><i>1</i><span>국가번호 <b>+82</b>는 그대로. 번호는 <b>앞의 0을 빼고</b> 넣습니다. <code>010-1234-5678</code> → <code>1012345678</code></span></li>
+        <li><i>2</i><span>여기서도 <code>10% rebate rate applied</code>이 그대로 보입니다.<br>할인은 계속 걸려 있어요.</span></li>
+        <li><i>3</i><span><b>Next</b>를 누르면 문자로 6자리 코드가 옵니다.</span></li>
+      </ol>
+    </div>
+  </article>
+
+  <!-- 04 문자 인증 -->
+  <article class="card">
+    <div class="head"><span class="sect">가입 4</span><span class="num">04</span></div>
+    <h2>휴대폰 번호<br><em>인증하기</em></h2>
+    <figure class="shot">
+      <div class="fr" style="--ar:1.3333;">
+        <img src="shots/c04_sms.jpg" alt="OKX 가입 4단계 — 문자 6자리 코드 입력 화면">
+        <b class="mark" data-n="1" data-side="r" style="--x:5.62%;--y:50.72%;--w:88.77%;--h:14.01%"></b>
+        <b class="mark" data-n="2" data-side="r" style="--x:5.62%;--y:71.98%;--w:88.77%;--h:14.01%"></b>
+        <b class="mark" data-n="3" data-side="r" style="--x:30.43%;--y:89.61%;--w:39.13%;--h:7.00%"></b>
+      </div>
+      <span class="zoom">탭하면 크게</span>
+    </figure>
+    <div class="body">
+      <ol class="steps">
+        <li><i>1</i><span>문자로 온 <b>6자리</b>를 넣습니다. 칸은 자동으로 넘어가요.</span></li>
+        <li><i>2</i><span>안 오면 <b>Resend code</b><br>옆의 초 카운트가 끝나야 눌립니다.</span></li>
+        <li><i>3</i><span>그래도 안 오면 <b>Call me instead</b>.<br>전화로 코드를 불러줍니다.</span></li>
+      </ol>
+      <div class="tip">
+        <b>이 번호는 계속 씁니다</b>
+        <p>출금할 때와 보안 확인에 이 번호로 문자가 옵니다. 안 쓰는 번호로 넣지 마세요.</p>
+      </div>
+    </div>
+  </article>
+
+  <!-- 05 2FA -->
+  <article class="card warn">
+    <div class="head"><span class="sect">보안 1</span><span class="num">05</span></div>
+    <h2>보안 설정<br><em>채우기</em></h2>
+    <figure class="shot">
+      <div class="fr" style="--ar:1.1208;">
+        <img src="shots/c05_security.jpg" alt="OKX 보안 설정 — 2/5 · Authenticator app · Password">
+        <b class="mark" data-n="1" data-side="r" style="--x:0.93%;--y:1.95%;--w:63.38%;--h:13.38%"></b>
+        <b class="mark" data-n="2" style="--x:2.32%;--y:56.49%;--w:95.60%;--h:8.70%"></b>
+        <b class="mark" data-n="3" style="--x:2.32%;--y:91.17%;--w:95.60%;--h:8.18%"></b>
+      </div>
+      <span class="zoom">탭하면 크게</span>
+    </figure>
+    <div class="body">
+      <ol class="steps">
+        <li><i>1</i><span>가입 직후는 <b>2 / 5</b>입니다.<br>전화번호·이메일만 되어 있는 상태예요.</span></li>
+        <li><i>2</i><span><b>Authenticator app</b> › <b>Set up</b><br>뜨는 <b>setup key</b>는 따로 적어두세요.</span></li>
+        <li><i>3</i><span><b>Password</b> › <b>Add</b><br>인증 앱 걸고 나서 비밀번호도 만드세요.</span></li>
+      </ol>
+      <div class="tip hard">
+        <b>인증 앱을 바꾸면 24시간 출금이 잠깁니다</b>
+        <p>입금 직전에 급하게 설정하는 게 최악의 순서.<br>돈 넣기 전에 미리 끝내두세요.</p>
+      </div>
+    </div>
+  </article>
+
+  <!-- 06 인증 앱 내려받기 -->
+  <article class="card">
+    <div class="head"><span class="sect">보안 2</span><span class="num">06</span></div>
+    <h2>인증 앱<br><em>내려받기</em></h2>
+    <figure class="shot">
+      <div class="fr" style="--ar:1.4058;">
+        <img src="shots/c06_app.jpg" alt="OKX 인증 앱 내려받기 화면 — Google · Microsoft Authenticator">
+        <b class="mark" data-n="1" style="--x:2.68%;--y:3.77%;--w:94.23%;--h:21.45%"></b>
+        <b class="mark" data-n="2" style="--x:2.68%;--y:25.22%;--w:94.23%;--h:21.45%"></b>
+        <b class="mark" data-n="3" style="--x:2.68%;--y:81.45%;--w:93.81%;--h:13.62%"></b>
+      </div>
+      <span class="zoom">탭하면 크게</span>
+    </figure>
+    <div class="body">
+      <ol class="steps">
+        <li><i>1</i><span><b>Google authenticator</b> 오른쪽 <b>↓</b>를 누르면<br>앱스토어로 넘어갑니다. 무료입니다.</span></li>
+        <li><i>2</i><span><b>Microsoft authenticator</b>도 똑같이 됩니다.<br>둘 중 하나만 깔면 돼요.</span></li>
+        <li><i>3</i><span>설치가 끝났으면 <b>I&#39;ve downloaded one</b>.<br>다음 화면에서 계정을 연결합니다.</span></li>
+      </ol>
+      <div class="tip">
+        <b>중간에 문자·이메일 인증이 한 번 더 나옵니다</b>
+        <p>1/2 문자, 2/2 이메일 순으로 6자리를 넣습니다.<br>가입 때와 같은 방식이라 당황할 것 없어요.</p>
+      </div>
+    </div>
+  </article>
+
+  <!-- 07 인증 앱 연결 -->
+  <article class="card warn">
+    <div class="head"><span class="sect">보안 3</span><span class="num">07</span></div>
+    <h2>인증 앱<br><em>연결하기</em></h2>
+    <figure class="shot">
+      <div class="fr" style="--ar:1.2895;">
+        <img src="shots/c06_2fa.jpg" alt="OKX 인증 앱 연결 화면 — QR코드와 setup key는 보안상 가림">
+        <b class="mark" data-n="1" style="--x:30.0%;--y:5.8%;--w:42.0%;--h:50.3%"></b>
+        <b class="mark" data-n="2" style="--x:25.5%;--y:61.3%;--w:48.6%;--h:10.3%"></b>
+        <b class="mark" data-n="3" style="--x:3.5%;--y:82.4%;--w:92.9%;--h:13.4%"></b>
+      </div>
+      <span class="zoom">탭하면 크게</span>
+    </figure>
+    <div class="body">
+      <ol class="steps">
+        <li><i>1</i><span>방금 깐 인증 앱을 열고 <b>+</b>를 누른 다음<br>이 <b>QR</b>을 찍습니다.</span></li>
+        <li><i>2</i><span>QR이 안 되면 아래 <b>키를 직접 입력</b>.<br><b>Copy key</b>로 복사됩니다.</span></li>
+        <li><i>3</i><span>앱에 6자리가 뜨면 <b>Continue</b>.<br>그 숫자를 넣으면 끝납니다.</span></li>
+      </ol>
+      <div class="tip hard">
+        <b>이 QR과 키는 캡처하지 마세요</b>
+        <p>이 값 하나면 남이 내 인증 코드를 그대로 만들어냅니다.<br>화면에 뜰 때 종이에 적어 따로 보관하세요.</p>
+      </div>
+    </div>
+  </article>
+
+  <!-- 08 앱에서 코드 찾기 -->
+  <article class="card">
+    <div class="head"><span class="sect">보안 4</span><span class="num">08</span></div>
+    <h2>앱에서<br><em>OKX 코드 찾기</em></h2>
+    <figure class="shot">
+      <div class="fr" style="--ar:2.0034;">
+        <img src="shots/c08_otp.jpg" alt="인증 앱 목록에서 okx.com 항목의 6자리 코드">
+        <b class="mark" data-n="1" data-side="r" style="--x:4.23%;--y:55.42%;--w:43.15%;--h:9.83%"></b>
+        <b class="mark" data-n="2" data-side="r" style="--x:4.23%;--y:69.49%;--w:43.15%;--h:20.34%"></b>
+        <b class="mark" data-n="3" style="--x:85.87%;--y:71.19%;--w:8.88%;--h:16.95%"></b>
+      </div>
+      <span class="zoom">탭하면 크게</span>
+    </figure>
+    <div class="body">
+      <ol class="steps">
+        <li><i>1</i><span>목록에서 <b>okx.com</b>으로 시작하는 줄을 찾습니다.<br>다른 거래소 것과 헷갈리기 쉬워요.</span></li>
+        <li><i>2</i><span>그 아래 <b>6자리</b>를 OKX 화면에 넣으면 끝.<br>앞으로 로그인·출금 때마다 여기서 봅니다.</span></li>
+        <li><i>3</i><span>오른쪽 동그라미가 남은 시간입니다.<br><b>30초</b>마다 숫자가 새로 바뀝니다.</span></li>
+      </ol>
+      <div class="tip">
+        <b>폰을 바꾸거나 앱을 지우면 이 줄이 사라집니다</b>
+        <p>연결할 때 나온 키를 적어두라는 게 이것 때문입니다.<br>키가 있으면 새 폰에서 그대로 되살립니다.</p>
+      </div>
+    </div>
+  </article>
+
+  <!-- 04 KYC -->
+  <article class="card">
+    <div class="head"><span class="sect">본인인증 1</span><span class="num">09</span></div>
+    <h2>본인 인증<br><em>끝내기</em></h2>
+    <figure class="shot">
+      <div class="fr" style="--ar:1.5287;">
+        <img src="shots/c09_kyc.jpg" alt="OKX 본인인증 시작 화면 — Individual verification 선택">
+        <b class="mark" data-n="1" style="--x:1.20%;--y:3.45%;--w:97.74%;--h:34.48%"></b>
+        <b class="mark" data-n="2" style="--x:1.20%;--y:40.92%;--w:97.74%;--h:35.63%"></b>
+        <b class="mark" data-n="3" style="--x:1.20%;--y:87.36%;--w:97.74%;--h:9.89%"></b>
+      </div>
+      <span class="zoom">탭하면 크게</span>
+    </figure>
+    <div class="body">
+      <ol class="steps">
+        <li><i>1</i><span><b>Individual verification</b>이 이미 선택돼 있습니다.<br>개인은 이것만 보면 됩니다.</span></li>
+        <li><i>2</i><span><b>Institutional</b>은 법인용이라 건너뜁니다.</span></li>
+        <li><i>3</i><span><b>Verify identity</b>를 누르면 시작됩니다.<br>국가 · 이름 · 생년월일 · 신분증 순으로 물어봐요.</span></li>
+      </ol>
+      <div class="tip">
+        <b>가입만 했다고 입금이 되는 게 아닙니다</b>
+        <p>인증 전에는 입금 주소 자체가 화면에 안 뜹니다.<br>이름·생년월일은 신분증과 똑같이 넣으세요.</p>
+      </div>
+    </div>
+  </article>
+
+  <!-- 10 신분증 고르기 -->
+  <article class="card">
+    <div class="head"><span class="sect">본인인증 2</span><span class="num">10</span></div>
+    <h2>신분증<br><em>고르기</em></h2>
+    <figure class="shot">
+      <div class="fr" style="--ar:1.5596;">
+        <img src="shots/c10_idtype.jpg" alt="OKX 신분증 종류 선택 화면">
+        <b class="mark" data-n="1" style="--x:1.47%;--y:24.77%;--w:97.35%;--h:28.44%"></b>
+        <b class="mark" data-n="2" style="--x:1.47%;--y:55.50%;--w:97.35%;--h:19.95%"></b>
+        <b class="mark" data-n="3" style="--x:1.47%;--y:77.98%;--w:97.35%;--h:19.95%"></b>
+      </div>
+      <span class="zoom">탭하면 크게</span>
+    </figure>
+    <div class="body">
+      <ol class="steps">
+        <li><i>1</i><span><b>Driver&#39;s license</b> — 운전면허증.<br>OKX가 추천하는 쪽입니다.</span></li>
+        <li><i>2</i><span><b>National ID card</b> — 주민등록증.<br>면허증이 없으면 이걸로.</span></li>
+        <li><i>3</i><span><b>Passport</b> — 여권.<br>셋 중 하나만 있으면 됩니다.</span></li>
+      </ol>
+      <div class="tip">
+        <b>고르고 나면 앞뒤 두 장을 찍습니다</b>
+        <p>PC로 하고 있어도 다음 화면에서 폰 카메라로 넘어갑니다.<br>폰을 옆에 두고 시작하세요.</p>
+      </div>
+    </div>
+  </article>
+
+  <!-- 11 심사 기다리기 -->
+  <article class="card">
+    <div class="head"><span class="sect">본인인증 3</span><span class="num">11</span></div>
+    <h2>심사<br><em>기다리기</em></h2>
+    <figure class="shot">
+      <div class="fr" style="--ar:1.6410;">
+        <img src="shots/c11_review.jpg" alt="OKX 본인인증 심사 중(Reviewing) 화면">
+        <b class="mark" data-n="1" style="--x:36.71%;--y:4.82%;--w:26.43%;--h:62.65%"></b>
+        <b class="mark" data-n="2" data-side="r" style="--x:38.91%;--y:74.22%;--w:22.03%;--h:9.64%"></b>
+        <b class="mark" data-n="3" data-side="r" style="--x:17.62%;--y:86.75%;--w:64.61%;--h:6.75%"></b>
+      </div>
+      <span class="zoom">탭하면 크게</span>
+    </figure>
+    <div class="body">
+      <ol class="steps">
+        <li><i>1</i><span>신분증 앞뒤와 얼굴 촬영이 끝나면<br>이 화면으로 바뀝니다.</span></li>
+        <li><i>2</i><span><b>Reviewing</b> — 심사 중이라는 뜻입니다.</span></li>
+        <li><i>3</i><span><b>최대 48시간</b>이 걸릴 수 있습니다.<br>끝나면 알림이 옵니다.</span></li>
+      </ol>
+      <div class="tip">
+        <b>승인 전에는 입금 주소가 나오지 않습니다</b>
+        <p>보통 몇 분에서 몇 시간이면 끝납니다.<br>그동안 따로 할 일은 없어요.</p>
+      </div>
+    </div>
+  </article>
+
+  <!-- 05 원화 경로 -->
+  <article class="card warn">
+    <div class="head"><span class="sect">입금 1</span><span class="num">12</span></div>
+    <h2>원화 대신<br><em>코인으로 넣기</em></h2>
+    <div class="body">
+      <p>OKX에는 은행 계좌를 연결하는 창구가 없습니다. 그래서 이렇게 돌아갑니다.</p>
+      <div class="flow">
+        <div class="n"><b>국내 거래소</b><span>업비트·빗썸 등에서 원화로 코인이나 테더(USDT) 매수</span></div>
+        <div class="ar">▼</div>
+        <div class="n"><b>코인으로 전송</b><span>산 코인을 OKX 입금 주소로 출금</span></div>
+        <div class="ar">▼</div>
+        <div class="n on"><b>OKX 도착</b><span>여기서부터 거래</span></div>
+      </div>
+      <div class="tip">
+        <b>원화 넣고 바로는 못 보냅니다</b>
+        <p>국내 거래소는 원화 입금 뒤 일정 시간 코인 출금을 막아둡니다. 여유를 두고 준비하세요.</p>
+      </div>
+    </div>
+  </article>
+
+  <!-- 06 입금 주소 -->
+  <!-- 13 입금 화면 -->
+  <article class="card">
+    <div class="head"><span class="sect">입금 2</span><span class="num">13</span></div>
+    <h2>입금 화면<br><em>열기</em></h2>
+    <figure class="shot">
+      <div class="fr" style="--ar:1.7205;">
+        <img src="shots/c13_deposit.jpg" alt="OKX 입금 화면 — 코인 선택 · 네트워크 선택 · 입금 상세">
+        <b class="mark" data-n="1" style="--x:2.09%;--y:2.05%;--w:95.83%;--h:20.51%"></b>
+        <b class="mark" data-n="2" style="--x:2.09%;--y:37.95%;--w:79.88%;--h:23.59%"></b>
+        <b class="mark" data-n="3" style="--x:2.09%;--y:68.72%;--w:57.53%;--h:27.44%"></b>
+      </div>
+      <span class="zoom">탭하면 크게</span>
+    </figure>
+    <div class="body">
+      <ol class="steps">
+        <li><i>1</i><span>맨 위 안내는 <b>100만원 넘게</b> 주고받을 때<br>이름·생년월일이 필요하다는 한국 규정입니다.</span></li>
+        <li><i>2</i><span><b>Select crypto</b>에서 보낼 코인을 고릅니다.<br>보통 <code>USDT</code>입니다.</span></li>
+        <li><i>3</i><span>그러면 <b>2 네트워크</b>, <b>3 주소</b>가 차례로 열립니다.</span></li>
+      </ol>
+      <div class="tip">
+        <b>위치는 Assets › Deposit</b>
+        <p>왼쪽 위가 <code>Funding</code>으로 되어 있으면 제대로 온 겁니다.</p>
+      </div>
+    </div>
+  </article>
+
+  <!-- 14 네트워크 고르기 -->
+  <article class="card warn">
+    <div class="head"><span class="sect">입금 3</span><span class="num">14</span></div>
+    <h2>네트워크<br><em>고르기</em></h2>
+    <figure class="shot">
+      <div class="fr" style="--ar:1.9296;">
+        <img src="shots/c14_network.jpg" alt="OKX 입금 네트워크 선택 — ERC20 · TRC20 등">
+        <b class="mark" data-n="1" style="--x:2.04%;--y:26.76%;--w:95.77%;--h:12.68%"></b>
+        <b class="mark" data-n="2" style="--x:2.04%;--y:48.45%;--w:95.77%;--h:12.68%"></b>
+        <b class="mark" data-n="3" data-side="r" style="--x:68.61%;--y:2.82%;--w:29.93%;--h:78.87%"></b>
+      </div>
+      <span class="zoom">탭하면 크게</span>
+    </figure>
+    <div class="body">
+      <ol class="steps">
+        <li><i>1</i><span><b>Ethereum (ERC20)</b> — 도착까지 약 7분.</span></li>
+        <li><i>2</i><span><b>Tron (TRC20)</b> — 도착까지 약 1분.</span></li>
+        <li><i>3</i><span>오른쪽이 <b>도착 시간</b>과 <b>최소 입금액</b>입니다.</span></li>
+      </ol>
+      <div class="tip hard">
+        <b>보내는 쪽에서 고른 네트워크와 똑같아야 합니다</b>
+        <p>업비트에서 TRC20으로 보냈으면 여기서도 TRC20.<br>다르면 코인이 사라지고 되돌릴 수 없습니다.</p>
+      </div>
+    </div>
+  </article>
+
+  <article class="card warn">
+    <div class="head"><span class="sect">입금 4</span><span class="num">15</span></div>
+    <h2>입금 주소<br><em>받기</em></h2>
+    <figure class="shot">
+      <div class="fr" style="--ar:1.9559;">
+        <img src="shots/c15_addr.jpg" alt="OKX 입금 주소 화면 — 주소와 이름은 보안상 가림">
+        <b class="mark" data-n="1" style="--x:5.41%;--y:1.47%;--w:78.80%;--h:23.53%"></b>
+        <b class="mark" data-n="2" style="--x:5.41%;--y:29.41%;--w:78.80%;--h:16.18%"></b>
+        <b class="mark" data-n="3" data-side="r" style="--x:5.41%;--y:70.00%;--w:84.82%;--h:9.70%"></b>
+      </div>
+      <span class="zoom">탭하면 크게</span>
+    </figure>
+    <div class="body">
+      <ol class="steps">
+        <li><i>1</i><span><b>Address</b> — 오른쪽 복사 버튼으로 복사해서<br>보내는 거래소에 그대로 붙여넣습니다.</span></li>
+        <li><i>2</i><span><b>Verified name</b>이 내 이름과 같은지 확인.<br>보내는 계좌 명의도 같아야 합니다.</span></li>
+        <li><i>3</i><span><b>Deposit account</b> — 코인이 어느 계정으로<br>들어오는지입니다. <code>Trading</code>이면 바로 거래 가능.</span></li>
+      </ol>
+      <div class="tip hard">
+        <b>주소는 손으로 옮겨 적지 마세요</b>
+        <p>반드시 복사 버튼을 쓰세요. 한 글자만 틀려도 돈이 사라집니다.<br>XRP처럼 <b>tag·memo</b>가 같이 뜨는 코인은 그 값도 꼭 넣으세요.</p>
+      </div>
+    </div>
+  </article>
+
+  <!-- 07 이체 -->
+  <article class="card">
+    <div class="head"><span class="sect">입금 5</span><span class="num">16</span></div>
+    <h2>거래 계정으로<br><em>옮기기</em></h2>
+    <figure class="shot">
+      <div class="fr" style="--ar:1.4344;">
+        <img src="shots/c16_transfer.jpg" alt="OKX 계정 간 이체 화면 — Funding에서 Trading으로">
+        <b class="mark" data-n="1" style="--x:1.89%;--y:7.69%;--w:95.58%;--h:12.44%"></b>
+        <b class="mark" data-n="2" style="--x:1.89%;--y:23.98%;--w:95.58%;--h:24.66%"></b>
+        <b class="mark" data-n="3" style="--x:1.89%;--y:58.82%;--w:95.58%;--h:39.82%"></b>
+      </div>
+      <span class="zoom">탭하면 크게</span>
+    </figure>
+    <div class="body">
+      <p>앞 화면의 <strong>Deposit account</strong>가 <strong>Trading</strong>이었으면 건너뛰어도 됩니다.</p>
+      <ol class="steps">
+        <li><i>1</i><span><b>Asset</b> — 옮길 코인을 고릅니다.<br>USDT를 넣었으면 USDT로.</span></li>
+        <li><i>2</i><span>위가 보내는 곳, 아래가 받는 곳.<br><code>Funding</code> → <code>Trading</code>이면 맞습니다.</span></li>
+        <li><i>3</i><span>금액 넣고 <b>Transfer</b>. <b>Max</b>는 전액.<br>내부 이체라 수수료 없이 즉시 들어갑니다.</span></li>
+      </ol>
+    </div>
+  </article>
+
+  <!-- 08 레버리지 -->
+  <article class="card">
+    <div class="head"><span class="sect">선물</span><span class="num">17</span></div>
+    <h2>마진 모드와<br><em>레버리지 정하기</em></h2>
+    <figure class="shot">
+      <div class="fr" style="--ar:2.0543;">
+        <img src="shots/c09_order.jpg" alt="OKX 선물 주문 패널 — 마진 모드와 레버리지">
+        <b class="mark" data-n="1" style="--x:6.42%;--y:7.75%;--w:87.55%;--h:31.01%"></b>
+        <b class="mark" data-n="2" style="--x:14.34%;--y:44.19%;--w:25.66%;--h:23.26%"></b>
+        <b class="mark" data-n="3" style="--x:61.51%;--y:44.19%;--w:20.38%;--h:23.26%"></b>
+      </div>
+      <span class="zoom">탭하면 크게</span>
+    </figure>
+    <div class="body">
+      <ol class="steps">
+        <li><i>1</i><span><b>Open</b>은 새로 들어가기, <b>Close</b>는 정리하기.</span></li>
+        <li><i>2</i><span><b>Isolated</b>는 넣은 증거금만 걸립니다.<br><b>Cross</b>는 계좌 전체를 같이 씁니다. 처음이면 격리로.</span></li>
+        <li><i>3</i><span>여기가 <b>레버리지 배율</b>. 눌러서 바꿉니다.<br>(로그인 전에는 <code>-- --</code>로 보여요)</span></li>
+      </ol>
+      <div class="tip hard">
+        <b>포지션을 연 뒤에는 교차↔격리를 못 바꿉니다</b>
+        <p>주문 넣기 전에 정하세요.<br>금액이 커지면 최대 배율이 자동으로 내려갑니다.</p>
+      </div>
+    </div>
+  </article>
+
+
+</div>
+
+<div class="fine page">
+  <span class="prt">가입 링크 <b>https://okx.com/join/S2ENA2</b><br>추천 코드 <b>S2ENA2</b></span>
+
+  <strong>투자 권유가 아닙니다.</strong> 레버리지 거래는 원금 전액을 잃을 수 있습니다.
+  한국은 OKX 안내에 파생상품·P2P 제한 지역으로 적혀 있고, 이 페이지의 가입 버튼은 추천(레퍼럴) 링크입니다.
+</div>
+
+<div class="ctl">
+  <button class="nav" id="prev" aria-label="이전"><svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg></button>
+  <div class="dots" id="dots"></div>
+  <button class="nav" id="next" aria-label="다음"><svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></button>
+</div>
+
+<div class="lb" id="lb"><button class="x" id="lbx" aria-label="닫기">✕</button></div>
+
+<script>
+(function(){
+  var REFERRAL_URL  = "https://okx.com/join/S2ENA2";   // OKX 레퍼럴 링크
+  var REFERRAL_CODE = "S2ENA2";                        // 앱 가입 시 직접 입력용 코드
+  var track = document.getElementById('track');
+  var cards = Array.prototype.slice.call(track.querySelectorAll('.card'));
+  var dots  = document.getElementById('dots');
+  var prev  = document.getElementById('prev');
+  var next  = document.getElementById('next');
+  var prog  = document.getElementById('prog');
+  var cur   = document.getElementById('cur');
+  var lb    = document.getElementById('lb');
+  var idx = 0;
+
+  document.getElementById('tot').textContent = String(cards.length).padStart(2,'0');
+
+  cards.forEach(function(_, i){
+    var d = document.createElement('i');
+    d.addEventListener('click', function(){ go(i); });
+    dots.appendChild(d);
+  });
+  var dotEls = Array.prototype.slice.call(dots.children);
+
+  function go(i){
+    idx = Math.max(0, Math.min(cards.length-1, i));
+    cards[idx].scrollIntoView({behavior:'smooth', inline:'center', block:'nearest'});
+    paint();
+  }
+  function paint(){
+    dotEls.forEach(function(d,i){ d.classList.toggle('on', i===idx); });
+    prog.style.width = ((idx+1)/cards.length*100) + '%';
+    cur.textContent = String(idx+1).padStart(2,'0');
+    prev.disabled = idx===0;
+    next.disabled = idx===cards.length-1;
+  }
+  prev.addEventListener('click', function(){ go(idx-1); });
+  next.addEventListener('click', function(){ go(idx+1); });
+
+  var tmr;
+  track.addEventListener('scroll', function(){
+    clearTimeout(tmr);
+    tmr = setTimeout(function(){
+      var mid = track.scrollLeft + track.clientWidth/2, best=0, bd=1e9;
+      cards.forEach(function(c,i){
+        var d = Math.abs((c.offsetLeft + c.offsetWidth/2) - mid);
+        if(d < bd){ bd = d; best = i; }
+      });
+      if(best !== idx){ idx = best; paint(); }
+    }, 90);
+  }, {passive:true});
+
+  document.addEventListener('keydown', function(e){
+    if(lb.classList.contains('on')){
+      if(e.key === 'Escape'){ closeLb(); }
+      return;
+    }
+    if(e.key === 'ArrowRight'){ e.preventDefault(); go(idx+1); }
+    if(e.key === 'ArrowLeft'){ e.preventDefault(); go(idx-1); }
+    if(e.key === 'Home'){ e.preventDefault(); go(0); }
+    if(e.key === 'End'){ e.preventDefault(); go(cards.length-1); }
+  });
+
+  /* 캡처 확대 */
+  function closeLb(){
+    lb.classList.remove('on');
+    var old = lb.querySelector('.fr');
+    if(old) old.remove();
+  }
+  Array.prototype.forEach.call(document.querySelectorAll('.shot'), function(sh){
+    sh.addEventListener('click', function(){
+      closeLb();
+      var clone = sh.querySelector('.fr').cloneNode(true);
+      clone.style.removeProperty('--shmax');
+      lb.appendChild(clone);
+      lb.classList.add('on');
+    });
+  });
+  lb.addEventListener('click', function(e){ if(e.target === lb) closeLb(); });
+  document.getElementById('lbx').addEventListener('click', closeLb);
+
+  var refs = [document.getElementById('ref'), document.getElementById('ref0')].filter(Boolean);
+  refs.forEach(function(ref){
+    if(REFERRAL_URL){
+      ref.href = REFERRAL_URL; ref.target = '_blank'; ref.rel = 'noopener sponsored';
+    } else {
+      ref.addEventListener('click', function(e){ e.preventDefault(); });
+      ref.style.opacity = '.5';
+    }
+  });
+  if(!REFERRAL_URL){
+    Array.prototype.forEach.call(document.querySelectorAll('.code'), function(c){ c.remove(); });
+  }
+
+  Array.prototype.forEach.call(document.querySelectorAll('.copy'), function(copy){
+    copy.addEventListener('click', function(){
+      var done = function(){
+        copy.classList.add('done');
+        copy.querySelector('i').textContent = '복사됨';
+        setTimeout(function(){
+          copy.classList.remove('done');
+          copy.querySelector('i').textContent = '복사';
+        }, 1800);
+      };
+      if(navigator.clipboard && navigator.clipboard.writeText){
+        navigator.clipboard.writeText(REFERRAL_CODE).then(done, fallback);
+      } else { fallback(); }
+      function fallback(){
+        var ta = document.createElement('textarea');
+        ta.value = REFERRAL_CODE; ta.style.position='fixed'; ta.style.opacity='0';
+        document.body.appendChild(ta); ta.select();
+        try{ document.execCommand('copy'); done(); }catch(e){}
+        document.body.removeChild(ta);
+      }
+    });
+  });
+
+  paint();
+})();
+</script>
+</body>
+</html>
