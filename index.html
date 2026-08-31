@@ -230,9 +230,20 @@ p strong{color:var(--tx); font-weight:600}
 .nav:hover:not(:disabled){border-color:var(--jade); color:var(--jade)}
 .nav:disabled{opacity:.28; cursor:default}
 .nav svg{width:16px; height:16px; fill:none; stroke:currentColor; stroke-width:2.2; stroke-linecap:round; stroke-linejoin:round}
-.dots{flex:1; display:flex; gap:6px; justify-content:center}
-.dots i{width:6px; height:6px; border-radius:50%; background:#22303a; cursor:pointer; transition:.22s}
-.dots i.on{background:var(--jade); width:20px; border-radius:99px}
+.pager{
+  flex:1; min-width:0; display:flex; align-items:baseline; justify-content:center;
+  gap:6px; user-select:none; -webkit-user-select:none; overflow:hidden;
+}
+.pager .now{
+  font-size:20px; font-weight:800; color:var(--jade);
+  font-variant-numeric:tabular-nums; line-height:1;
+}
+.pager .sl{font-size:14px; font-weight:500; color:#2b3944}
+.pager .tot{font-size:14px; font-weight:600; color:var(--tx3); font-variant-numeric:tabular-nums}
+.pager .lab{
+  font-size:12.5px; font-weight:500; color:var(--tx3); margin-left:5px;
+  white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+}
 
 /* ── 확대 보기 ── */
 .lb{
@@ -780,7 +791,10 @@ p strong{color:var(--tx); font-weight:600}
 
 <div class="ctl">
   <button class="nav" id="prev" aria-label="이전"><svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg></button>
-  <div class="dots" id="dots"></div>
+  <div class="pager">
+    <b class="now" id="pnow">01</b><span class="sl">/</span><span class="tot" id="ptot">18</span>
+    <span class="lab" id="plab"></span>
+  </div>
   <button class="nav" id="next" aria-label="다음"><svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></button>
 </div>
 
@@ -792,7 +806,9 @@ p strong{color:var(--tx); font-weight:600}
   var REFERRAL_CODE = "S2ENA2";                        // 앱 가입 시 직접 입력용 코드
   var track = document.getElementById('track');
   var cards = Array.prototype.slice.call(track.querySelectorAll('.card'));
-  var dots  = document.getElementById('dots');
+  var pnow  = document.getElementById('pnow');
+  var ptot  = document.getElementById('ptot');
+  var plab  = document.getElementById('plab');
   var prev  = document.getElementById('prev');
   var next  = document.getElementById('next');
   var prog  = document.getElementById('prog');
@@ -802,22 +818,38 @@ p strong{color:var(--tx); font-weight:600}
 
   document.getElementById('tot').textContent = String(cards.length).padStart(2,'0');
 
-  cards.forEach(function(_, i){
-    var d = document.createElement('i');
-    d.addEventListener('click', function(){ go(i); });
-    dots.appendChild(d);
+  ptot.textContent = String(cards.length).padStart(2,'0');
+  var sects = cards.map(function(c){
+    var e = c.querySelector('.sect');
+    return e ? e.textContent.trim() : '표지';
   });
-  var dotEls = Array.prototype.slice.call(dots.children);
 
+  /* 화면에 보이는 '현재 카드' 판정.
+     PC처럼 카드가 여러 장 보이는 폭에서는 첫 카드·마지막 카드가 구조상
+     화면 중앙에 올 수 없어(스크롤이 0/max에서 멈춤) 중앙거리 계산만으로는
+     한 칸씩 어긋난다 → 양 끝은 스크롤 위치로 직접 확정한다. */
+  function detect(){
+    var max = track.scrollWidth - track.clientWidth;
+    if(track.scrollLeft <= 2) return 0;
+    if(track.scrollLeft >= max - 2) return cards.length - 1;
+    var mid = track.scrollLeft + track.clientWidth/2, best=0, bd=1e9;
+    cards.forEach(function(c,i){
+      var d = Math.abs((c.offsetLeft + c.offsetWidth/2) - mid);
+      if(d < bd){ bd = d; best = i; }
+    });
+    return best;
+  }
   function go(i){
     idx = Math.max(0, Math.min(cards.length-1, i));
     cards[idx].scrollIntoView({behavior:'smooth', inline:'center', block:'nearest'});
     paint();
   }
   function paint(){
-    dotEls.forEach(function(d,i){ d.classList.toggle('on', i===idx); });
     prog.style.width = ((idx+1)/cards.length*100) + '%';
-    cur.textContent = String(idx+1).padStart(2,'0');
+    var n = String(idx+1).padStart(2,'0');
+    cur.textContent  = n;
+    pnow.textContent = n;
+    plab.textContent = sects[idx];
     prev.disabled = idx===0;
     next.disabled = idx===cards.length-1;
   }
@@ -828,11 +860,7 @@ p strong{color:var(--tx); font-weight:600}
   track.addEventListener('scroll', function(){
     clearTimeout(tmr);
     tmr = setTimeout(function(){
-      var mid = track.scrollLeft + track.clientWidth/2, best=0, bd=1e9;
-      cards.forEach(function(c,i){
-        var d = Math.abs((c.offsetLeft + c.offsetWidth/2) - mid);
-        if(d < bd){ bd = d; best = i; }
-      });
+      var best = detect();
       if(best !== idx){ idx = best; paint(); }
     }, 90);
   }, {passive:true});
