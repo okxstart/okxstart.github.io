@@ -845,9 +845,15 @@ p strong{color:var(--tx); font-weight:600}
     });
     return best;
   }
+  var navving = false;
   function go(i){
     idx = Math.max(0, Math.min(cards.length-1, i));
-    cards[idx].scrollIntoView({behavior:'smooth', inline:'center', block:'nearest'});
+    var c = cards[idx];
+    var target = c.offsetLeft + c.offsetWidth/2 - track.clientWidth/2;
+    target = Math.max(0, Math.min(target, track.scrollWidth - track.clientWidth));
+    navving = true;
+    track.style.scrollSnapType = 'none';
+    track.scrollTo({left: target, behavior: 'smooth'});
     paint();
   }
   function paint(){
@@ -867,9 +873,17 @@ p strong{color:var(--tx); font-weight:600}
   track.addEventListener('scroll', function(){
     clearTimeout(tmr);
     tmr = setTimeout(function(){
+      if(navving){
+        navving = false;
+        track.style.scrollSnapType = '';
+        var b = detect();
+        if(b !== idx){ idx = b; }
+        paint();
+        return;
+      }
       var best = detect();
       if(best !== idx){ idx = best; paint(); }
-    }, 90);
+    }, 120);
   }, {passive:true});
 
   document.addEventListener('keydown', function(e){
