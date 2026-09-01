@@ -68,6 +68,9 @@ header{
   padding:24px 26px 20px; position:relative;
   display:flex; flex-direction:column; overflow:hidden;
 }
+.card{transition:opacity .28s ease}
+.card:not(.cur){opacity:.35}
+@media print{.card{opacity:1!important}}
 .card::before{
   content:''; position:absolute; left:26px; right:26px; top:0; height:2px;
   background:linear-gradient(90deg,var(--jade),transparent); border-radius:2px;
@@ -848,6 +851,7 @@ p strong{color:var(--tx); font-weight:600}
     paint();
   }
   function paint(){
+    cards.forEach(function(c,i){ c.classList.toggle('cur', i===idx); });
     prog.style.width = ((idx+1)/cards.length*100) + '%';
     var n = String(idx+1).padStart(2,'0');
     cur.textContent  = n;
