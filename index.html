@@ -69,7 +69,8 @@ header{
   display:flex; flex-direction:column; overflow:hidden;
 }
 .card{transition:opacity .28s ease}
-.card:not(.cur){opacity:.35}
+.card:not(.cur){opacity:.35; cursor:pointer}
+.card:not(.cur):hover{opacity:.55}
 @media print{.card{opacity:1!important}}
 .card::before{
   content:''; position:absolute; left:26px; right:26px; top:0; height:2px;
@@ -868,6 +869,17 @@ p strong{color:var(--tx); font-weight:600}
   }
   prev.addEventListener('click', function(){ go(idx-1); });
   next.addEventListener('click', function(){ go(idx+1); });
+
+  track.addEventListener('click', function(e){
+    var el = e.target && e.target.closest ? e.target.closest('.card') : null;
+    if(!el) return;
+    var i = cards.indexOf(el);
+    if(i > -1 && i !== idx){
+      e.preventDefault();
+      e.stopPropagation();
+      go(i);
+    }
+  }, true);
 
   var tmr;
   track.addEventListener('scroll', function(){
