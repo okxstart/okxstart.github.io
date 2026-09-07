@@ -440,7 +440,7 @@ p strong{color:var(--tx); font-weight:600}
         <button class="ti" type="button" data-go="5"><i>2</i><span><b>보안 설정하기</b><small>설정 · 인증 앱 · QR 연결 · 코드</small></span><em>4장</em></button>
         <button class="ti" type="button" data-go="9"><i>3</i><span><b>본인 인증하기</b><small>시작 · 신분증 고르기 · 심사 기다리기</small></span><em>3장</em></button>
         <button class="ti" type="button" data-go="12"><i>4</i><span><b>코인 넣기</b><small>사기 · 주소 · 트론 출금 · 이체</small></span><em>8장</em></button>
-        <button class="ti" type="button" data-go="17"><i>5</i><span><b>레버리지 정하기</b><small>화면 열기 · 종목 · 계정 모드 · 레버리지</small></span><em>4장</em></button>
+        <button class="ti" type="button" data-go="17"><i>5</i><span><b>레버리지 정하기</b><small>화면 열기 · 종목 · 계정 모드 · 주문창 설명</small></span><em>6장</em></button>
       </div>
       <a class="cta" href="#" id="ref0">가입 화면으로 바로 가기 →</a>
       <p style="font-size:12px;line-height:1.6;color:var(--tx3);margin:-3px 0 0">
@@ -982,10 +982,10 @@ p strong{color:var(--tx); font-weight:600}
     <div class="head"><span class="sect">선물 3</span><span class="src okx">OKX</span><span class="num">22</span></div>
     <h2>계정 모드<br><em>바꾸기</em></h2>
     <figure class="shot">
-      <div class="fr" style="--ar:0.8506;">
-        <img src="shots/c17_panel.jpg" alt="OKX 선물 주문 패널 — Switch account mode to trade 버튼과 Available 잔액">
-        <b class="mark" data-n="1" style="--x:3.19%;--y:79.46%;--w:94.21%;--h:7.81%"></b>
-        <b class="mark" data-n="2" data-side="r" style="--x:2.40%;--y:61.20%;--w:26.50%;--h:4.30%"></b>
+      <div class="fr" style="--ar:2.9471;">
+        <img src="shots/c27_panel_bottom.jpg" alt="OKX 주문창 아래쪽 — Available 잔액과 Switch account mode to trade 버튼">
+        <b class="mark" data-n="1" style="--x:3.19%;--y:65.29%;--w:94.21%;--h:29.41%"></b>
+        <b class="mark" data-n="2" data-side="r" style="--x:2.00%;--y:2.35%;--w:26.75%;--h:16.47%"></b>
       </div>
       <span class="zoom">탭하면 크게</span>
     </figure>
@@ -996,21 +996,21 @@ p strong{color:var(--tx); font-weight:600}
       </ol>
       <div class="tip">
         <b>누르면 계정 모드 고르는 창이 뜹니다</b>
-        <p><b>Futures mode</b>(화면에 따라 Spot and futures mode)를 고르고 확인. 처음 한 번만 하면 되고, 포지션이 열려 있으면 바꿀 수 없습니다.</p>
+        <p><b>Futures mode</b>(화면에 따라 Spot and futures mode)를 고르고 확인. 한 번만 하면 되고, 바꾸고 나면 이 자리에 <b>Buy long</b> · <b>Sell short</b> 버튼이 생깁니다.</p>
       </div>
     </div>
   </article>
 
-  <!-- 08 레버리지 -->
+  <!-- 23 마진 모드와 레버리지 -->
   <article class="card">
     <div class="head"><span class="sect">선물 4</span><span class="src okx">OKX</span><span class="num">23</span></div>
     <h2>마진 모드와<br><em>레버리지 정하기</em></h2>
     <figure class="shot">
-      <div class="fr" style="--ar:0.8506;">
-        <img src="shots/c17_panel.jpg" alt="OKX 선물 주문 패널(로그인 상태) — Open/Close, Isolated, 3x 레버리지">
-        <b class="mark" data-n="1" style="--x:3.19%;--y:9.51%;--w:94.21%;--h:5.77%"></b>
-        <b class="mark" data-n="2" style="--x:3.19%;--y:16.64%;--w:32.34%;--h:5.60%"></b>
-        <b class="mark" data-n="3" data-side="r" style="--x:65.87%;--y:16.64%;--w:14.77%;--h:5.60%"></b>
+      <div class="fr" style="--ar:3.5786;">
+        <img src="shots/c25_panel_top.jpg" alt="OKX 주문창 위쪽 — Open/Close, Isolated, 3x 레버리지">
+        <b class="mark" data-n="1" style="--x:3.19%;--y:40.00%;--w:94.21%;--h:24.29%"></b>
+        <b class="mark" data-n="2" style="--x:3.19%;--y:70.00%;--w:32.34%;--h:23.57%"></b>
+        <b class="mark" data-n="3" data-side="r" style="--x:65.87%;--y:70.00%;--w:14.77%;--h:23.57%"></b>
       </div>
       <span class="zoom">탭하면 크게</span>
     </figure>
@@ -1023,6 +1023,58 @@ p strong{color:var(--tx); font-weight:600}
       <div class="tip">
         <b>격리(Isolated)와 교차(Cross)의 차이</b>
         <p>격리는 이 주문에 넣은 돈까지만 잃습니다.<br>교차는 계좌에 있는 돈 전부가 담보라, 크게 물리면 다 날아갑니다.</p>
+      </div>
+    </div>
+  </article>
+
+  <!-- 24 주문 종류·가격·수량 -->
+  <article class="card">
+    <div class="head"><span class="sect">선물 5</span><span class="src okx">OKX</span><span class="num">24</span></div>
+    <h2>주문 종류와<br><em>가격·수량 넣기</em></h2>
+    <figure class="shot">
+      <div class="fr" style="--ar:2.2568;">
+        <img src="shots/c26_panel_order.jpg" alt="OKX 주문창 가운데 — Limit/Market/TP-SL 탭, Price와 BBO, Amount와 % 슬라이더">
+        <b class="mark" data-n="1" style="--x:2.79%;--y:3.60%;--w:31.54%;--h:12.16%"></b>
+        <b class="mark" data-n="2" style="--x:3.19%;--y:32.88%;--w:94.21%;--h:19.82%"></b>
+        <b class="mark" data-n="3" style="--x:3.19%;--y:64.41%;--w:94.21%;--h:33.78%"></b>
+      </div>
+      <span class="zoom">탭하면 크게</span>
+    </figure>
+    <div class="body">
+      <ol class="steps">
+        <li><i>1</i><span><b>Limit</b>은 내가 정한 가격에 걸어두기, <b>Market</b>은 지금 가격에 바로.<br><b>TP/SL</b> 탭은 익절·손절만 따로 거는 주문입니다.</span></li>
+        <li><i>2</i><span><b>Price</b>는 지정가일 때 원하는 가격.<br><b>BBO</b>를 누르면 지금 호가가 자동으로 들어갑니다.</span></li>
+        <li><i>3</i><span><b>Amount</b>는 수량. 아래 <b>0~100%</b> 바를 끌면<br>가진 돈의 몇 %를 쓸지로 정할 수 있어요.</span></li>
+      </ol>
+      <div class="tip">
+        <b>처음엔 Market이 편합니다</b>
+        <p>바로 체결되고 가격 칸을 안 채워도 됩니다.<br>대신 그 순간 가격이 살짝 불리할 수 있어요.</p>
+      </div>
+    </div>
+  </article>
+
+  <!-- 25 잔액·최대 수량·익절손절 -->
+  <article class="card warn">
+    <div class="head"><span class="sect">선물 6</span><span class="src okx">OKX</span><span class="num">25</span></div>
+    <h2>잔액 확인과<br><em>익절·손절 걸기</em></h2>
+    <figure class="shot">
+      <div class="fr" style="--ar:2.9471;">
+        <img src="shots/c27_panel_bottom.jpg" alt="OKX 주문창 아래쪽 — Available, Max long/Max short, TP/SL 체크">
+        <b class="mark" data-n="1" data-side="r" style="--x:2.00%;--y:2.35%;--w:26.75%;--h:16.47%"></b>
+        <b class="mark" data-n="2" style="--x:2.00%;--y:17.06%;--w:95.41%;--h:12.94%"></b>
+        <b class="mark" data-n="3" data-side="r" style="--x:2.79%;--y:44.71%;--w:12.38%;--h:15.29%"></b>
+      </div>
+      <span class="zoom">탭하면 크게</span>
+    </figure>
+    <div class="body">
+      <ol class="steps">
+        <li><i>1</i><span><b>Available</b>은 Trading 계정에 있는 USDT.<br>주문에 쓸 수 있는 돈이 이만큼이라는 뜻.</span></li>
+        <li><i>2</i><span><b>Max long / Max short</b>는 레버리지까지 계산한 최대 수량.<br>롱은 오를 때, 숏은 내릴 때 버는 쪽입니다.</span></li>
+        <li><i>3</i><span><b>TP/SL</b>을 켜면 주문과 함께 익절(TP)·손절(SL) 가격을<br>같이 걸 수 있습니다.</span></li>
+      </ol>
+      <div class="tip hard">
+        <b>손절은 꼭 거세요</b>
+        <p>레버리지는 반대로 가면 순식간에 청산됩니다.<br>주문 넣을 때 SL 가격을 같이 넣는 습관이 원금을 지킵니다.</p>
       </div>
     </div>
   </article>

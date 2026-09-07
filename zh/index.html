@@ -440,7 +440,7 @@ p strong{color:var(--tx); font-weight:600}
         <button class="ti" type="button" data-go="5"><i>2</i><span><b>安全设置</b><small>设置 · 验证器 · 扫码绑定 · 验证码</small></span><em>4 页</em></button>
         <button class="ti" type="button" data-go="9"><i>3</i><span><b>身份认证</b><small>开始 · 选择证件 · 等待审核</small></span><em>3 页</em></button>
         <button class="ti" type="button" data-go="12"><i>4</i><span><b>充值加密货币</b><small>购买 · 地址 · Tron 提币 · 划转</small></span><em>8 页</em></button>
-        <button class="ti" type="button" data-go="17"><i>5</i><span><b>设置杠杆</b><small>打开页面 · 选择合约 · 账户模式 · 杠杆</small></span><em>4 页</em></button>
+        <button class="ti" type="button" data-go="17"><i>5</i><span><b>设置杠杆</b><small>打开页面 · 选择合约 · 账户模式 · 下单面板说明</small></span><em>6 页</em></button>
       </div>
       <a class="cta" href="#" id="ref0">直接进入注册页面 →</a>
       <p style="font-size:12px;line-height:1.6;color:var(--tx3);margin:-3px 0 0">
@@ -906,10 +906,10 @@ p strong{color:var(--tx); font-weight:600}
     <div class="head"><span class="sect">合约 3</span><span class="src okx">OKX</span><span class="num">22</span></div>
     <h2>切换<br><em>账户模式</em></h2>
     <figure class="shot">
-      <div class="fr" style="--ar:0.8506;">
-        <img src="../shots/c17_panel.jpg" alt="OKX 合约下单面板 — Switch account mode to trade 按钮和 Available 余额">
-        <b class="mark" data-n="1" style="--x:3.19%;--y:79.46%;--w:94.21%;--h:7.81%"></b>
-        <b class="mark" data-n="2" data-side="r" style="--x:2.40%;--y:61.20%;--w:26.50%;--h:4.30%"></b>
+      <div class="fr" style="--ar:2.9471;">
+        <img src="../shots/c27_panel_bottom.jpg" alt="OKX 下单面板下半部分 — Available 余额和 Switch account mode to trade 按钮">
+        <b class="mark" data-n="1" style="--x:3.19%;--y:65.29%;--w:94.21%;--h:29.41%"></b>
+        <b class="mark" data-n="2" data-side="r" style="--x:2.00%;--y:2.35%;--w:26.75%;--h:16.47%"></b>
       </div>
       <span class="zoom">点击放大</span>
     </figure>
@@ -920,21 +920,21 @@ p strong{color:var(--tx); font-weight:600}
       </ol>
       <div class="tip">
         <b>点击后会弹出选择账户模式的窗口</b>
-        <p>选 <b>Futures mode</b>（有的界面叫 Spot and futures mode）然后确认。只需做一次；有持仓时不能切换。</p>
+        <p>选 <b>Futures mode</b>（有的界面叫 Spot and futures mode）然后确认。只需做一次，之后这里会变成 <b>Buy long</b>、<b>Sell short</b> 按钮。</p>
       </div>
     </div>
   </article>
 
-  <!-- 08 杠杆 -->
+  <!-- 23 마진 모드와 杠杆 -->
   <article class="card">
     <div class="head"><span class="sect">合约 4</span><span class="src okx">OKX</span><span class="num">23</span></div>
     <h2>设置保证金模式<br><em>和杠杆</em></h2>
     <figure class="shot">
-      <div class="fr" style="--ar:0.8506;">
-        <img src="../shots/c17_panel.jpg" alt="OKX 合约下单面板（已登录）— Open/Close、Isolated、3x 杠杆">
-        <b class="mark" data-n="1" style="--x:3.19%;--y:9.51%;--w:94.21%;--h:5.77%"></b>
-        <b class="mark" data-n="2" style="--x:3.19%;--y:16.64%;--w:32.34%;--h:5.60%"></b>
-        <b class="mark" data-n="3" data-side="r" style="--x:65.87%;--y:16.64%;--w:14.77%;--h:5.60%"></b>
+      <div class="fr" style="--ar:3.5786;">
+        <img src="../shots/c25_panel_top.jpg" alt="OKX 下单面板上半部分 — Open/Close、Isolated、3x 杠杆">
+        <b class="mark" data-n="1" style="--x:3.19%;--y:40.00%;--w:94.21%;--h:24.29%"></b>
+        <b class="mark" data-n="2" style="--x:3.19%;--y:70.00%;--w:32.34%;--h:23.57%"></b>
+        <b class="mark" data-n="3" data-side="r" style="--x:65.87%;--y:70.00%;--w:14.77%;--h:23.57%"></b>
       </div>
       <span class="zoom">点击放大</span>
     </figure>
@@ -947,6 +947,58 @@ p strong{color:var(--tx); font-weight:600}
       <div class="tip">
         <b>逐仓（Isolated）和全仓（Cross）的区别</b>
         <p>逐仓最多只亏这笔单里投入的钱。<br>全仓是拿账户里全部资金做担保，被套深了会全部亏光。</p>
+      </div>
+    </div>
+  </article>
+
+  <!-- 24 주문 종류·가격·수량 -->
+  <article class="card">
+    <div class="head"><span class="sect">合约 5</span><span class="src okx">OKX</span><span class="num">24</span></div>
+    <h2>订单类型、<br><em>价格和数量</em></h2>
+    <figure class="shot">
+      <div class="fr" style="--ar:2.2568;">
+        <img src="../shots/c26_panel_order.jpg" alt="OKX 下单面板中间 — Limit/Market/TP-SL 标签、Price 与 BBO、Amount 与百分比滑块">
+        <b class="mark" data-n="1" style="--x:2.79%;--y:3.60%;--w:31.54%;--h:12.16%"></b>
+        <b class="mark" data-n="2" style="--x:3.19%;--y:32.88%;--w:94.21%;--h:19.82%"></b>
+        <b class="mark" data-n="3" style="--x:3.19%;--y:64.41%;--w:94.21%;--h:33.78%"></b>
+      </div>
+      <span class="zoom">点击放大</span>
+    </figure>
+    <div class="body">
+      <ol class="steps">
+        <li><i>1</i><span><b>Limit</b> 是挂在自己定的价格等成交，<b>Market</b> 是按当前价立刻成交。<br><b>TP/SL</b> 标签是单独挂止盈止损。</span></li>
+        <li><i>2</i><span><b>Price</b> 是限价单的价格。<br>点 <b>BBO</b> 会自动填入当前最优报价。</span></li>
+        <li><i>3</i><span><b>Amount</b> 是数量。拖动下面的 <b>0~100%</b> 滑块，<br>可以按资金比例设置。</span></li>
+      </ol>
+      <div class="tip">
+        <b>新手用 Market 最省事</b>
+        <p>立刻成交，也不用填价格。<br>代价是成交价可能稍差一点。</p>
+      </div>
+    </div>
+  </article>
+
+  <!-- 25 잔액·최대 수량·익절손절 -->
+  <article class="card warn">
+    <div class="head"><span class="sect">合约 6</span><span class="src okx">OKX</span><span class="num">25</span></div>
+    <h2>确认余额，<br><em>设置止盈止损</em></h2>
+    <figure class="shot">
+      <div class="fr" style="--ar:2.9471;">
+        <img src="../shots/c27_panel_bottom.jpg" alt="OKX 下单面板下半部分 — Available、Max long/Max short、TP/SL 勾选框">
+        <b class="mark" data-n="1" data-side="r" style="--x:2.00%;--y:2.35%;--w:26.75%;--h:16.47%"></b>
+        <b class="mark" data-n="2" style="--x:2.00%;--y:17.06%;--w:95.41%;--h:12.94%"></b>
+        <b class="mark" data-n="3" data-side="r" style="--x:2.79%;--y:44.71%;--w:12.38%;--h:15.29%"></b>
+      </div>
+      <span class="zoom">点击放大</span>
+    </figure>
+    <div class="body">
+      <ol class="steps">
+        <li><i>1</i><span><b>Available</b> 是交易账户里的 USDT，<br>也就是能用来下单的钱。</span></li>
+        <li><i>2</i><span><b>Max long / Max short</b> 是算上杠杆后的最大数量。<br>做多涨了赚，做空跌了赚。</span></li>
+        <li><i>3</i><span>勾选 <b>TP/SL</b>，下单时可以同时挂上<br>止盈（TP）和止损（SL）价格。</span></li>
+      </ol>
+      <div class="tip hard">
+        <b>一定要设止损</b>
+        <p>带杠杆时，行情反向会瞬间被强平。<br>每次下单都顺手填上 SL 价格，才能保住本金。</p>
       </div>
     </div>
   </article>
