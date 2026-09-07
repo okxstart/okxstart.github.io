@@ -270,14 +270,8 @@ p strong{color:var(--tx); font-weight:600}
   font-family:inherit; font-size:13px; font-weight:700; color:var(--tx2); letter-spacing:.02em;
 }
 .nav.home2:hover:not(:disabled){color:var(--jade)}
-/* 표지에서는 목차·화살표·페이저 대신 '처음부터 보기' 하나만 */
-.nav.start{
-  display:none; width:auto; height:40px; border-radius:99px; padding:0 22px; white-space:nowrap;
-  font-family:inherit; font-size:14px; font-weight:800; color:var(--tx); border-color:rgba(53,217,153,.4);
-}
-.ctl.toc .mid > *{display:none}
-.ctl.toc .mid > .start{display:grid}
-.nav.start:hover{color:var(--jade); border-color:var(--jade)}
+/* 표지(목차)에서는 하단 바에 아무 버튼도 없음(사용자 확정 2026-09-08). 높이는 유지해서 카드 크기가 안 튀게 */
+.ctl.toc .mid{visibility:hidden}
 .nav{
   width:40px; height:40px; flex:none; border-radius:50%;
   border:1px solid var(--line); background:#0f171e; color:var(--tx);
@@ -867,7 +861,6 @@ p strong{color:var(--tx); font-weight:600}
 
 <div class="ctl" id="ctl">
   <div class="mid">
-    <button class="nav start" id="start" type="button">처음부터 보기 →</button>
     <button class="nav home2" id="home" aria-label="목차로 돌아가기">목차</button>
     <button class="nav" id="prev" aria-label="이전"><svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg></button>
     <div class="pager" id="pager">
@@ -1010,7 +1003,6 @@ p strong{color:var(--tx); font-weight:600}
   tabs.forEach(function(t,i){ t.addEventListener('click', function(){ if(secs[i]) go(secs[i].from); }); });
   if(tocTab) tocTab.addEventListener('click', function(){ go(0); });
   home.addEventListener('click', function(){ go(0); });
-  document.getElementById('start').addEventListener('click', function(){ if(secs[0]) go(secs[0].from); });
   document.getElementById('brand').addEventListener('click', function(){ go(0); });
   /* 목차 버튼·섹션 끝 버튼 = data-go="카드 번호" */
   document.addEventListener('click', function(e){
