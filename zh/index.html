@@ -1,25 +1,25 @@
 <!doctype html>
-<html lang="ko">
+<html lang="zh-CN">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>OKX 시작 가이드</title>
-<meta name="description" content="OKX 가입부터 입금·레버리지까지, 실제 화면 캡처로 따라가는 5단계 가이드.">
-<link rel="canonical" href="https://okxstart.github.io/">
+<title>OKX 新手指南</title>
+<meta name="description" content="从注册、充值到杠杆设置，用真实截图带你走完 OKX 的 5 个步骤。">
+<link rel="canonical" href="https://okxstart.github.io/zh/">
 <link rel="alternate" hreflang="ko" href="https://okxstart.github.io/">
 <link rel="alternate" hreflang="en" href="https://okxstart.github.io/en/">
 <link rel="alternate" hreflang="zh" href="https://okxstart.github.io/zh/">
 <link rel="alternate" hreflang="x-default" href="https://okxstart.github.io/">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230b1015'/%3E%3Ccircle cx='16' cy='16' r='7' fill='%2335d999'/%3E%3C/svg%3E">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://okxstart.github.io/">
-<meta property="og:title" content="OKX 시작 가이드">
-<meta property="og:description" content="가입 · 보안 · 본인인증 · 입금까지, 실제 화면 캡처로 따라가는 5단계 가이드.">
+<meta property="og:url" content="https://okxstart.github.io/zh/">
+<meta property="og:title" content="OKX 新手指南">
+<meta property="og:description" content="注册 · 安全 · 身份认证 · 充值——用真实截图带你走完 5 个步骤。">
 <meta property="og:image" content="https://okxstart.github.io/shots/og.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+KR:wght@400;500;700;900&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+KR:wght@400;500;700;900&family=Noto+Sans+SC:wght@400;500;700;900&display=swap">
 <style>
 :root{
   --ink:#0b1015; --line:#1e2a33;
@@ -54,7 +54,7 @@ header{
 .brand{display:flex; align-items:center; gap:9px; font-weight:800; font-size:13px; letter-spacing:.14em; cursor:pointer}
 .dot{width:8px; height:8px; border-radius:50%; background:var(--jade); box-shadow:0 0 12px var(--jade)}
 .brand i{font-style:normal}
-/* ── 상단 섹션 탭 (가입·보안·인증·입금·선물) — 밑줄이 그 섹션 안 진행률 ── */
+/* ── 상단 섹션 탭 (注册·安全·认证·充值·合约) — 밑줄이 그 섹션 안 진행률 ── */
 .tabs{justify-self:center; flex:none; display:flex; gap:6px}
 .tab{
   font-family:inherit; cursor:pointer; background:none; border:0; position:relative;
@@ -72,7 +72,7 @@ header{
 .tab.done{color:var(--tx)}
 .tab.on{color:var(--jade)}
 .tab:hover{color:var(--tx)}
-/* ※ 탭 class에 "toc"를 쓰면 표지 목차 리스트 .toc 규칙에 같이 걸림 — 금지 */
+/* ※ 탭 class에 "toc"를 쓰면 표지 目录 리스트 .toc 규칙에 같이 걸림 — 금지 */
 /* ── 언어 전환 (헤더 오른쪽 / 폰은 표지 오른쪽 위) ── */
 .langs{justify-self:end; display:flex; gap:2px; border:1px solid var(--line); border-radius:99px; padding:2px; background:#0d141a}
 .langs a{font-size:11.5px; font-weight:700; color:var(--tx3); text-decoration:none; padding:4px 9px; border-radius:99px; letter-spacing:.02em; white-space:nowrap}
@@ -176,7 +176,7 @@ p strong{color:var(--tx); font-weight:600}
 .slot b{font-size:12px; color:var(--tx2); font-weight:600}
 .slot .p{font-size:11.5px; color:var(--jade2); font-weight:600; letter-spacing:.01em; line-height:1.6}
 
-/* ── 단계 리스트 ── */
+/* ── 章节 리스트 ── */
 .steps{list-style:none; display:flex; flex-direction:column; gap:9px}
 .steps li{
   display:flex; gap:9px; align-items:flex-start;
@@ -222,7 +222,7 @@ p strong{color:var(--tx); font-weight:600}
 .cover h1{font-size:31px; line-height:1.28; font-weight:900; letter-spacing:-.03em; margin-bottom:13px; text-wrap:balance}
 .cover h1 em{font-style:normal; color:var(--jade)}
 .cover .lead{font-size:13.5px; line-height:1.7; color:var(--tx2); margin-bottom:12px}
-/* ── 표지 목차 (섹션 버튼 5개 — 누르면 그 섹션 첫 카드로) ── */
+/* ── 표지 目录 (섹션 버튼 5개 — 누르면 그 섹션 첫 카드로) ── */
 .toc{display:flex; flex-direction:column; gap:6px; margin:0 0 12px}
 .ti{
   display:flex; align-items:center; gap:11px; width:100%; text-align:left; font-family:inherit; cursor:pointer;
@@ -279,13 +279,13 @@ p strong{color:var(--tx); font-weight:600}
   padding:10px 20px calc(14px + env(safe-area-inset-bottom));
 }
 .ctl .mid{display:flex; align-items:center; justify-content:center; gap:12px}
-/* 목차로 돌아가기 — 화살표 바로 왼쪽 (2026-09-08 사용자: 하단 번호 옆 버튼. 왼쪽 끝에 두면 PC에서 못 찾음) */
+/* 返回目录 — 화살표 바로 왼쪽 (2026-09-08 사용자: 하단 번호 옆 버튼. 왼쪽 끝에 두면 PC에서 못 찾음) */
 .nav.home2{
   width:auto; height:36px; border-radius:99px; padding:0 14px; margin-right:4px; white-space:nowrap;
   font-family:inherit; font-size:13px; font-weight:700; color:var(--tx2); letter-spacing:.02em;
 }
 .nav.home2:hover:not(:disabled){color:var(--jade)}
-/* 표지(목차)에서는 하단 바에 아무 버튼도 없음(사용자 확정 2026-09-08). 높이는 유지해서 카드 크기가 안 튀게 */
+/* 표지(目录)에서는 하단 바에 아무 버튼도 없음(사용자 확정 2026-09-08). 높이는 유지해서 카드 크기가 안 튀게 */
 .ctl.toc .mid{visibility:hidden}
 .nav{
   width:40px; height:40px; flex:none; border-radius:50%;
@@ -338,7 +338,7 @@ p strong{color:var(--tx); font-weight:600}
   html[lang="en"] .tab{font-size:12.5px; padding:5px 6px 8px}
   html[lang="en"] .tab::after{left:6px; right:6px}
   html[lang="en"] .tab i{left:6px}
-  html[lang="en"] .tab.home{display:none}   /* 영문은 폰에서 탭 6개가 360px을 넘쳐서 '목차' 탭은 숨김(하단 Contents 버튼이 대신) */
+  html[lang="en"] .tab.home{display:none}   /* 영문은 폰에서 탭 6개가 360px을 넘쳐서 '目录' 탭은 숨김(하단 Contents 버튼이 대신) */
   .tabs{gap:4px}
   .tab{padding:5px 9px 8px}
   .track{padding:12px calc(50% - var(--card-w)/2) 6px; gap:12px}
@@ -351,7 +351,7 @@ p strong{color:var(--tx); font-weight:600}
   .pager{min-width:140px}
 }
 @media (max-width:380px){
-  /* 좁은 폰: 목차·화살표·페이저가 한 줄에 다 들어가게 */
+  /* 좁은 폰: 目录·화살표·페이저가 한 줄에 다 들어가게 */
   .pager{min-width:128px}
   .ctl .mid{gap:8px}
   .nav.home2{padding:0 12px; margin-right:2px}
@@ -363,7 +363,7 @@ p strong{color:var(--tx); font-weight:600}
 
 /* ── 인쇄 / PDF ─────────────────────────────────────────
    화면에서 넘겨 보던 카드 모양 그대로 한 장에 한 페이지.
-   글자가 살아 있어 링크는 클릭되고 코드는 복사됩니다. */
+   글자가 살아 있어 링크는 클릭되고 코드는 复制됩니다. */
 @page{ size:A4; margin:0 }
 @media print{
   html,body{height:auto!important; overflow:visible!important; display:block!important}
@@ -409,464 +409,464 @@ p strong{color:var(--tx); font-weight:600}
 <body>
 
 <header>
-  <div class="brand" id="brand" title="목차로"><span class="dot"></span><span>OKX<i class="bt"> START GUIDE</i></span></div>
-  <nav class="tabs" id="tabs" aria-label="단계">
-    <button class="tab home" type="button" data-toc data-title="목차">목차<i></i></button>
-    <button class="tab" type="button" data-title="가입">가입<i></i></button>
-    <button class="tab" type="button" data-title="보안 설정">보안<i></i></button>
-    <button class="tab" type="button" data-title="본인 인증">인증<i></i></button>
-    <button class="tab" type="button" data-title="코인 넣기">입금<i></i></button>
-    <button class="tab" type="button" data-title="레버리지">선물<i></i></button>
+  <div class="brand" id="brand" title="目录로"><span class="dot"></span><span>OKX<i class="bt"> START GUIDE</i></span></div>
+  <nav class="tabs" id="tabs" aria-label="章节">
+    <button class="tab home" type="button" data-toc data-title="目录">目录<i></i></button>
+    <button class="tab" type="button" data-title="注册">注册<i></i></button>
+    <button class="tab" type="button" data-title="安全设置">安全<i></i></button>
+    <button class="tab" type="button" data-title="身份认证">认证<i></i></button>
+    <button class="tab" type="button" data-title="充值加密货币">充值<i></i></button>
+    <button class="tab" type="button" data-title="杠杆">合约<i></i></button>
   </nav>
-  <div class="langs" id="langs"><a href="./" data-l="ko" class="on">한국어</a><a href="en/" data-l="en">EN</a><a href="zh/" data-l="zh">中文</a></div>
+  <div class="langs" id="langs"><a href="../" data-l="ko">한국어</a><a href="../en/" data-l="en">EN</a><a href="./" data-l="zh" class="on">中文</a></div>
 </header>
 
 <div class="track" id="track" tabindex="0">
 
-  <!-- 표지 = 목차 (버튼을 누르면 그 섹션 첫 카드로) -->
+  <!-- 표지 = 目录 (버튼을 누르면 그 섹션 첫 카드로) -->
   <article class="card cover">
-    <div class="langs cvl"><a href="./" data-l="ko" class="on">한국어</a><a href="en/" data-l="en">EN</a><a href="zh/" data-l="zh">中文</a></div>
+    <div class="langs cvl"><a href="../" data-l="ko">한국어</a><a href="../en/" data-l="en">EN</a><a href="./" data-l="zh" class="on">中文</a></div>
     <div class="body"><div class="cv">
-      <div class="kick">5단계 시작 가이드</div>
-      <h1>OKX, <em>화면 그대로</em><br>따라만 하면 됩니다</h1>
-      <p class="lead">필요한 단계부터 골라 보세요. 초록 네모만 순서대로 누르면 끝이에요.</p>
+      <div class="kick">5 步新手指南</div>
+      <h1>OKX，<em>照着画面</em><br>一步一步做就行</h1>
+      <p class="lead">从你需要的步骤开始看。按顺序点绿色方框就完成了。</p>
       <div class="toc">
-        <button class="ti" type="button" data-go="1"><i>1</i><span><b>가입하기</b><small>국가 · 이메일 · 휴대폰 · 문자 인증</small></span><em>4장</em></button>
-        <button class="ti" type="button" data-go="5"><i>2</i><span><b>보안 설정하기</b><small>설정 · 인증 앱 · QR 연결 · 코드</small></span><em>4장</em></button>
-        <button class="ti" type="button" data-go="9"><i>3</i><span><b>본인 인증하기</b><small>시작 · 신분증 고르기 · 심사 기다리기</small></span><em>3장</em></button>
-        <button class="ti" type="button" data-go="12"><i>4</i><span><b>코인 넣기</b><small>코인 · 네트워크 · 주소 · 이체</small></span><em>5장</em></button>
-        <button class="ti" type="button" data-go="17"><i>5</i><span><b>레버리지 정하기</b><small>마진 모드 · 레버리지 배율</small></span><em>1장</em></button>
+        <button class="ti" type="button" data-go="1"><i>1</i><span><b>注册账号</b><small>国家 · 邮箱 · 手机 · 短信验证</small></span><em>4 页</em></button>
+        <button class="ti" type="button" data-go="5"><i>2</i><span><b>安全设置</b><small>设置 · 验证器 · 扫码绑定 · 验证码</small></span><em>4 页</em></button>
+        <button class="ti" type="button" data-go="9"><i>3</i><span><b>身份认证</b><small>开始 · 选择证件 · 等待审核</small></span><em>3 页</em></button>
+        <button class="ti" type="button" data-go="12"><i>4</i><span><b>充值加密货币</b><small>币种 · 网络 · 地址 · 划转</small></span><em>5 页</em></button>
+        <button class="ti" type="button" data-go="17"><i>5</i><span><b>设置杠杆</b><small>保证金模式 · 杠杆倍数</small></span><em>1 页</em></button>
       </div>
-      <a class="cta" href="#" id="ref0">가입 화면으로 바로 가기 →</a>
+      <a class="cta" href="#" id="ref0">直接进入注册页面 →</a>
       <p style="font-size:12px;line-height:1.6;color:var(--tx3);margin:-3px 0 0">
-        이 버튼으로 들어가면 <b style="color:var(--tx2);font-weight:700">수수료 10% 할인</b>이 걸린 채로 가입 화면이 열립니다.
+        通过这个按钮进入，注册页面会自动带上<b style="color:var(--tx2);font-weight:700">手续费 9 折</b>。
       </p>
     </div></div>
   </article>
 
-  <!-- 01 가입 시작 -->
+  <!-- 01 注册 시작 -->
   <article class="card">
-    <div class="head"><span class="sect">가입 1</span><span class="num">01</span></div>
-    <h2>국가<br><em>고르기</em></h2>
+    <div class="head"><span class="sect">注册 1</span><span class="num">01</span></div>
+    <h2>选择<br><em>国家/地区</em></h2>
     <figure class="shot">
       <div class="fr" style="--ar:1.124;">
-        <img src="shots/c01_join.jpg" alt="OKX 가입 첫 화면 — Select your location">
+        <img src="../shots/c01_join.jpg" alt="OKX 注册第一屏 — Select your location">
         <b class="mark" data-n="1" data-side="r" style="--x:4.96%;--y:34.92%;--w:90.07%;--h:11.98%"></b>
         <b class="mark" data-n="2" data-side="r" style="--x:9.38%;--y:53.10%;--w:84.19%;--h:8.68%"></b>
         <b class="mark" data-n="3" style="--x:4.96%;--y:67.98%;--w:90.07%;--h:11.98%"></b>
       </div>
-      <span class="zoom">탭하면 크게</span>
+      <span class="zoom">点击放大</span>
     </figure>
     <div class="body">
       <ol class="steps">
-        <li><i>1</i><span><b>South Korea</b> 그대로 두세요.<br>여기서 고른 나라가 나중에 낼 신분증 종류를 정합니다.</span></li>
-        <li><i>2</i><span>약관 체크박스를 눌러야 <b>Next</b>가 켜집니다.</span></li>
-        <li><i>3</i><span><b>Next</b> 누르면 다음 화면으로.</span></li>
+        <li><i>1</i><span>选择<b>你所在的国家/地区</b>。<br>这里的选择决定之后能用哪种证件。</span></li>
+        <li><i>2</i><span>勾选条款复选框后，<b>Next</b> 才会亮起。</span></li>
+        <li><i>3</i><span>点 <b>Next</b> 进入下一屏。</span></li>
       </ol>
       <div class="tip">
-        <b>화면이 영어라도 괜찮습니다</b>
-        <p>주소창의 번역 아이콘을 누르면 한국어로 볼 수 있어요. 이 가이드는 화면에 실제로 찍히는 영어를 그대로 씁니다.</p>
+        <b>页面可能略有不同</b>
+        <p>OKX 会不定期改版。本指南里的按钮名称以页面实际显示的英文为准，照着找就行。</p>
       </div>
     </div>
   </article>
 
   <!-- 02 이메일 -->
   <article class="card">
-    <div class="head"><span class="sect">가입 2</span><span class="num">02</span></div>
-    <h2>이메일<br><em>인증하기</em></h2>
+    <div class="head"><span class="sect">注册 2</span><span class="num">02</span></div>
+    <h2>验证<br><em>邮箱</em></h2>
     <figure class="shot">
       <div class="fr" style="--ar:1.1826;">
-        <img src="shots/c02_email.jpg" alt="OKX 가입 2단계 — 이메일 입력과 추천 코드 적용 확인">
+        <img src="../shots/c02_email.jpg" alt="OKX 注册第 2 步 — 输入邮箱并确认邀请码已生效">
         <b class="mark" data-n="1" data-side="r" style="--x:7.35%;--y:43.91%;--w:85.29%;--h:12.17%"></b>
         <b class="mark" data-n="2" data-side="r" style="--x:4.96%;--y:59.35%;--w:90.07%;--h:16.74%"></b>
         <b class="mark" data-n="3" style="--x:4.96%;--y:82.83%;--w:90.07%;--h:12.61%"></b>
       </div>
-      <span class="zoom">탭하면 크게</span>
+      <span class="zoom">点击放大</span>
     </figure>
     <div class="body">
       <ol class="steps">
-        <li><i>1</i><span>이메일을 넣습니다. 인증 코드는 <b>10분 안에</b> 입력해야 해요.</span></li>
-        <li><i>2</i><span><code>10% rebate rate applied</code>을 펼치면 코드 <b>S2ENA2</b>에<br>초록 체크가 떠 있습니다.</span></li>
-        <li><i>3</i><span><b>Sign up</b>으로 마무리. 구글·애플 계정으로도 됩니다.</span></li>
+        <li><i>1</i><span>输入邮箱。验证码要在 <b>10 分钟内</b>填入。</span></li>
+        <li><i>2</i><span>展开 <code>10% rebate rate applied</code>，会看到邀请码 <b>S2ENA2</b><br>旁边有绿色对勾。</span></li>
+        <li><i>3</i><span>点 <b>Sign up</b> 完成。也可以用 Google 或 Apple 账号。</span></li>
       </ol>
       <div class="code slim">
-        <span>앱이면 코드 직접 입력</span>
-        <button type="button" class="copy" aria-label="추천 코드 복사"><b>S2ENA2</b><i>복사</i></button>
+        <span>用 App 注册请手动输入邀请码</span>
+        <button type="button" class="copy" aria-label="复制邀请码"><b>S2ENA2</b><i>复制</i></button>
       </div>
     </div>
   </article>
 
   <!-- 03 휴대폰 번호 -->
   <article class="card">
-    <div class="head"><span class="sect">가입 3</span><span class="num">03</span></div>
-    <h2>휴대폰 번호<br><em>입력하기</em></h2>
+    <div class="head"><span class="sect">注册 3</span><span class="num">03</span></div>
+    <h2>输入<br><em>手机号</em></h2>
     <figure class="shot">
       <div class="fr" style="--ar:1.1102;">
-        <img src="shots/c03_phone.jpg" alt="OKX 가입 3단계 — 휴대폰 번호 입력 화면">
+        <img src="../shots/c03_phone.jpg" alt="OKX 注册第 3 步 — 输入手机号">
         <b class="mark" data-n="1" data-side="r" style="--x:4.96%;--y:53.27%;--w:90.07%;--h:11.84%"></b>
         <b class="mark" data-n="2" data-side="r" style="--x:5.15%;--y:67.96%;--w:36.60%;--h:5.71%"></b>
         <b class="mark" data-n="3" style="--x:4.96%;--y:80.20%;--w:90.07%;--h:11.84%"></b>
       </div>
-      <span class="zoom">탭하면 크게</span>
+      <span class="zoom">点击放大</span>
     </figure>
     <div class="body">
       <ol class="steps">
-        <li><i>1</i><span>국가번호 <b>+82</b>는 그대로. 번호는 <b>앞의 0을 빼고</b> 넣습니다. <code>010-1234-5678</code> → <code>1012345678</code></span></li>
-        <li><i>2</i><span>여기서도 <code>10% rebate rate applied</code>이 그대로 보입니다.<br>할인은 계속 걸려 있어요.</span></li>
-        <li><i>3</i><span><b>Next</b>를 누르면 문자로 6자리 코드가 옵니다.</span></li>
+        <li><i>1</i><span>选好<b>国家区号</b>后输入手机号。<br>号码开头的 <b>0</b> 不用输。</span></li>
+        <li><i>2</i><span>这里仍然显示 <code>10% rebate rate applied</code>。<br>折扣一直有效。</span></li>
+        <li><i>3</i><span>点 <b>Next</b>，手机会收到 6 位短信验证码。</span></li>
       </ol>
     </div>
   </article>
 
-  <!-- 04 문자 인증 -->
+  <!-- 04 문자 认证 -->
   <article class="card">
-    <div class="head"><span class="sect">가입 4</span><span class="num">04</span></div>
-    <h2>휴대폰 번호<br><em>인증하기</em></h2>
+    <div class="head"><span class="sect">注册 4</span><span class="num">04</span></div>
+    <h2>验证<br><em>手机号</em></h2>
     <figure class="shot">
       <div class="fr" style="--ar:1.3333;">
-        <img src="shots/c04_sms.jpg" alt="OKX 가입 4단계 — 문자 6자리 코드 입력 화면">
+        <img src="../shots/c04_sms.jpg" alt="OKX 注册第 4 步 — 输入 6 位短信验证码">
         <b class="mark" data-n="1" data-side="r" style="--x:5.62%;--y:50.72%;--w:88.77%;--h:14.01%"></b>
         <b class="mark" data-n="2" data-side="r" style="--x:5.62%;--y:71.98%;--w:88.77%;--h:14.01%"></b>
         <b class="mark" data-n="3" data-side="r" style="--x:30.43%;--y:89.61%;--w:39.13%;--h:7.00%"></b>
       </div>
-      <span class="zoom">탭하면 크게</span>
+      <span class="zoom">点击放大</span>
     </figure>
     <div class="body">
       <ol class="steps">
-        <li><i>1</i><span>문자로 온 <b>6자리</b>를 넣습니다. 칸은 자동으로 넘어가요.</span></li>
-        <li><i>2</i><span>안 오면 <b>Resend code</b><br>옆의 초 카운트가 끝나야 눌립니다.</span></li>
-        <li><i>3</i><span>그래도 안 오면 <b>Call me instead</b>.<br>전화로 코드를 불러줍니다.</span></li>
+        <li><i>1</i><span>输入短信里的 <b>6 位数字</b>，光标会自动跳格。</span></li>
+        <li><i>2</i><span>没收到就点 <b>Resend code</b>，<br>要等旁边的倒计时结束才能点。</span></li>
+        <li><i>3</i><span>还是没有就点 <b>Call me instead</b>，<br>会打电话报验证码。</span></li>
       </ol>
       <div class="tip">
-        <b>이 번호는 계속 씁니다</b>
-        <p>출금할 때와 보안 확인에 이 번호로 문자가 옵니다. 안 쓰는 번호로 넣지 마세요.</p>
+        <b>这个号码以后一直要用</b>
+        <p>提币和安全验证都会发短信到这个号码，别用可能停用的号码。</p>
       </div>
     </div>
   </article>
 
   <!-- 05 2FA -->
   <article class="card warn">
-    <div class="head"><span class="sect">보안 1</span><span class="num">05</span></div>
-    <h2>보안 설정<br><em>채우기</em></h2>
+    <div class="head"><span class="sect">安全 1</span><span class="num">05</span></div>
+    <h2>完成<br><em>安全设置</em></h2>
     <figure class="shot">
       <div class="fr" style="--ar:1.1208;">
-        <img src="shots/c05_security.jpg" alt="OKX 보안 설정 — 2/5 · Authenticator app · Password">
+        <img src="../shots/c05_security.jpg" alt="OKX 安全设置 — 2/5 · Authenticator app · Password">
         <b class="mark" data-n="1" data-side="r" style="--x:0.93%;--y:1.95%;--w:63.38%;--h:13.38%"></b>
         <b class="mark" data-n="2" style="--x:2.32%;--y:56.49%;--w:95.60%;--h:8.70%"></b>
         <b class="mark" data-n="3" style="--x:2.32%;--y:91.17%;--w:95.60%;--h:8.18%"></b>
       </div>
-      <span class="zoom">탭하면 크게</span>
+      <span class="zoom">点击放大</span>
     </figure>
     <div class="body">
       <ol class="steps">
-        <li><i>1</i><span>가입 직후는 <b>2 / 5</b>입니다.<br>전화번호·이메일만 되어 있는 상태예요.</span></li>
-        <li><i>2</i><span><b>Authenticator app</b> › <b>Set up</b><br>뜨는 <b>setup key</b>는 따로 적어두세요.</span></li>
-        <li><i>3</i><span><b>Password</b> › <b>Add</b><br>인증 앱 걸고 나서 비밀번호도 만드세요.</span></li>
+        <li><i>1</i><span>刚注册完是 <b>2 / 5</b>，<br>只完成了手机和邮箱。</span></li>
+        <li><i>2</i><span><b>Authenticator app</b> › <b>Set up</b><br>把弹出的 <b>setup key</b> 另外抄下来。</span></li>
+        <li><i>3</i><span><b>Password</b> › <b>Add</b><br>绑定验证器后，再设置一个密码。</span></li>
       </ol>
       <div class="tip hard">
-        <b>인증 앱을 바꾸면 24시간 출금이 잠깁니다</b>
-        <p>입금 직전에 급하게 설정하는 게 최악의 순서.<br>돈 넣기 전에 미리 끝내두세요.</p>
+        <b>更换验证器会冻结提币 24 小时</b>
+        <p>充值前才急着设置是最糟的顺序，<br>入金之前先把这一步做完。</p>
       </div>
     </div>
   </article>
 
-  <!-- 06 인증 앱 내려받기 -->
+  <!-- 06 认证 앱 내려받기 -->
   <article class="card">
-    <div class="head"><span class="sect">보안 2</span><span class="num">06</span></div>
-    <h2>인증 앱<br><em>내려받기</em></h2>
+    <div class="head"><span class="sect">安全 2</span><span class="num">06</span></div>
+    <h2>下载<br><em>验证器 App</em></h2>
     <figure class="shot">
       <div class="fr" style="--ar:1.4058;">
-        <img src="shots/c06_app.jpg" alt="OKX 인증 앱 내려받기 화면 — Google · Microsoft Authenticator">
+        <img src="../shots/c06_app.jpg" alt="OKX 验证器下载页面 — Google · Microsoft Authenticator">
         <b class="mark" data-n="1" style="--x:2.68%;--y:3.77%;--w:94.23%;--h:21.45%"></b>
         <b class="mark" data-n="2" style="--x:2.68%;--y:25.22%;--w:94.23%;--h:21.45%"></b>
         <b class="mark" data-n="3" style="--x:2.68%;--y:81.45%;--w:93.81%;--h:13.62%"></b>
       </div>
-      <span class="zoom">탭하면 크게</span>
+      <span class="zoom">点击放大</span>
     </figure>
     <div class="body">
       <ol class="steps">
-        <li><i>1</i><span><b>Google authenticator</b> 오른쪽 <b>↓</b>를 누르면<br>앱스토어로 넘어갑니다. 무료입니다.</span></li>
-        <li><i>2</i><span><b>Microsoft authenticator</b>도 똑같이 됩니다.<br>둘 중 하나만 깔면 돼요.</span></li>
-        <li><i>3</i><span>설치가 끝났으면 <b>I&#39;ve downloaded one</b>.<br>다음 화면에서 계정을 연결합니다.</span></li>
+        <li><i>1</i><span>点 <b>Google authenticator</b> 右边的 <b>↓</b><br>会跳到应用商店，免费。</span></li>
+        <li><i>2</i><span><b>Microsoft authenticator</b> 也一样。<br>两个装一个就行。</span></li>
+        <li><i>3</i><span>装好后点 <b>I&#39;ve downloaded one</b>，<br>下一屏绑定账号。</span></li>
       </ol>
       <div class="tip">
-        <b>중간에 문자·이메일 인증이 한 번 더 나옵니다</b>
-        <p>1/2 문자, 2/2 이메일 순으로 6자리를 넣습니다.<br>가입 때와 같은 방식이라 당황할 것 없어요.</p>
+        <b>中途会再验证一次短信和邮箱</b>
+        <p>按 1/2 短信、2/2 邮箱的顺序输入 6 位验证码，<br>和注册时一样，不用慌。</p>
       </div>
     </div>
   </article>
 
-  <!-- 07 인증 앱 연결 -->
+  <!-- 07 认证 앱 연결 -->
   <article class="card warn">
-    <div class="head"><span class="sect">보안 3</span><span class="num">07</span></div>
-    <h2>인증 앱<br><em>연결하기</em></h2>
+    <div class="head"><span class="sect">安全 3</span><span class="num">07</span></div>
+    <h2>绑定<br><em>验证器 App</em></h2>
     <figure class="shot">
       <div class="fr" style="--ar:1.2895;">
-        <img src="shots/c06_2fa.jpg" alt="OKX 인증 앱 연결 화면 — QR코드와 setup key는 보안상 가림">
+        <img src="../shots/c06_2fa.jpg" alt="OKX 验证器绑定页面 — 二维码和 setup key 已出于安全原因遮盖">
         <b class="mark" data-n="1" style="--x:30.0%;--y:5.8%;--w:42.0%;--h:50.3%"></b>
         <b class="mark" data-n="2" style="--x:25.5%;--y:61.3%;--w:48.6%;--h:10.3%"></b>
         <b class="mark" data-n="3" style="--x:3.5%;--y:82.4%;--w:92.9%;--h:13.4%"></b>
       </div>
-      <span class="zoom">탭하면 크게</span>
+      <span class="zoom">点击放大</span>
     </figure>
     <div class="body">
       <ol class="steps">
-        <li><i>1</i><span>방금 깐 인증 앱을 열고 <b>+</b>를 누른 다음<br>이 <b>QR</b>을 찍습니다.</span></li>
-        <li><i>2</i><span>QR이 안 되면 아래 <b>키를 직접 입력</b>.<br><b>Copy key</b>로 복사됩니다.</span></li>
-        <li><i>3</i><span>앱에 6자리가 뜨면 <b>Continue</b>.<br>그 숫자를 넣으면 끝납니다.</span></li>
+        <li><i>1</i><span>打开刚装的验证器，点 <b>+</b>，<br>扫描这个<b>二维码</b>。</span></li>
+        <li><i>2</i><span>扫不了就<b>手动输入密钥</b>，<br>点 <b>Copy key</b> 可以复制。</span></li>
+        <li><i>3</i><span>App 里出现 6 位数字后点 <b>Continue</b>，<br>填进去就完成了。</span></li>
       </ol>
       <div class="tip hard">
-        <b>이 QR과 키는 캡처하지 마세요</b>
-        <p>이 값 하나면 남이 내 인증 코드를 그대로 만들어냅니다.<br>화면에 뜰 때 종이에 적어 따로 보관하세요.</p>
+        <b>不要截图这个二维码和密钥</b>
+        <p>有了这个值，别人就能生成你的验证码。<br>出现时抄在纸上，单独保管。</p>
       </div>
     </div>
   </article>
 
   <!-- 08 앱에서 코드 찾기 -->
   <article class="card">
-    <div class="head"><span class="sect">보안 4</span><span class="num">08</span></div>
-    <h2>앱에서<br><em>OKX 코드 찾기</em></h2>
+    <div class="head"><span class="sect">安全 4</span><span class="num">08</span></div>
+    <h2>在 App 里<br><em>找到 OKX 验证码</em></h2>
     <figure class="shot">
       <div class="fr" style="--ar:2.0034;">
-        <img src="shots/c08_otp.jpg" alt="인증 앱 목록에서 okx.com 항목의 6자리 코드">
+        <img src="../shots/c08_otp.jpg" alt="验证器列表中 okx.com 条目的 6 位验证码">
         <b class="mark" data-n="1" data-side="r" style="--x:4.23%;--y:55.42%;--w:43.15%;--h:9.83%"></b>
         <b class="mark" data-n="2" data-side="r" style="--x:4.23%;--y:69.49%;--w:43.15%;--h:20.34%"></b>
         <b class="mark" data-n="3" style="--x:85.87%;--y:71.19%;--w:8.88%;--h:16.95%"></b>
       </div>
-      <span class="zoom">탭하면 크게</span>
+      <span class="zoom">点击放大</span>
     </figure>
     <div class="body">
       <ol class="steps">
-        <li><i>1</i><span>목록에서 <b>okx.com</b>으로 시작하는 줄을 찾습니다.<br>다른 거래소 것과 헷갈리기 쉬워요.</span></li>
-        <li><i>2</i><span>그 아래 <b>6자리</b>를 OKX 화면에 넣으면 끝.<br>앞으로 로그인·출금 때마다 여기서 봅니다.</span></li>
-        <li><i>3</i><span>오른쪽 동그라미가 남은 시간입니다.<br><b>30초</b>마다 숫자가 새로 바뀝니다.</span></li>
+        <li><i>1</i><span>在列表里找以 <b>okx.com</b> 开头的那一行，<br>容易和其他交易所的搞混。</span></li>
+        <li><i>2</i><span>把下面的 <b>6 位数字</b>填到 OKX 就完成了。<br>以后每次登录、提币都在这里看。</span></li>
+        <li><i>3</i><span>右边的圆圈是剩余时间，<br>每 <b>30 秒</b>换一组数字。</span></li>
       </ol>
       <div class="tip">
-        <b>폰을 바꾸거나 앱을 지우면 이 줄이 사라집니다</b>
-        <p>연결할 때 나온 키를 적어두라는 게 이것 때문입니다.<br>키가 있으면 새 폰에서 그대로 되살립니다.</p>
+        <b>换手机或删掉 App，这一行就没了</b>
+        <p>让你抄下 setup key 就是为了这个。<br>有密钥就能在新手机上恢复。</p>
       </div>
     </div>
   </article>
 
   <!-- 04 KYC -->
   <article class="card">
-    <div class="head"><span class="sect">본인인증 1</span><span class="num">09</span></div>
-    <h2>본인 인증<br><em>끝내기</em></h2>
+    <div class="head"><span class="sect">身份认证 1</span><span class="num">09</span></div>
+    <h2>完成<br><em>身份认证</em></h2>
     <figure class="shot">
       <div class="fr" style="--ar:1.5287;">
-        <img src="shots/c09_kyc.jpg" alt="OKX 본인인증 시작 화면 — Individual verification 선택">
+        <img src="../shots/c09_kyc.jpg" alt="OKX 身份认证开始页面 — 已选 Individual verification">
         <b class="mark" data-n="1" style="--x:1.20%;--y:3.45%;--w:97.74%;--h:34.48%"></b>
         <b class="mark" data-n="2" style="--x:1.20%;--y:40.92%;--w:97.74%;--h:35.63%"></b>
         <b class="mark" data-n="3" style="--x:1.20%;--y:87.36%;--w:97.74%;--h:9.89%"></b>
       </div>
-      <span class="zoom">탭하면 크게</span>
+      <span class="zoom">点击放大</span>
     </figure>
     <div class="body">
       <ol class="steps">
-        <li><i>1</i><span><b>Individual verification</b>이 이미 선택돼 있습니다.<br>개인은 이것만 보면 됩니다.</span></li>
-        <li><i>2</i><span><b>Institutional</b>은 법인용이라 건너뜁니다.</span></li>
-        <li><i>3</i><span><b>Verify identity</b>를 누르면 시작됩니다.<br>국가 · 이름 · 생년월일 · 신분증 순으로 물어봐요.</span></li>
+        <li><i>1</i><span><b>Individual verification</b> 已经默认选中，<br>个人用户只看这个。</span></li>
+        <li><i>2</i><span><b>Institutional</b> 是企业用的，跳过。</span></li>
+        <li><i>3</i><span>点 <b>Verify identity</b> 开始。<br>依次询问国家 · 姓名 · 出生日期 · 证件。</span></li>
       </ol>
       <div class="tip">
-        <b>가입만 했다고 입금이 되는 게 아닙니다</b>
-        <p>인증 전에는 입금 주소 자체가 화면에 안 뜹니다.<br>이름·생년월일은 신분증과 똑같이 넣으세요.</p>
+        <b>只注册还不能充值</b>
+        <p>认证之前，充值地址根本不会显示。<br>姓名和出生日期要和证件完全一致。</p>
       </div>
     </div>
   </article>
 
   <!-- 10 신분증 고르기 -->
   <article class="card">
-    <div class="head"><span class="sect">본인인증 2</span><span class="num">10</span></div>
-    <h2>신분증<br><em>고르기</em></h2>
+    <div class="head"><span class="sect">身份认证 2</span><span class="num">10</span></div>
+    <h2>选择<br><em>证件类型</em></h2>
     <figure class="shot">
       <div class="fr" style="--ar:1.5596;">
-        <img src="shots/c10_idtype.jpg" alt="OKX 신분증 종류 선택 화면">
+        <img src="../shots/c10_idtype.jpg" alt="OKX 证件类型选择页面">
         <b class="mark" data-n="1" style="--x:1.47%;--y:24.77%;--w:97.35%;--h:28.44%"></b>
         <b class="mark" data-n="2" style="--x:1.47%;--y:55.50%;--w:97.35%;--h:19.95%"></b>
         <b class="mark" data-n="3" style="--x:1.47%;--y:77.98%;--w:97.35%;--h:19.95%"></b>
       </div>
-      <span class="zoom">탭하면 크게</span>
+      <span class="zoom">点击放大</span>
     </figure>
     <div class="body">
       <ol class="steps">
-        <li><i>1</i><span><b>Driver&#39;s license</b> — 운전면허증.<br>OKX가 추천하는 쪽입니다.</span></li>
-        <li><i>2</i><span><b>National ID card</b> — 주민등록증.<br>면허증이 없으면 이걸로.</span></li>
-        <li><i>3</i><span><b>Passport</b> — 여권.<br>셋 중 하나만 있으면 됩니다.</span></li>
+        <li><i>1</i><span><b>Driver&#39;s license</b> — 驾照。<br>OKX 推荐用这个。</span></li>
+        <li><i>2</i><span><b>National ID card</b> — 身份证。<br>没有驾照就用这个。</span></li>
+        <li><i>3</i><span><b>Passport</b> — 护照。<br>三种有一种就行。</span></li>
       </ol>
       <div class="tip">
-        <b>고르고 나면 앞뒤 두 장을 찍습니다</b>
-        <p>PC로 하고 있어도 다음 화면에서 폰 카메라로 넘어갑니다.<br>폰을 옆에 두고 시작하세요.</p>
+        <b>选好后要拍正反两面</b>
+        <p>就算在电脑上操作，下一屏也会切到手机摄像头，<br>把手机放在手边再开始。</p>
       </div>
     </div>
   </article>
 
   <!-- 11 심사 기다리기 -->
   <article class="card">
-    <div class="head"><span class="sect">본인인증 3</span><span class="num">11</span></div>
-    <h2>심사<br><em>기다리기</em></h2>
+    <div class="head"><span class="sect">身份认证 3</span><span class="num">11</span></div>
+    <h2>等待<br><em>审核</em></h2>
     <figure class="shot">
       <div class="fr" style="--ar:1.6410;">
-        <img src="shots/c11_review.jpg" alt="OKX 본인인증 심사 중(Reviewing) 화면">
+        <img src="../shots/c11_review.jpg" alt="OKX 身份认证审核中（Reviewing）页面">
         <b class="mark" data-n="1" style="--x:36.71%;--y:4.82%;--w:26.43%;--h:62.65%"></b>
         <b class="mark" data-n="2" data-side="r" style="--x:38.91%;--y:74.22%;--w:22.03%;--h:9.64%"></b>
         <b class="mark" data-n="3" data-side="r" style="--x:17.62%;--y:86.75%;--w:64.61%;--h:6.75%"></b>
       </div>
-      <span class="zoom">탭하면 크게</span>
+      <span class="zoom">点击放大</span>
     </figure>
     <div class="body">
       <ol class="steps">
-        <li><i>1</i><span>신분증 앞뒤와 얼굴 촬영이 끝나면<br>이 화면으로 바뀝니다.</span></li>
-        <li><i>2</i><span><b>Reviewing</b> — 심사 중이라는 뜻입니다.</span></li>
-        <li><i>3</i><span><b>최대 48시간</b>이 걸릴 수 있습니다.<br>끝나면 알림이 옵니다.</span></li>
+        <li><i>1</i><span>拍完证件正反面和人脸后，<br>会跳到这个页面。</span></li>
+        <li><i>2</i><span><b>Reviewing</b> 表示正在审核。</span></li>
+        <li><i>3</i><span>最长可能要 <b>48 小时</b>，<br>完成后会有通知。</span></li>
       </ol>
       <div class="tip">
-        <b>승인 전에는 입금 주소가 나오지 않습니다</b>
-        <p>보통 몇 분에서 몇 시간이면 끝납니다.<br>그동안 따로 할 일은 없어요.</p>
+        <b>审核通过前不会显示充值地址</b>
+        <p>通常几分钟到几小时完成，<br>期间不用做别的。</p>
       </div>
     </div>
   </article>
 
   <!-- 05 원화 경로 -->
   <article class="card warn">
-    <div class="head"><span class="sect">입금 1</span><span class="num">12</span></div>
-    <h2>원화 대신<br><em>코인으로 넣기</em></h2>
+    <div class="head"><span class="sect">充值 1</span><span class="num">12</span></div>
+    <h2>用加密货币充值<br><em>而不是银行转账</em></h2>
     <div class="body">
-      <p>OKX에는 은행 계좌를 연결하는 창구가 없습니다. 그래서 이렇게 돌아갑니다.</p>
+      <p>有些地区无法直接绑定银行账户。下面这条路在哪里都走得通：</p>
       <div class="flow">
-        <div class="n"><b>국내 거래소</b><span>업비트·빗썸 등에서 원화로 테더(USDT) 매수</span></div>
+        <div class="n"><b>其他交易所或银行卡</b><span>在你常用的交易所买 USDT，或用 OKX › Buy crypto 刷卡购买</span></div>
         <div class="ar">▼</div>
-        <div class="n"><b>코인으로 전송</b><span>산 USDT를 OKX 입금 주소로 출금</span></div>
+        <div class="n"><b>以加密货币转账</b><span>把买到的 USDT 提到 OKX 的充值地址</span></div>
         <div class="ar">▼</div>
-        <div class="n on"><b>OKX 도착</b><span>여기서부터 거래</span></div>
+        <div class="n on"><b>到达 OKX</b><span>从这里开始交易</span></div>
       </div>
       <div class="tip">
-        <b>원화 넣고 바로는 못 보냅니다</b>
-        <p>국내 거래소는 원화 입금 뒤 일정 시간 코인 출금을 막아둡니다. 여유를 두고 준비하세요.</p>
+        <b>刚买完币往往暂时不能提</b>
+        <p>很多交易所在法币入金或刷卡买币后会暂时限制提币，请提前准备。</p>
       </div>
     </div>
   </article>
 
-  <!-- 06 입금 주소 -->
-  <!-- 13 입금 화면 -->
+  <!-- 06 充值 주소 -->
+  <!-- 13 充值 화면 -->
   <article class="card">
-    <div class="head"><span class="sect">입금 2</span><span class="num">13</span></div>
-    <h2>입금 화면<br><em>열기</em></h2>
+    <div class="head"><span class="sect">充值 2</span><span class="num">13</span></div>
+    <h2>打开<br><em>充值页面</em></h2>
     <figure class="shot">
       <div class="fr" style="--ar:1.7205;">
-        <img src="shots/c13_deposit.jpg" alt="OKX 입금 화면 — 코인 선택 · 네트워크 선택 · 입금 상세">
+        <img src="../shots/c13_deposit.jpg" alt="OKX 充值页面 — 选择币种 · 选择网络 · 充值详情">
         <b class="mark" data-n="1" style="--x:2.09%;--y:2.05%;--w:95.83%;--h:20.51%"></b>
         <b class="mark" data-n="2" style="--x:2.09%;--y:37.95%;--w:79.88%;--h:23.59%"></b>
         <b class="mark" data-n="3" style="--x:2.09%;--y:68.72%;--w:57.53%;--h:27.44%"></b>
       </div>
-      <span class="zoom">탭하면 크게</span>
+      <span class="zoom">点击放大</span>
     </figure>
     <div class="body">
       <ol class="steps">
-        <li><i>1</i><span>맨 위 안내는 <b>100만원 넘게</b> 주고받을 때<br>이름·생년월일이 필요하다는 한국 규정입니다.</span></li>
-        <li><i>2</i><span><b>Select crypto</b>에서 보낼 코인을 고릅니다.<br>보통 <code>USDT</code>입니다.</span></li>
-        <li><i>3</i><span>그러면 <b>2 네트워크</b>, <b>3 주소</b>가 차례로 열립니다.</span></li>
+        <li><i>1</i><span>最上面的提示是各地区的合规说明，<br>现在可以先不管。</span></li>
+        <li><i>2</i><span>在 <b>Select crypto</b> 选要转入的币，<br>一般是 <code>USDT</code>。</span></li>
+        <li><i>3</i><span>然后 <b>2 网络</b>、<b>3 地址</b>会依次展开。</span></li>
       </ol>
       <div class="tip">
-        <b>위치는 Assets › Deposit</b>
-        <p>왼쪽 위가 <code>Funding</code>으로 되어 있으면 제대로 온 겁니다.</p>
+        <b>位置在 Assets › Deposit</b>
+        <p>左上角显示 <code>Funding</code> 就说明进对页面了。</p>
       </div>
     </div>
   </article>
 
   <!-- 14 네트워크 고르기 -->
   <article class="card warn">
-    <div class="head"><span class="sect">입금 3</span><span class="num">14</span></div>
-    <h2>트론 네트워크<br><em>고르기</em></h2>
+    <div class="head"><span class="sect">充值 3</span><span class="num">14</span></div>
+    <h2>选择<br><em>Tron 网络</em></h2>
     <figure class="shot">
       <div class="fr" style="--ar:1.9296;">
-        <img src="shots/c14_network.jpg" alt="OKX 입금 네트워크 선택 — Tron (TRC20)">
+        <img src="../shots/c14_network.jpg" alt="OKX 充值网络选择 — Tron (TRC20)">
         <b class="mark" data-n="1" style="--x:2.04%;--y:48.45%;--w:81.50%;--h:12.68%"></b>
         <b class="mark" data-n="2" data-side="r" style="--x:85.12%;--y:48.50%;--w:13.86%;--h:13.13%"></b>
       </div>
-      <span class="zoom">탭하면 크게</span>
+      <span class="zoom">点击放大</span>
     </figure>
     <div class="body">
       <ol class="steps">
-        <li><i>1</i><span><b>Tron (TRC20)</b>을 누릅니다. 도착까지 약 1분.</span></li>
-        <li><i>2</i><span>오른쪽이 <b>도착 시간</b>과 <b>최소 입금액</b>입니다.</span></li>
+        <li><i>1</i><span>点 <b>Tron (TRC20)</b>，大约 1 分钟到账。</span></li>
+        <li><i>2</i><span>右边是<b>到账时间</b>和<b>最低充值额</b>。</span></li>
       </ol>
       <div class="tip hard">
-        <b>업비트에서 출금할 때도 똑같이 Tron (TRC20)</b>
-        <p>보내는 쪽과 받는 쪽 네트워크가 다르면<br>코인이 사라지고 되돌릴 수 없습니다.</p>
+        <b>转出那一边也要选 Tron (TRC20)</b>
+        <p>转出和转入的网络不一致，<br>币就会丢失且无法找回。</p>
       </div>
     </div>
   </article>
 
   <article class="card warn">
-    <div class="head"><span class="sect">입금 4</span><span class="num">15</span></div>
-    <h2>입금 주소<br><em>받기</em></h2>
+    <div class="head"><span class="sect">充值 4</span><span class="num">15</span></div>
+    <h2>获取<br><em>充值地址</em></h2>
     <figure class="shot">
       <div class="fr" style="--ar:1.9559;">
-        <img src="shots/c15_addr.jpg" alt="OKX 입금 주소 화면 — 주소와 이름은 보안상 가림">
+        <img src="../shots/c15_addr.jpg" alt="OKX 充值地址页面 — 地址和姓名已出于安全原因遮盖">
         <b class="mark" data-n="1" style="--x:5.41%;--y:1.47%;--w:78.80%;--h:23.53%"></b>
         <b class="mark" data-n="2" style="--x:5.41%;--y:29.41%;--w:78.80%;--h:16.18%"></b>
         <b class="mark" data-n="3" data-side="r" style="--x:5.41%;--y:70.00%;--w:84.82%;--h:9.70%"></b>
       </div>
-      <span class="zoom">탭하면 크게</span>
+      <span class="zoom">点击放大</span>
     </figure>
     <div class="body">
       <ol class="steps">
-        <li><i>1</i><span><b>Address</b> — 오른쪽 복사 버튼으로 복사해서<br>보내는 거래소에 그대로 붙여넣습니다.</span></li>
-        <li><i>2</i><span><b>Verified name</b>이 내 이름과 같은지 확인.<br>보내는 계좌 명의도 같아야 합니다.</span></li>
-        <li><i>3</i><span><b>Deposit account</b> — 코인이 어느 계정으로<br>들어오는지입니다. <code>Trading</code>이면 바로 거래 가능.</span></li>
+        <li><i>1</i><span><b>Address</b> — 用右边的复制按钮复制，<br>原样粘贴到转出的交易所。</span></li>
+        <li><i>2</i><span>确认 <b>Verified name</b> 是你的名字，<br>转出账户也必须是同一个人。</span></li>
+        <li><i>3</i><span><b>Deposit account</b> — 币会进到哪个账户。<br>如果是 <code>Trading</code>，可以直接交易。</span></li>
       </ol>
       <div class="tip hard">
-        <b>주소는 손으로 옮겨 적지 마세요</b>
-        <p>반드시 복사 버튼을 쓰세요. 한 글자만 틀려도 돈이 사라집니다.</p>
+        <b>不要手动抄写地址</b>
+        <p>一定用复制按钮。错一个字符，钱就没了。</p>
       </div>
     </div>
   </article>
 
   <!-- 07 이체 -->
   <article class="card">
-    <div class="head"><span class="sect">입금 5</span><span class="num">16</span></div>
-    <h2>거래 계정으로<br><em>옮기기</em></h2>
+    <div class="head"><span class="sect">充值 5</span><span class="num">16</span></div>
+    <h2>划转到<br><em>交易账户</em></h2>
     <figure class="shot">
       <div class="fr" style="--ar:1.4344;">
-        <img src="shots/c16_transfer.jpg" alt="OKX 계정 간 이체 화면 — Funding에서 Trading으로">
+        <img src="../shots/c16_transfer.jpg" alt="OKX 账户间划转页面 — 从 Funding 到 Trading">
         <b class="mark" data-n="1" style="--x:1.89%;--y:7.69%;--w:95.58%;--h:12.44%"></b>
         <b class="mark" data-n="2" style="--x:1.89%;--y:23.98%;--w:95.58%;--h:24.66%"></b>
         <b class="mark" data-n="3" style="--x:1.89%;--y:58.82%;--w:95.58%;--h:39.82%"></b>
       </div>
-      <span class="zoom">탭하면 크게</span>
+      <span class="zoom">点击放大</span>
     </figure>
     <div class="body">
-      <p>앞 화면의 <strong>Deposit account</strong>가 <strong>Trading</strong>이었으면 건너뛰어도 됩니다.</p>
+      <p>如果上一屏的 <strong>Deposit account</strong> 是 <strong>Trading</strong>，这一步可以跳过。</p>
       <ol class="steps">
-        <li><i>1</i><span><b>Asset</b> — 옮길 코인을 고릅니다.<br>USDT를 넣었으면 USDT로.</span></li>
-        <li><i>2</i><span>위가 보내는 곳, 아래가 받는 곳.<br><code>Funding</code> → <code>Trading</code>이면 맞습니다.</span></li>
-        <li><i>3</i><span>금액 넣고 <b>Transfer</b>. <b>Max</b>는 전액.<br>내부 이체라 수수료 없이 즉시 들어갑니다.</span></li>
+        <li><i>1</i><span><b>Asset</b> — 选要划转的币，<br>充的是 USDT 就选 USDT。</span></li>
+        <li><i>2</i><span>上面是转出方，下面是转入方。<br><code>Funding</code> → <code>Trading</code> 就对了。</span></li>
+        <li><i>3</i><span>填金额后点 <b>Transfer</b>，<b>Max</b> 是全部。<br>内部划转免费且即时到账。</span></li>
       </ol>
     </div>
   </article>
 
-  <!-- 08 레버리지 -->
+  <!-- 08 杠杆 -->
   <article class="card">
-    <div class="head"><span class="sect">선물</span><span class="num">17</span></div>
-    <h2>마진 모드와<br><em>레버리지 정하기</em></h2>
+    <div class="head"><span class="sect">合约</span><span class="num">17</span></div>
+    <h2>设置保证金模式<br><em>和杠杆</em></h2>
     <figure class="shot">
       <div class="fr" style="--ar:2.1808;">
-        <img src="shots/c17_panel.jpg" alt="OKX 선물 거래 화면 — 호가창과 주문 패널(Open/Close, Isolated, 레버리지)">
+        <img src="../shots/c17_panel.jpg" alt="OKX 合约交易页面 — 盘口与下单面板（Open/Close、Isolated、杠杆）">
         <b class="mark" data-n="1" style="--x:51.32%;--y:21.15%;--w:48.32%;--h:13.85%"></b>
         <b class="mark" data-n="2" style="--x:52.03%;--y:37.69%;--w:19.40%;--h:13.08%"></b>
         <b class="mark" data-n="3" style="--x:80.25%;--y:37.69%;--w:13.76%;--h:13.08%"></b>
       </div>
-      <span class="zoom">탭하면 크게</span>
+      <span class="zoom">点击放大</span>
     </figure>
     <div class="body">
       <ol class="steps">
-        <li><i>1</i><span><b>Open</b>은 새로 들어가기, <b>Close</b>는 정리하기.</span></li>
-        <li><i>2</i><span>마진 모드는 <b>Isolated</b>(격리)로 두세요.<br>포지션을 연 뒤에는 못 바꿉니다.</span></li>
-        <li><i>3</i><span>여기가 <b>레버리지 배율</b>. 눌러서 바꿉니다.<br>(로그인 전에는 <code>-- --</code>로 보여요)</span></li>
+        <li><i>1</i><span><b>Open</b> 是开仓，<b>Close</b> 是平仓。</span></li>
+        <li><i>2</i><span>保证金模式保持 <b>Isolated</b>（逐仓）。<br>开仓之后就不能改了。</span></li>
+        <li><i>3</i><span>这里是<b>杠杆倍数</b>，点击可以修改。<br>（未登录时显示为 <code>-- --</code>）</span></li>
       </ol>
       <div class="tip">
-        <b>격리(Isolated)와 교차(Cross)의 차이</b>
-        <p>격리는 이 주문에 넣은 돈까지만 잃습니다.<br>교차는 계좌에 있는 돈 전부가 담보라, 크게 물리면 다 날아갑니다.</p>
+        <b>逐仓（Isolated）和全仓（Cross）的区别</b>
+        <p>逐仓最多只亏这笔单里投入的钱。<br>全仓是拿账户里全部资金做担保，被套深了会全部亏光。</p>
       </div>
     </div>
   </article>
@@ -875,31 +875,31 @@ p strong{color:var(--tx); font-weight:600}
 </div>
 
 <div class="fine page">
-  <span class="prt">가입 링크 <b>https://okx.com/join/S2ENA2</b><br>추천 코드 <b>S2ENA2</b></span>
+  <span class="prt">注册链接 <b>https://okx.com/join/S2ENA2</b><br>邀请码 <b>S2ENA2</b></span>
 
-  <strong>투자 권유가 아닙니다.</strong> 레버리지 거래는 원금 전액을 잃을 수 있습니다.
-  한국은 OKX 안내에 파생상품·P2P 제한 지역으로 적혀 있고, 이 페이지의 가입 버튼은 추천(레퍼럴) 링크입니다.
+  <strong>本页不构成投资建议。</strong>杠杆交易可能亏掉全部本金。
+  部分地区限制衍生品交易，本页的注册按钮为邀请（推荐）链接。
 </div>
 
 <div class="ctl" id="ctl">
   <div class="mid">
-    <button class="nav home2" id="home" aria-label="목차로 돌아가기">목차</button>
-    <button class="nav" id="prev" aria-label="이전"><svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg></button>
+    <button class="nav home2" id="home" aria-label="返回目录">目录</button>
+    <button class="nav" id="prev" aria-label="上一页"><svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg></button>
     <div class="pager" id="pager">
       <span class="lab" id="plab"></span>
       <b class="now" id="pnow">1</b><span class="sl">/</span><span class="tot" id="ptot">4</span>
     </div>
-    <button class="nav" id="next" aria-label="다음"><svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></button>
+    <button class="nav" id="next" aria-label="下一页"><svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></button>
   </div>
 </div>
 
-<div class="lb" id="lb"><button class="x" id="lbx" aria-label="닫기">✕</button></div>
+<div class="lb" id="lb"><button class="x" id="lbx" aria-label="关闭">✕</button></div>
 
 <script>
 (function(){
   var REFERRAL_URL  = "https://okx.com/join/S2ENA2";   // OKX 레퍼럴 링크
-  var REFERRAL_CODE = "S2ENA2";                        // 앱 가입 시 직접 입력용 코드
-  var PAGE_UNIT = '장', PAGE_UNIT_1 = '장', LBL_TOC = '목차', LBL_COPY = '복사', LBL_COPIED = '복사됨';   // 다국어 빌드가 치환(단수형은 영문용)
+  var REFERRAL_CODE = "S2ENA2";                        // 앱 注册 시 직접 입력용 코드
+  var PAGE_UNIT = ' 页', PAGE_UNIT_1 = ' 页', LBL_TOC = '目录', LBL_COPY = '复制', LBL_COPIED = '已复制';   // 다국어 빌드가 치환(단수형은 영문용)
   var track = document.getElementById('track');
   var cards = Array.prototype.slice.call(track.querySelectorAll('.card'));
   var pnow  = document.getElementById('pnow');
@@ -915,8 +915,8 @@ p strong{color:var(--tx); font-weight:600}
   var lb    = document.getElementById('lb');
   var idx = 0;
 
-  /* 섹션 = .sect 라벨의 이름 부분("가입 3" → "가입")이 같은 연속 카드 묶음.
-     표지는 어디에도 안 속함(목차). 페이저·탭·목차 버튼·섹션 끝 안내가 전부 여기서 나온다.
+  /* 섹션 = .sect 라벨의 이름 부분("注册 3" → "注册")이 같은 연속 카드 묶음.
+     표지는 어디에도 안 속함(目录). 페이저·탭·目录 버튼·섹션 끝 안내가 전부 여기서 나온다.
      → 총 18장이라는 숫자는 화면 어디에도 안 보여준다(읽다 포기 방지). */
   var secs = [], secOf = [];
   cards.forEach(function(c,i){
@@ -932,17 +932,17 @@ p strong{color:var(--tx); font-weight:600}
     var t = tabs[i];
     s.title = t ? (t.getAttribute('data-title') || s.name) : s.name;
   });
-  /* 표지 목차 버튼 ↔ 섹션 (순서대로 대응, 장수는 실제 카드 수로) */
+  /* 표지 目录 버튼 ↔ 섹션 (순서대로 대응, 장수는 실제 카드 수로) */
   Array.prototype.forEach.call(document.querySelectorAll('.toc .ti'), function(b,i){
     var s = secs[i]; if(!s) return;
     b.setAttribute('data-go', s.from);
     var em = b.querySelector('em'); if(em) em.textContent = s.n + (s.n === 1 ? PAGE_UNIT_1 : PAGE_UNIT);
   });
 
-  /* ── 섹션 보기 모드 (2026-09-08 사용자: "18장 다 깔아놓지 말고 목차마다 클릭했을 때 해당 카드들만") ──
-     mode = -1(목차: 표지만) | 섹션 번호(그 섹션 카드만 트랙에). 다른 주제 카드는 hidden.
-     섹션이 바뀔 때 history에 넣어서 폰 뒤로가기·브라우저 뒤로가기가 이전 섹션/목차로 돌아간다.
-     주소 #가입 처럼 섹션 딥링크도 된다. */
+  /* ── 섹션 보기 모드 (2026-09-08 사용자: "18장 다 깔아놓지 말고 目录마다 클릭했을 때 해당 카드들만") ──
+     mode = -1(目录: 표지만) | 섹션 번호(그 섹션 카드만 트랙에). 다른 주제 카드는 hidden.
+     섹션이 바뀔 때 history에 넣어서 폰 뒤로가기·브라우저 뒤로가기가 上一页 섹션/目录로 돌아간다.
+     주소 #注册 처럼 섹션 딥링크도 된다. */
   var mode = -2, vis = [];
   function apply(){
     cards.forEach(function(c,i){
@@ -953,7 +953,7 @@ p strong{color:var(--tx); font-weight:600}
   }
   function modeOf(i){ return (i === 0 || !secOf[i]) ? -1 : secOf[i].s.i; }
   function pushHist(){
-    /* 주소에 #섹션을 남기지 않는다 — 남기면 다음에 열 때 목차가 아니라 그 섹션부터 열려서 "목차 어디 갔어" (2026-09-08) */
+    /* 주소에 #섹션을 남기지 않는다 — 남기면 下一页에 열 때 目录가 아니라 그 섹션부터 열려서 "目录 어디 갔어" (2026-09-08) */
     try{ history.pushState({sec:mode}, '', location.pathname + location.search); }catch(e){}
   }
   /* 화면에 보이는 '현재 카드' 판정 — 보이는 카드(vis)만 대상.
@@ -1009,7 +1009,7 @@ p strong{color:var(--tx); font-weight:600}
     next.disabled = (mode >= 0 && idx === cards.length-1);
     home.disabled = (mode < 0);
   }
-  /* 이전/다음 = 섹션 안에서 한 장씩, 섹션 끝에서는 다음 섹션 첫 장 / 첫 장에서 이전은 앞 섹션 마지막 장, 가입 1에서는 목차 */
+  /* 上一页/下一页 = 섹션 안에서 한 장씩, 섹션 끝에서는 下一页 섹션 첫 장 / 첫 장에서 上一页은 앞 섹션 마지막 장, 注册 1에서는 目录 */
   function step(d){
     if(mode < 0){ if(d > 0 && secs[0]) go(secs[0].from); return; }
     var p = vis.indexOf(cards[idx]);
@@ -1027,7 +1027,7 @@ p strong{color:var(--tx); font-weight:600}
   if(tocTab) tocTab.addEventListener('click', function(){ go(0); });
   home.addEventListener('click', function(){ go(0); });
   document.getElementById('brand').addEventListener('click', function(){ go(0); });
-  /* 목차 버튼·섹션 끝 버튼 = data-go="카드 번호" */
+  /* 目录 버튼·섹션 끝 버튼 = data-go="카드 번호" */
   document.addEventListener('click', function(e){
     var b = e.target && e.target.closest ? e.target.closest('[data-go]') : null;
     if(!b) return;
@@ -1073,12 +1073,12 @@ p strong{color:var(--tx); font-weight:600}
     if(e.key === 'Home'){ e.preventDefault(); go(mode < 0 ? 0 : secs[mode].from); }
     if(e.key === 'End'){ e.preventDefault(); go(mode < 0 ? 0 : secs[mode].to); }
   });
-  /* 뒤로가기(폰 제스처·브라우저 버튼) → 직전 섹션/목차 */
+  /* 뒤로가기(폰 제스처·브라우저 버튼) → 직전 섹션/目录 */
   window.addEventListener('popstate', function(e){
     var si = (e.state && typeof e.state.sec === 'number') ? e.state.sec : -1;
     go(si < 0 || !secs[si] ? 0 : secs[si].from, true);
   });
-  /* 시작은 항상 목차. 예전 주소에 #섹션이 붙어 있어도 무시하고 지운다 */
+  /* 시작은 항상 目录. 예전 주소에 #섹션이 붙어 있어도 무시하고 지운다 */
   (function(){
     try{ history.replaceState({sec:-1}, '', location.pathname + location.search); }catch(e){}
     go(0, true);
