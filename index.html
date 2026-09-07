@@ -270,6 +270,14 @@ p strong{color:var(--tx); font-weight:600}
   font-family:inherit; font-size:13px; font-weight:700; color:var(--tx2); letter-spacing:.02em;
 }
 .nav.home2:hover:not(:disabled){color:var(--jade)}
+/* 표지에서는 목차·화살표·페이저 대신 '처음부터 보기' 하나만 */
+.nav.start{
+  display:none; width:auto; height:40px; border-radius:99px; padding:0 22px; white-space:nowrap;
+  font-family:inherit; font-size:14px; font-weight:800; color:var(--tx); border-color:rgba(53,217,153,.4);
+}
+.ctl.toc .mid > *{display:none}
+.ctl.toc .mid > .start{display:grid}
+.nav.start:hover{color:var(--jade); border-color:var(--jade)}
 .nav{
   width:40px; height:40px; flex:none; border-radius:50%;
   border:1px solid var(--line); background:#0f171e; color:var(--tx);
@@ -857,8 +865,9 @@ p strong{color:var(--tx); font-weight:600}
   한국은 OKX 안내에 파생상품·P2P 제한 지역으로 적혀 있고, 이 페이지의 가입 버튼은 추천(레퍼럴) 링크입니다.
 </div>
 
-<div class="ctl">
+<div class="ctl" id="ctl">
   <div class="mid">
+    <button class="nav start" id="start" type="button">처음부터 보기 →</button>
     <button class="nav home2" id="home" aria-label="목차로 돌아가기">목차</button>
     <button class="nav" id="prev" aria-label="이전"><svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg></button>
     <div class="pager" id="pager">
@@ -884,6 +893,7 @@ p strong{color:var(--tx); font-weight:600}
   var next  = document.getElementById('next');
   var pager = document.getElementById('pager');
   var home  = document.getElementById('home');
+  var ctl   = document.getElementById('ctl');
   var tabs  = Array.prototype.slice.call(document.querySelectorAll('#tabs .tab:not([data-toc])'));
   var tocTab = document.querySelector('#tabs .tab[data-toc]');
   var lb    = document.getElementById('lb');
@@ -968,6 +978,7 @@ p strong{color:var(--tx); font-weight:600}
     cards.forEach(function(c,i){ c.classList.toggle('cur', i===idx); });
     var p = secOf[idx];
     pager.classList.toggle('toc', !p);
+    ctl.classList.toggle('toc', !p);
     if(p){ plab.textContent = p.s.name; pnow.textContent = p.k; ptot.textContent = p.s.n; }
     else { plab.textContent = '목차'; }
     if(tocTab) tocTab.classList.toggle('on', !p);
@@ -999,6 +1010,7 @@ p strong{color:var(--tx); font-weight:600}
   tabs.forEach(function(t,i){ t.addEventListener('click', function(){ if(secs[i]) go(secs[i].from); }); });
   if(tocTab) tocTab.addEventListener('click', function(){ go(0); });
   home.addEventListener('click', function(){ go(0); });
+  document.getElementById('start').addEventListener('click', function(){ if(secs[0]) go(secs[0].from); });
   document.getElementById('brand').addEventListener('click', function(){ go(0); });
   /* 목차 버튼·섹션 끝 버튼 = data-go="카드 번호" */
   document.addEventListener('click', function(e){
