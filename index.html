@@ -6,6 +6,7 @@
 <title>OKX 시작 가이드</title>
 <meta name="description" content="OKX 가입부터 입금·레버리지까지, 실제 화면 캡처로 따라가는 5단계 가이드.">
 <link rel="canonical" href="https://okxstart.github.io/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230b1015'/%3E%3Ccircle cx='16' cy='16' r='7' fill='%2335d999'/%3E%3C/svg%3E">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://okxstart.github.io/">
 <meta property="og:title" content="OKX 시작 가이드">
@@ -925,8 +926,8 @@ p strong{color:var(--tx); font-weight:600}
   }
   function modeOf(i){ return (i === 0 || !secOf[i]) ? -1 : secOf[i].s.i; }
   function pushHist(){
-    var h = mode < 0 ? (location.pathname + location.search) : ('#' + secs[mode].name);
-    try{ history.pushState({sec:mode}, '', h); }catch(e){}
+    /* 주소에 #섹션을 남기지 않는다 — 남기면 다음에 열 때 목차가 아니라 그 섹션부터 열려서 "목차 어디 갔어" (2026-09-08) */
+    try{ history.pushState({sec:mode}, '', location.pathname + location.search); }catch(e){}
   }
   /* 화면에 보이는 '현재 카드' 판정 — 보이는 카드(vis)만 대상.
      PC처럼 여러 장 보이는 폭에서 첫·마지막 카드는 중앙에 올 수 없어 양 끝은 스크롤 위치로 확정. */
@@ -1048,13 +1049,10 @@ p strong{color:var(--tx); font-weight:600}
     var si = (e.state && typeof e.state.sec === 'number') ? e.state.sec : -1;
     go(si < 0 || !secs[si] ? 0 : secs[si].from, true);
   });
-  /* 시작: #섹션명 딥링크면 그 섹션, 아니면 목차 */
+  /* 시작은 항상 목차. 예전 주소에 #섹션이 붙어 있어도 무시하고 지운다 */
   (function(){
-    var h = '', init = 0;
-    try{ h = decodeURIComponent((location.hash || '').slice(1)); }catch(e){}
-    secs.forEach(function(s){ if(s.name === h) init = s.from; });
-    try{ history.replaceState({sec: modeOf(init)}, '', location.href); }catch(e){}
-    go(init, true);
+    try{ history.replaceState({sec:-1}, '', location.pathname + location.search); }catch(e){}
+    go(0, true);
   })();
 
   /* 캡처 확대 */
