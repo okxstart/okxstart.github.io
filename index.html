@@ -15,7 +15,9 @@
 <meta property="og:url" content="https://okxstart.github.io/">
 <meta property="og:title" content="OKX 시작 가이드">
 <meta property="og:description" content="가입 · 보안 · 본인인증 · 입금까지, 실제 화면 캡처로 따라가는 5단계 가이드.">
-<meta property="og:image" content="https://okxstart.github.io/shots/og.jpg">
+<meta property="og:image" content="https://okxstart.github.io/shots/og2_ko.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -85,6 +87,21 @@ header{
 .langs.cvl{display:none}
 .ck{display:flex; align-items:center; justify-content:space-between; gap:10px; margin-bottom:10px}
 .ck .kick{margin:0}
+/* 폰: 선물 탭 옆 국기 버튼 → 눌러서 고르는 드롭다운 (2026-09-08 사용자 제안) */
+.lsel{display:none; position:relative; align-self:center; margin-left:4px}
+.lbtn{
+  width:36px; height:30px; border-radius:99px; border:1px solid var(--line); background:#0d141a; cursor:pointer;
+  display:grid; place-items:center; font-size:17px; line-height:1; padding:0; font-family:'Apple Color Emoji','Segoe UI Emoji','Noto Color Emoji',var(--font);
+}
+.lsel.open .lbtn{border-color:var(--jade)}
+.lmenu{
+  display:none; position:absolute; right:0; top:36px; z-index:30; min-width:156px;
+  background:#0f171e; border:1px solid var(--line); border-radius:12px; padding:6px; box-shadow:0 12px 32px rgba(0,0,0,.55);
+}
+.lsel.open .lmenu{display:block}
+.lmenu a{display:flex; align-items:center; gap:9px; padding:9px 11px; border-radius:8px; color:var(--tx2); text-decoration:none; font-size:14px; font-weight:600; white-space:nowrap}
+.lmenu a .flag{font-size:17px; line-height:1; font-family:'Apple Color Emoji','Segoe UI Emoji','Noto Color Emoji',var(--font)}
+.lmenu a.on{color:var(--jade); background:rgba(53,217,153,.1)}
 /* 영문·중문판 보정 (KO 원본에서는 무효) */
 html[lang="en"] .steps li{font-size:15px}
 html[lang="en"] .tip p{font-size:13px}
@@ -345,7 +362,8 @@ p strong{color:var(--tx); font-weight:600}
   header{padding:8px 12px 3px; grid-template-columns:1fr; gap:0}
   .brand{display:none}
   .tabs .langs{display:none}
-  .langs.cvl{display:flex}
+  .lsel{display:block}
+  .tab{padding:5px 8px 8px}
   html[lang="en"] .tab{font-size:12.5px; padding:5px 6px 8px}
   html[lang="en"] .tab::after{left:6px; right:6px}
   html[lang="en"] .tab i{left:6px}
@@ -429,6 +447,14 @@ p strong{color:var(--tx); font-weight:600}
     <button class="tab" type="button" data-title="코인 넣기">입금<i></i></button>
     <button class="tab" type="button" data-title="레버리지">선물<i></i></button>
     <div class="langs" id="langs"><a href="./" data-l="ko" class="on">한국어</a><a href="en/" data-l="en">EN</a><a href="zh/" data-l="zh">中文</a></div>
+    <div class="lsel" id="lsel">
+      <button class="lbtn" id="lbtn" type="button" aria-label="언어 선택"><span class="flag">🇰🇷</span></button>
+      <div class="lmenu">
+        <a href="./" data-l="ko" class="on"><span class="flag">🇰🇷</span>한국어</a>
+        <a href="en/" data-l="en"><span class="flag">🇺🇸</span>English</a>
+        <a href="zh/" data-l="zh"><span class="flag">🇨🇳</span>中文</a>
+      </div>
+    </div>
   </nav>
   <span></span>
 </header>
@@ -438,7 +464,7 @@ p strong{color:var(--tx); font-weight:600}
   <!-- 표지 = 목차 (버튼을 누르면 그 섹션 첫 카드로) -->
   <article class="card cover">
     <div class="body"><div class="cv">
-      <div class="ck"><div class="kick">5단계 시작 가이드</div><div class="langs cvl"><a href="./" data-l="ko" class="on">한국어</a><a href="en/" data-l="en">EN</a><a href="zh/" data-l="zh">中文</a></div></div>
+      <div class="kick">5단계 시작 가이드</div>
       <h1>OKX, <em>화면 그대로</em><br>따라만 하면 됩니다</h1>
       <p class="lead">필요한 단계부터 골라 보세요. 초록 네모만 순서대로 누르면 끝이에요.</p>
       <div class="toc">
@@ -1243,6 +1269,13 @@ p strong{color:var(--tx); font-weight:600}
   if(tocTab) tocTab.addEventListener('click', function(){ go(0); });
   home.addEventListener('click', function(){ go(0); });
   document.getElementById('brand').addEventListener('click', function(){ go(0); });
+  /* 폰 국기 드롭다운 */
+  (function(){
+    var sel = document.getElementById('lsel'), btn = document.getElementById('lbtn'); if(!sel || !btn) return;
+    var on = sel.querySelector('.lmenu a.on .flag'); if(on) btn.querySelector('.flag').textContent = on.textContent;
+    btn.addEventListener('click', function(e){ e.stopPropagation(); sel.classList.toggle('open'); });
+    document.addEventListener('click', function(){ sel.classList.remove('open'); });
+  })();
   /* 목차 버튼·섹션 끝 버튼 = data-go="카드 번호" */
   document.addEventListener('click', function(e){
     var b = e.target && e.target.closest ? e.target.closest('[data-go]') : null;
