@@ -4,12 +4,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>OKX 시작 가이드</title>
-<meta name="description" content="OKX 가입부터 입금·레버리지까지, 실제 화면 캡처로 따라가는 18장 가이드.">
+<meta name="description" content="OKX 가입부터 입금·레버리지까지, 실제 화면 캡처로 따라가는 5단계 가이드.">
 <link rel="canonical" href="https://okxstart.github.io/">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://okxstart.github.io/">
 <meta property="og:title" content="OKX 시작 가이드">
-<meta property="og:description" content="가입 · 보안 · 본인인증 · 입금까지, 실제 화면 캡처로 따라가는 18장 가이드.">
+<meta property="og:description" content="가입 · 보안 · 본인인증 · 입금까지, 실제 화면 캡처로 따라가는 5단계 가이드.">
 <meta property="og:image" content="https://okxstart.github.io/shots/og.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -44,12 +44,27 @@ body::before{
 
 header{
   position:relative; z-index:3; flex:none;
-  padding:16px 20px 10px; display:flex; align-items:center; gap:12px;
+  padding:10px 20px 6px; display:flex; align-items:center; gap:12px;
 }
 .brand{display:flex; align-items:center; gap:9px; font-weight:800; font-size:13px; letter-spacing:.14em}
 .dot{width:8px; height:8px; border-radius:50%; background:var(--jade); box-shadow:0 0 12px var(--jade)}
-.hcount{margin-left:auto; font-size:12px; color:var(--tx3); font-variant-numeric:tabular-nums; letter-spacing:.06em}
-.hcount b{color:var(--jade); font-weight:700}
+.brand i{font-style:normal}
+/* ── 상단 섹션 탭 (가입·보안·인증·입금·선물) — 밑줄이 그 섹션 안 진행률 ── */
+.tabs{margin-left:auto; flex:none; display:flex; gap:2px}
+.tab{
+  font-family:inherit; cursor:pointer; background:none; border:0; position:relative;
+  color:var(--tx3); font-size:12px; font-weight:600; letter-spacing:.02em; white-space:nowrap;
+  padding:4px 7px 7px; transition:color .18s;
+}
+.tab::after{content:''; position:absolute; left:7px; right:7px; bottom:2px; height:2px; border-radius:2px; background:var(--line)}
+.tab i{
+  position:absolute; left:7px; bottom:2px; height:2px; width:0; border-radius:2px; z-index:1;
+  background:linear-gradient(90deg,var(--jade-dim),var(--jade2));
+  transition:width .35s cubic-bezier(.4,0,.2,1);
+}
+.tab.done{color:var(--tx2)}
+.tab.on{color:var(--jade)}
+.tab:hover{color:var(--tx)}
 .bar{position:relative; z-index:3; flex:none; height:2px; background:var(--line); margin:0 20px; border-radius:2px; overflow:hidden}
 .bar i{display:block; height:100%; width:0; background:linear-gradient(90deg,var(--jade-dim),var(--jade2)); transition:width .35s cubic-bezier(.4,0,.2,1)}
 
@@ -181,14 +196,43 @@ p strong{color:var(--tx); font-weight:600}
 .flow .n span{font-size:11.5px; color:var(--tx3); line-height:1.5}
 .flow .ar{height:20px; display:grid; place-items:center; color:#2e4a41; font-size:13px}
 
-.card.cover .body{display:flex; flex-direction:column; justify-content:center}
-.cover .kick{font-size:11.5px; letter-spacing:.2em; color:var(--jade); font-weight:700; margin-bottom:14px}
+.card.cover .body{display:flex; flex-direction:column}
+.cover .cv{margin:auto 0}
+.cover .kick{font-size:11.5px; letter-spacing:.2em; color:var(--jade); font-weight:700; margin-bottom:10px}
 .cover h1{font-size:31px; line-height:1.28; font-weight:900; letter-spacing:-.03em; margin-bottom:13px; text-wrap:balance}
 .cover h1 em{font-style:normal; color:var(--jade)}
-.cover .lead{font-size:13.5px; line-height:1.75; color:var(--tx2); margin-bottom:16px}
-.chips{display:flex; flex-wrap:wrap; gap:6px; margin-bottom:16px}
-.chip{font-size:11px; font-weight:600; color:var(--tx2); border:1px solid var(--line); background:#0d141a; border-radius:99px; padding:6px 11px}
-.chip b{color:var(--jade); font-weight:700}
+.cover .lead{font-size:13.5px; line-height:1.7; color:var(--tx2); margin-bottom:12px}
+/* ── 표지 목차 (섹션 버튼 5개 — 누르면 그 섹션 첫 카드로) ── */
+.toc{display:flex; flex-direction:column; gap:6px; margin:0 0 12px}
+.ti{
+  display:flex; align-items:center; gap:11px; width:100%; text-align:left; font-family:inherit; cursor:pointer;
+  background:#0d141a; border:1px solid var(--line); border-radius:12px; padding:8px 12px; color:var(--tx); transition:.18s;
+}
+.ti:hover{border-color:var(--jade); background:#0f1a21}
+.ti i{
+  flex:none; width:24px; height:24px; border-radius:50%; font-style:normal;
+  background:rgba(53,217,153,.13); border:1px solid rgba(53,217,153,.34); color:var(--jade2);
+  font-family:'Inter',var(--font); font-size:12px; font-weight:800; display:grid; place-items:center;
+}
+.ti span{flex:1 1 auto; min-width:0; display:flex; flex-direction:column; gap:1px}
+.ti b{font-size:14.5px; font-weight:700; color:var(--tx); line-height:1.3}
+.ti small{font-size:11px; color:var(--tx3); line-height:1.4; white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+.ti em{flex:none; font-style:normal; font-size:11.5px; font-weight:600; color:var(--tx3); font-variant-numeric:tabular-nums}
+.ti em::after{content:' ›'; color:var(--jade); font-weight:800}
+
+/* ── 섹션 마지막 카드 아래 = 다음 섹션 안내 (JS가 넣음) ── */
+.card.se{padding-bottom:26px}
+.secend{
+  position:absolute; left:26px; right:26px; bottom:0; height:26px;
+  display:flex; align-items:center; gap:8px; border-top:1px solid #16212a;
+  font-size:11px; color:var(--tx3); letter-spacing:.02em; white-space:nowrap;
+}
+.secend .nx{
+  margin-left:auto; height:100%; font-family:inherit; cursor:pointer; white-space:nowrap;
+  background:none; border:0; padding:0 0 0 8px; color:var(--jade2); font-size:12px; font-weight:700; transition:color .18s;
+}
+.secend .nx:hover{color:var(--jade)}
+.secend .nx em{font-style:normal; color:var(--tx3); font-weight:500; margin-left:4px}
 
 .cta{
   display:block; text-align:center; background:linear-gradient(135deg,var(--jade),var(--jade-dim));
@@ -247,9 +291,11 @@ p strong{color:var(--tx); font-weight:600}
 .pager .sl{font-size:14px; font-weight:500; color:#2b3944}
 .pager .tot{font-size:14px; font-weight:600; color:var(--tx3); font-variant-numeric:tabular-nums}
 .pager .lab{
-  font-size:12.5px; font-weight:500; color:var(--tx3); margin-left:5px;
+  font-size:13.5px; font-weight:600; color:var(--tx2); margin-right:4px;
   white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
 }
+.pager.toc .now,.pager.toc .sl,.pager.toc .tot{display:none}
+.pager.toc .lab{margin:0; font-size:14px}
 
 /* ── 확대 보기 ── */
 .lb{
@@ -269,8 +315,11 @@ p strong{color:var(--tx); font-weight:600}
   /* 폰은 세로가 남는데 카드를 648px로 묶어두면 본문이 넘쳐 경고박스가 접힌다.
      트랙이 허용하는 높이까지 쓰게 풀되(720px 상한) 아주 긴 화면에서 늘어지지 않게 캡. */
   :root{--card-w:88vw; --card-h:min(100%, 720px)}
-  header{padding:13px 16px 8px}
-  .bar{margin:0 16px}
+  header{padding:10px 16px 4px}
+  .brand .bt{display:none}
+  .tab{padding:4px 7px 6px}
+  .card.se{padding-bottom:24px}
+  .secend{left:18px; right:18px; height:24px}
   .track{padding:12px calc(50% - var(--card-w)/2) 6px; gap:12px}
   .card{padding:20px 18px 16px; border-radius:17px}
   .card::before{left:18px; right:18px}
@@ -293,7 +342,7 @@ p strong{color:var(--tx); font-weight:600}
   body{
     background:#070c10!important; -webkit-print-color-adjust:exact; print-color-adjust:exact;
   }
-  header,.bar,.ctl,.lb,.zoom{display:none!important}
+  header,.bar,.ctl,.lb,.zoom,.secend{display:none!important}
   .track{
     display:block!important; transform:none!important; overflow:visible!important;
     padding:0!important; gap:0!important; scroll-snap-type:none!important;
@@ -332,35 +381,36 @@ p strong{color:var(--tx); font-weight:600}
 <body>
 
 <header>
-  <div class="brand"><span class="dot"></span><span>OKX START GUIDE</span></div>
-  <div class="hcount"><b id="cur">01</b> / <span id="tot">10</span></div>
+  <div class="brand"><span class="dot"></span><span>OKX<i class="bt"> START GUIDE</i></span></div>
+  <nav class="tabs" id="tabs" aria-label="단계">
+    <button class="tab" type="button" data-title="가입">가입<i></i></button>
+    <button class="tab" type="button" data-title="보안 설정">보안<i></i></button>
+    <button class="tab" type="button" data-title="본인 인증">인증<i></i></button>
+    <button class="tab" type="button" data-title="코인 넣기">입금<i></i></button>
+    <button class="tab" type="button" data-title="레버리지">선물<i></i></button>
+  </nav>
 </header>
-<div class="bar"><i id="prog"></i></div>
 
 <div class="track" id="track" tabindex="0">
 
-  <!-- 표지 -->
+  <!-- 표지 = 목차 (버튼을 누르면 그 섹션 첫 카드로) -->
   <article class="card cover">
-    <div class="body">
-      <div class="kick">가입 · 입금 · 레버리지</div>
-      <h1>OKX,<br><em>화면 그대로</em><br>따라만 하면 됩니다</h1>
-      <p class="lead">실제 화면을 하나씩 보면서 갑니다. 초록 네모만 순서대로 누르면 끝이에요.</p>
-      <div class="chips">
-        <span class="chip"><b>01–04</b> 가입</span>
-        <span class="chip"><b>05–08</b> 보안</span>
-        <span class="chip"><b>09–11</b> 본인인증</span>
-        <span class="chip"><b>12–16</b> 입금</span>
-        <span class="chip"><b>17</b> 레버리지</span>
+    <div class="body"><div class="cv">
+      <div class="kick">5단계 시작 가이드</div>
+      <h1>OKX, <em>화면 그대로</em><br>따라만 하면 됩니다</h1>
+      <p class="lead">필요한 단계부터 골라 보세요. 초록 네모만 순서대로 누르면 끝이에요.</p>
+      <div class="toc">
+        <button class="ti" type="button" data-go="1"><i>1</i><span><b>가입하기</b><small>국가 · 이메일 · 휴대폰 · 문자 인증</small></span><em>4장</em></button>
+        <button class="ti" type="button" data-go="5"><i>2</i><span><b>보안 설정하기</b><small>설정 · 인증 앱 · QR 연결 · 코드</small></span><em>4장</em></button>
+        <button class="ti" type="button" data-go="9"><i>3</i><span><b>본인 인증하기</b><small>시작 · 신분증 고르기 · 심사 기다리기</small></span><em>3장</em></button>
+        <button class="ti" type="button" data-go="12"><i>4</i><span><b>코인 넣기</b><small>코인 · 네트워크 · 주소 · 이체</small></span><em>5장</em></button>
+        <button class="ti" type="button" data-go="17"><i>5</i><span><b>레버리지 정하기</b><small>마진 모드 · 레버리지 배율</small></span><em>1장</em></button>
       </div>
-      <a class="cta" href="#" id="ref0" style="margin-top:15px">가입 화면으로 바로 가기 →</a>
+      <a class="cta" href="#" id="ref0">가입 화면으로 바로 가기 →</a>
       <p style="font-size:12px;line-height:1.6;color:var(--tx3);margin:-3px 0 0">
         이 버튼으로 들어가면 <b style="color:var(--tx2);font-weight:700">수수료 10% 할인</b>이 걸린 채로 가입 화면이 열립니다.
       </p>
-      <div class="tip">
-        <b>화면이 영어라도 괜찮습니다</b>
-        <p>주소창의 번역 아이콘을 누르면 한국어로 볼 수 있어요. 다만 번역된 이름은 브라우저마다 달라서, 이 가이드는 화면에 실제로 찍히는 영어를 그대로 씁니다.</p>
-      </div>
-    </div>
+    </div></div>
   </article>
 
   <!-- 01 가입 시작 -->
@@ -382,6 +432,10 @@ p strong{color:var(--tx); font-weight:600}
         <li><i>2</i><span>약관 체크박스를 눌러야 <b>Next</b>가 켜집니다.</span></li>
         <li><i>3</i><span><b>Next</b> 누르면 다음 화면으로.</span></li>
       </ol>
+      <div class="tip">
+        <b>화면이 영어라도 괜찮습니다</b>
+        <p>주소창의 번역 아이콘을 누르면 한국어로 볼 수 있어요. 이 가이드는 화면에 실제로 찍히는 영어를 그대로 씁니다.</p>
+      </div>
     </div>
   </article>
 
@@ -798,9 +852,9 @@ p strong{color:var(--tx); font-weight:600}
 
 <div class="ctl">
   <button class="nav" id="prev" aria-label="이전"><svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg></button>
-  <div class="pager">
-    <b class="now" id="pnow">01</b><span class="sl">/</span><span class="tot" id="ptot">18</span>
+  <div class="pager" id="pager">
     <span class="lab" id="plab"></span>
+    <b class="now" id="pnow">1</b><span class="sl">/</span><span class="tot" id="ptot">4</span>
   </div>
   <button class="nav" id="next" aria-label="다음"><svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></button>
 </div>
@@ -818,17 +872,42 @@ p strong{color:var(--tx); font-weight:600}
   var plab  = document.getElementById('plab');
   var prev  = document.getElementById('prev');
   var next  = document.getElementById('next');
-  var prog  = document.getElementById('prog');
-  var cur   = document.getElementById('cur');
+  var pager = document.getElementById('pager');
+  var tabs  = Array.prototype.slice.call(document.querySelectorAll('#tabs .tab'));
   var lb    = document.getElementById('lb');
   var idx = 0;
 
-  document.getElementById('tot').textContent = String(cards.length).padStart(2,'0');
-
-  ptot.textContent = String(cards.length).padStart(2,'0');
-  var sects = cards.map(function(c){
+  /* 섹션 = .sect 라벨의 이름 부분("가입 3" → "가입")이 같은 연속 카드 묶음.
+     표지는 어디에도 안 속함(목차). 페이저·탭·목차 버튼·섹션 끝 안내가 전부 여기서 나온다.
+     → 총 18장이라는 숫자는 화면 어디에도 안 보여준다(읽다 포기 방지). */
+  var secs = [], secOf = [];
+  cards.forEach(function(c,i){
     var e = c.querySelector('.sect');
-    return e ? e.textContent.trim() : '표지';
+    if(!e){ secOf[i] = null; return; }
+    var name = e.textContent.trim().replace(/\s*\d+$/,'');
+    var s = secs[secs.length-1];
+    if(!s || s.name !== name){ s = {name:name, from:i, to:i, n:0, i:secs.length}; secs.push(s); }
+    s.to = i; s.n++;
+    secOf[i] = {s:s, k:s.n};
+  });
+  secs.forEach(function(s,i){
+    var t = tabs[i];
+    s.title = t ? (t.getAttribute('data-title') || s.name) : s.name;
+  });
+  /* 표지 목차 버튼 ↔ 섹션 (순서대로 대응, 장수는 실제 카드 수로) */
+  Array.prototype.forEach.call(document.querySelectorAll('.toc .ti'), function(b,i){
+    var s = secs[i]; if(!s) return;
+    b.setAttribute('data-go', s.from);
+    var em = b.querySelector('em'); if(em) em.textContent = s.n + '장';
+  });
+  /* 섹션 마지막 카드 아래 = "○○ 끝 · 다음 섹션" 버튼 */
+  secs.forEach(function(s,i){
+    var card = cards[s.to]; card.classList.add('se');
+    var nx = secs[i+1], d = document.createElement('div'); d.className = 'secend';
+    d.innerHTML = '<span>' + s.title + ' 끝</span>' +
+      (nx ? '<button class="nx" type="button" data-go="' + nx.from + '">다음 · ' + nx.title + '<em>' + nx.n + '장</em> →</button>'
+          : '<button class="nx" type="button" data-go="0">목차로 →</button>');
+    card.appendChild(d);
   });
 
   /* 화면에 보이는 '현재 카드' 판정.
@@ -859,16 +938,30 @@ p strong{color:var(--tx); font-weight:600}
   }
   function paint(){
     cards.forEach(function(c,i){ c.classList.toggle('cur', i===idx); });
-    prog.style.width = ((idx+1)/cards.length*100) + '%';
-    var n = String(idx+1).padStart(2,'0');
-    cur.textContent  = n;
-    pnow.textContent = n;
-    plab.textContent = sects[idx];
+    var p = secOf[idx];
+    pager.classList.toggle('toc', !p);
+    if(p){ plab.textContent = p.s.name; pnow.textContent = p.k; ptot.textContent = p.s.n; }
+    else { plab.textContent = '목차'; }
+    tabs.forEach(function(t,i){
+      var s = secs[i]; if(!s) return;
+      var on = !!(p && p.s === s), done = p ? (i < p.s.i) : false;
+      t.classList.toggle('on', on); t.classList.toggle('done', done);
+      var frac = done ? 1 : (on ? p.k / s.n : 0);
+      t.querySelector('i').style.width = 'calc((100% - 14px) * ' + frac + ')';
+    });
     prev.disabled = idx===0;
     next.disabled = idx===cards.length-1;
   }
   prev.addEventListener('click', function(){ go(idx-1); });
   next.addEventListener('click', function(){ go(idx+1); });
+  tabs.forEach(function(t,i){ t.addEventListener('click', function(){ if(secs[i]) go(secs[i].from); }); });
+  /* 목차 버튼·섹션 끝 버튼 = data-go="카드 번호" */
+  document.addEventListener('click', function(e){
+    var b = e.target && e.target.closest ? e.target.closest('[data-go]') : null;
+    if(!b) return;
+    e.preventDefault();
+    go(parseInt(b.getAttribute('data-go'),10) || 0);
+  });
 
   track.addEventListener('click', function(e){
     var el = e.target && e.target.closest ? e.target.closest('.card') : null;
