@@ -74,11 +74,17 @@ header{
 .tab:hover{color:var(--tx)}
 /* ※ 탭 class에 "toc"를 쓰면 표지 Contents 리스트 .toc 규칙에 같이 걸림 — 금지 */
 /* ── 언어 전환 (헤더 오른쪽 / 폰은 표지 오른쪽 위) ── */
-.langs{justify-self:end; display:flex; gap:2px; border:1px solid var(--line); border-radius:99px; padding:2px; background:#0d141a}
-.langs a{font-size:11.5px; font-weight:700; color:var(--tx3); text-decoration:none; padding:4px 9px; border-radius:99px; letter-spacing:.02em; white-space:nowrap}
+.langs{display:flex; gap:2px; border:1px solid var(--line); border-radius:99px; padding:2px; background:#0d141a; flex:none}
+.langs a{
+  display:inline-flex; align-items:center; justify-content:center; height:24px; padding:0 10px;   /* 한글·영문·한자 글꼴이 달라도 같은 높이 */
+  font-size:11.5px; line-height:1; font-weight:700; color:var(--tx3); text-decoration:none; border-radius:99px; letter-spacing:.02em; white-space:nowrap;
+}
 .langs a.on{background:rgba(53,217,153,.14); color:var(--jade)}
 .langs a:hover{color:var(--tx)}
-.langs.cvl{display:none; position:absolute; top:16px; right:16px; z-index:2}
+.tabs .langs{margin-left:12px; align-self:center}          /* PC: 탭 줄 오른쪽 끝(가운데 묶음 안) — 구석에 두면 안 보임 */
+.langs.cvl{display:none}
+.ck{display:flex; align-items:center; justify-content:space-between; gap:10px; margin-bottom:10px}
+.ck .kick{margin:0}
 /* 영문·중문판 보정 (KO 원본에서는 무효) */
 html[lang="en"] .steps li{font-size:15px}
 html[lang="en"] .tip p{font-size:13px}
@@ -338,7 +344,7 @@ p strong{color:var(--tx); font-weight:600}
   :root{--card-w:88vw; --card-h:min(100%, 720px)}
   header{padding:8px 12px 3px; grid-template-columns:1fr; gap:0}
   .brand{display:none}
-  .langs{display:none}
+  .tabs .langs{display:none}
   .langs.cvl{display:flex}
   html[lang="en"] .tab{font-size:12.5px; padding:5px 6px 8px}
   html[lang="en"] .tab::after{left:6px; right:6px}
@@ -422,17 +428,17 @@ p strong{color:var(--tx); font-weight:600}
     <button class="tab" type="button" data-title="Identity">ID<i></i></button>
     <button class="tab" type="button" data-title="Deposit crypto">Deposit<i></i></button>
     <button class="tab" type="button" data-title="Futures">Futures<i></i></button>
+    <div class="langs" id="langs"><a href="../" data-l="ko">한국어</a><a href="./" data-l="en" class="on">EN</a><a href="../zh/" data-l="zh">中文</a></div>
   </nav>
-  <div class="langs" id="langs"><a href="../" data-l="ko">한국어</a><a href="./" data-l="en" class="on">EN</a><a href="../zh/" data-l="zh">中文</a></div>
+  <span></span>
 </header>
 
 <div class="track" id="track" tabindex="0">
 
   <!-- 표지 = Contents (버튼을 누르면 그 섹션 첫 카드로) -->
   <article class="card cover">
-    <div class="langs cvl"><a href="../" data-l="ko">한국어</a><a href="./" data-l="en" class="on">EN</a><a href="../zh/" data-l="zh">中文</a></div>
     <div class="body"><div class="cv">
-      <div class="kick">5-STEP START GUIDE</div>
+      <div class="ck"><div class="kick">5-STEP START GUIDE</div><div class="langs cvl"><a href="../" data-l="ko">한국어</a><a href="./" data-l="en" class="on">EN</a><a href="../zh/" data-l="zh">中文</a></div></div>
       <h1>OKX, <em>screen by screen</em><br>just follow along</h1>
       <p class="lead">Start from any step you need. Just tap the green boxes in order.</p>
       <div class="toc">
