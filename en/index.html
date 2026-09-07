@@ -126,6 +126,11 @@ html[lang="zh-CN"] :root, html[lang="zh-CN"] body{font-family:'Inter','Noto Sans
 .sect{font-size:11px; letter-spacing:.16em; font-weight:700; color:var(--jade); text-transform:uppercase}
 .card.warn .sect{color:var(--amber)}
 .num{margin-left:auto; font-size:13px; font-weight:800; color:#2a3944; font-variant-numeric:tabular-nums; letter-spacing:.08em}
+/* 어느 앱 화면인지 배지 (2026-09-08 사용자: "Deposit 2 화면이 국내거래소인지 OKX인지 헷갈린다") */
+.src{font-size:10px; font-weight:700; letter-spacing:.05em; line-height:1.2; color:var(--tx3); border:1px solid var(--line); border-radius:99px; padding:1px 7px; white-space:nowrap}
+.src.okx{color:var(--jade2); border-color:rgba(53,217,153,.32)}
+.src.bt{color:#ffb454; border-color:rgba(255,180,84,.4)}
+.src.app{color:#9fb0bd; border-color:#2a3944}
 h2{
   flex:none; font-size:20px; line-height:1.36; font-weight:800; letter-spacing:-.02em;
   text-wrap:balance; margin-bottom:12px;
@@ -434,8 +439,8 @@ p strong{color:var(--tx); font-weight:600}
         <button class="ti" type="button" data-go="1"><i>1</i><span><b>Sign up</b><small>Country · Email · Phone · SMS code</small></span><em>4 pages</em></button>
         <button class="ti" type="button" data-go="5"><i>2</i><span><b>Set up security</b><small>Settings · Authenticator · QR · Code</small></span><em>4 pages</em></button>
         <button class="ti" type="button" data-go="9"><i>3</i><span><b>Verify identity</b><small>Start · Choose ID · Wait for review</small></span><em>3 pages</em></button>
-        <button class="ti" type="button" data-go="12"><i>4</i><span><b>Deposit crypto</b><small>Crypto · Network · Address · Transfer</small></span><em>5 pages</em></button>
-        <button class="ti" type="button" data-go="17"><i>5</i><span><b>Set leverage</b><small>Margin mode · Leverage</small></span><em>1 page</em></button>
+        <button class="ti" type="button" data-go="12"><i>4</i><span><b>Deposit crypto</b><small>Buy · Address · Send via Tron · Transfer</small></span><em>8 pages</em></button>
+        <button class="ti" type="button" data-go="17"><i>5</i><span><b>Set leverage</b><small>Open · Pick a market · Margin · Leverage</small></span><em>3 pages</em></button>
       </div>
       <a class="cta" href="#" id="ref0">Go to the sign-up page →</a>
       <p style="font-size:12px;line-height:1.6;color:var(--tx3);margin:-3px 0 0">
@@ -446,7 +451,7 @@ p strong{color:var(--tx); font-weight:600}
 
   <!-- 01 Sign up 시작 -->
   <article class="card">
-    <div class="head"><span class="sect">Sign up 1</span><span class="num">01</span></div>
+    <div class="head"><span class="sect">Sign up 1</span><span class="src okx">OKX</span><span class="num">01</span></div>
     <h2>Select<br><em>your country</em></h2>
     <figure class="shot">
       <div class="fr" style="--ar:1.124;">
@@ -472,7 +477,7 @@ p strong{color:var(--tx); font-weight:600}
 
   <!-- 02 이메일 -->
   <article class="card">
-    <div class="head"><span class="sect">Sign up 2</span><span class="num">02</span></div>
+    <div class="head"><span class="sect">Sign up 2</span><span class="src okx">OKX</span><span class="num">02</span></div>
     <h2>Verify<br><em>your email</em></h2>
     <figure class="shot">
       <div class="fr" style="--ar:1.1826;">
@@ -498,7 +503,7 @@ p strong{color:var(--tx); font-weight:600}
 
   <!-- 03 휴대폰 번호 -->
   <article class="card">
-    <div class="head"><span class="sect">Sign up 3</span><span class="num">03</span></div>
+    <div class="head"><span class="sect">Sign up 3</span><span class="src okx">OKX</span><span class="num">03</span></div>
     <h2>Enter<br><em>your phone number</em></h2>
     <figure class="shot">
       <div class="fr" style="--ar:1.1102;">
@@ -520,7 +525,7 @@ p strong{color:var(--tx); font-weight:600}
 
   <!-- 04 문자 ID -->
   <article class="card">
-    <div class="head"><span class="sect">Sign up 4</span><span class="num">04</span></div>
+    <div class="head"><span class="sect">Sign up 4</span><span class="src okx">OKX</span><span class="num">04</span></div>
     <h2>Verify<br><em>your phone number</em></h2>
     <figure class="shot">
       <div class="fr" style="--ar:1.3333;">
@@ -546,7 +551,7 @@ p strong{color:var(--tx); font-weight:600}
 
   <!-- 05 2FA -->
   <article class="card warn">
-    <div class="head"><span class="sect">Security 1</span><span class="num">05</span></div>
+    <div class="head"><span class="sect">Security 1</span><span class="src okx">OKX</span><span class="num">05</span></div>
     <h2>Fill in<br><em>security settings</em></h2>
     <figure class="shot">
       <div class="fr" style="--ar:1.1208;">
@@ -570,9 +575,9 @@ p strong{color:var(--tx); font-weight:600}
     </div>
   </article>
 
-  <!-- 06 ID 앱 내려받기 -->
+  <!-- 06 Authenticator 내려받기 -->
   <article class="card">
-    <div class="head"><span class="sect">Security 2</span><span class="num">06</span></div>
+    <div class="head"><span class="sect">Security 2</span><span class="src okx">OKX</span><span class="num">06</span></div>
     <h2>Download<br><em>an authenticator app</em></h2>
     <figure class="shot">
       <div class="fr" style="--ar:1.4058;">
@@ -596,9 +601,9 @@ p strong{color:var(--tx); font-weight:600}
     </div>
   </article>
 
-  <!-- 07 ID 앱 연결 -->
+  <!-- 07 Authenticator 연결 -->
   <article class="card warn">
-    <div class="head"><span class="sect">Security 3</span><span class="num">07</span></div>
+    <div class="head"><span class="sect">Security 3</span><span class="src okx">OKX</span><span class="num">07</span></div>
     <h2>Link<br><em>the authenticator app</em></h2>
     <figure class="shot">
       <div class="fr" style="--ar:1.2895;">
@@ -624,7 +629,7 @@ p strong{color:var(--tx); font-weight:600}
 
   <!-- 08 앱에서 코드 찾기 -->
   <article class="card">
-    <div class="head"><span class="sect">Security 4</span><span class="num">08</span></div>
+    <div class="head"><span class="sect">Security 4</span><span class="src app">Authenticator</span><span class="num">08</span></div>
     <h2>Find the OKX code<br><em>in the app</em></h2>
     <figure class="shot">
       <div class="fr" style="--ar:2.0034;">
@@ -650,7 +655,7 @@ p strong{color:var(--tx); font-weight:600}
 
   <!-- 04 KYC -->
   <article class="card">
-    <div class="head"><span class="sect">Identity 1</span><span class="num">09</span></div>
+    <div class="head"><span class="sect">Identity 1</span><span class="src okx">OKX</span><span class="num">09</span></div>
     <h2>Complete<br><em>identity verification</em></h2>
     <figure class="shot">
       <div class="fr" style="--ar:1.5287;">
@@ -676,7 +681,7 @@ p strong{color:var(--tx); font-weight:600}
 
   <!-- 10 신분증 고르기 -->
   <article class="card">
-    <div class="head"><span class="sect">Identity 2</span><span class="num">10</span></div>
+    <div class="head"><span class="sect">Identity 2</span><span class="src okx">OKX</span><span class="num">10</span></div>
     <h2>Choose<br><em>your ID document</em></h2>
     <figure class="shot">
       <div class="fr" style="--ar:1.5596;">
@@ -702,7 +707,7 @@ p strong{color:var(--tx); font-weight:600}
 
   <!-- 11 심사 기다리기 -->
   <article class="card">
-    <div class="head"><span class="sect">Identity 3</span><span class="num">11</span></div>
+    <div class="head"><span class="sect">Identity 3</span><span class="src okx">OKX</span><span class="num">11</span></div>
     <h2>Wait for<br><em>the review</em></h2>
     <figure class="shot">
       <div class="fr" style="--ar:1.6410;">
@@ -746,10 +751,9 @@ p strong{color:var(--tx); font-weight:600}
     </div>
   </article>
 
-  <!-- 06 Deposit 주소 -->
-  <!-- 13 Deposit 화면 -->
+  <!-- 14 Deposit 화면 -->
   <article class="card">
-    <div class="head"><span class="sect">Deposit 2</span><span class="num">13</span></div>
+    <div class="head"><span class="sect">Deposit 3</span><span class="src okx">OKX</span><span class="num">14</span></div>
     <h2>Open<br><em>the deposit screen</em></h2>
     <figure class="shot">
       <div class="fr" style="--ar:1.7205;">
@@ -775,7 +779,7 @@ p strong{color:var(--tx); font-weight:600}
 
   <!-- 14 네트워크 고르기 -->
   <article class="card warn">
-    <div class="head"><span class="sect">Deposit 3</span><span class="num">14</span></div>
+    <div class="head"><span class="sect">Deposit 4</span><span class="src okx">OKX</span><span class="num">15</span></div>
     <h2>Choose<br><em>the Tron network</em></h2>
     <figure class="shot">
       <div class="fr" style="--ar:1.9296;">
@@ -798,7 +802,7 @@ p strong{color:var(--tx); font-weight:600}
   </article>
 
   <article class="card warn">
-    <div class="head"><span class="sect">Deposit 4</span><span class="num">15</span></div>
+    <div class="head"><span class="sect">Deposit 5</span><span class="src okx">OKX</span><span class="num">16</span></div>
     <h2>Get<br><em>your deposit address</em></h2>
     <figure class="shot">
       <div class="fr" style="--ar:1.9559;">
@@ -823,8 +827,10 @@ p strong{color:var(--tx); font-weight:600}
   </article>
 
   <!-- 07 이체 -->
+
+
   <article class="card">
-    <div class="head"><span class="sect">Deposit 5</span><span class="num">16</span></div>
+    <div class="head"><span class="sect">Deposit 8</span><span class="src okx">OKX</span><span class="num">19</span></div>
     <h2>Move funds<br><em>to the trading account</em></h2>
     <figure class="shot">
       <div class="fr" style="--ar:1.4344;">
@@ -845,9 +851,59 @@ p strong{color:var(--tx); font-weight:600}
     </div>
   </article>
 
+  <!-- 20 Futures 화면 열기 -->
+  <article class="card">
+    <div class="head"><span class="sect">Futures 1</span><span class="src okx">OKX</span><span class="num">20</span></div>
+    <h2>Open<br><em>the futures screen</em></h2>
+    <figure class="shot">
+      <div class="fr" style="--ar:1.1933;">
+        <img src="../shots/c23_fut_menu.jpg" alt="OKX top Trade menu expanded — Futures item">
+        <b class="mark" data-n="1" style="--x:60.34%;--y:2.11%;--w:10.99%;--h:6.33%"></b>
+        <b class="mark" data-n="2" style="--x:44.13%;--y:51.78%;--w:51.49%;--h:12.33%"></b>
+      </div>
+      <span class="zoom">Tap to enlarge</span>
+    </figure>
+    <div class="body">
+      <ol class="steps">
+        <li><i>1</i><span>Hover over <b>Trade</b> in the top menu.</span></li>
+        <li><i>2</i><span>Click <b>Futures</b> to open the futures trading screen.<br>The address starts with okx.com/trade-swap.</span></li>
+      </ol>
+      <div class="tip">
+        <b>Don't mix it up with Spot</b>
+        <p>Spot is plain buying and selling, no leverage.<br>This guide uses the Futures screen.</p>
+      </div>
+    </div>
+  </article>
+
+  <!-- 21 종목 고르기 -->
+  <article class="card">
+    <div class="head"><span class="sect">Futures 2</span><span class="src okx">OKX</span><span class="num">21</span></div>
+    <h2>Pick<br><em>a market</em></h2>
+    <figure class="shot">
+      <div class="fr" style="--ar:1.2734;">
+        <img src="../shots/c24_fut_symbol.jpg" alt="OKX futures market list — search box and BTC row">
+        <b class="mark" data-n="1" style="--x:9.83%;--y:3.31%;--w:41.02%;--h:7.63%"></b>
+        <b class="mark" data-n="2" style="--x:3.62%;--y:15.40%;--w:92.77%;--h:9.06%"></b>
+        <b class="mark" data-n="3" style="--x:3.62%;--y:47.77%;--w:92.77%;--h:11.37%"></b>
+      </div>
+      <span class="zoom">Tap to enlarge</span>
+    </figure>
+    <div class="body">
+      <ol class="steps">
+        <li><i>1</i><span>Click <b>BTCUSDT Perpetual</b> at the top left<br>to open the market list.</span></li>
+        <li><i>2</i><span>Type the coin in <b>Search crypto</b>.<br>Use the ticker: BTC, ETH, SOL.</span></li>
+        <li><i>3</i><span>Click a row and the screen switches to it.<br><b>Perpetual</b> means a futures contract with no expiry.</span></li>
+      </ol>
+      <div class="tip">
+        <b>Start with big markets like BTC or ETH</b>
+        <p>High volume means orders fill easily and prices jump less.</p>
+      </div>
+    </div>
+  </article>
+
   <!-- 08 Futures -->
   <article class="card">
-    <div class="head"><span class="sect">Futures</span><span class="num">17</span></div>
+    <div class="head"><span class="sect">Futures 3</span><span class="src okx">OKX</span><span class="num">22</span></div>
     <h2>Set margin mode<br><em>and leverage</em></h2>
     <figure class="shot">
       <div class="fr" style="--ar:2.1808;">
@@ -917,7 +973,7 @@ p strong{color:var(--tx); font-weight:600}
 
   /* 섹션 = .sect 라벨의 이름 부분("Sign up 3" → "Sign up")이 같은 연속 카드 묶음.
      표지는 어디에도 안 속함(Contents). 페이저·탭·Contents 버튼·섹션 끝 안내가 전부 여기서 나온다.
-     → 총 18장이라는 숫자는 화면 어디에도 안 보여준다(읽다 포기 방지). */
+     → 총 18 pages이라는 숫자는 화면 어디에도 안 보여준다(읽다 포기 방지). */
   var secs = [], secOf = [];
   cards.forEach(function(c,i){
     var e = c.querySelector('.sect');
@@ -927,6 +983,8 @@ p strong{color:var(--tx); font-weight:600}
     if(!s || s.name !== name){ s = {name:name, from:i, to:i, n:0, i:secs.length}; secs.push(s); }
     s.to = i; s.n++;
     secOf[i] = {s:s, k:s.n};
+    if(/\d+$/.test(e.textContent.trim())) e.textContent = name + ' ' + s.n;   /* 라벨 번호 = 섹션 안 순서 */
+    var nm = c.querySelector('.num'); if(nm) nm.textContent = String(i).padStart(2,'0');
   });
   secs.forEach(function(s,i){
     var t = tabs[i];
@@ -939,7 +997,7 @@ p strong{color:var(--tx); font-weight:600}
     var em = b.querySelector('em'); if(em) em.textContent = s.n + (s.n === 1 ? PAGE_UNIT_1 : PAGE_UNIT);
   });
 
-  /* ── 섹션 보기 모드 (2026-09-08 사용자: "18장 다 깔아놓지 말고 Contents마다 클릭했을 때 해당 카드들만") ──
+  /* ── 섹션 보기 모드 (2026-09-08 사용자: "18 pages 다 깔아놓지 말고 Contents마다 클릭했을 때 해당 카드들만") ──
      mode = -1(Contents: 표지만) | 섹션 번호(그 섹션 카드만 트랙에). 다른 주제 카드는 hidden.
      섹션이 바뀔 때 history에 넣어서 폰 뒤로가기·브라우저 뒤로가기가 Previous 섹션/Contents로 돌아간다.
      주소 #Sign up 처럼 섹션 딥링크도 된다. */

@@ -126,6 +126,11 @@ html[lang="zh-CN"] :root, html[lang="zh-CN"] body{font-family:'Inter','Noto Sans
 .sect{font-size:11px; letter-spacing:.16em; font-weight:700; color:var(--jade); text-transform:uppercase}
 .card.warn .sect{color:var(--amber)}
 .num{margin-left:auto; font-size:13px; font-weight:800; color:#2a3944; font-variant-numeric:tabular-nums; letter-spacing:.08em}
+/* 어느 앱 화면인지 배지 (2026-09-08 사용자: "充值 2 화면이 국내거래소인지 OKX인지 헷갈린다") */
+.src{font-size:10px; font-weight:700; letter-spacing:.05em; line-height:1.2; color:var(--tx3); border:1px solid var(--line); border-radius:99px; padding:1px 7px; white-space:nowrap}
+.src.okx{color:var(--jade2); border-color:rgba(53,217,153,.32)}
+.src.bt{color:#ffb454; border-color:rgba(255,180,84,.4)}
+.src.app{color:#9fb0bd; border-color:#2a3944}
 h2{
   flex:none; font-size:20px; line-height:1.36; font-weight:800; letter-spacing:-.02em;
   text-wrap:balance; margin-bottom:12px;
@@ -434,8 +439,8 @@ p strong{color:var(--tx); font-weight:600}
         <button class="ti" type="button" data-go="1"><i>1</i><span><b>注册账号</b><small>国家 · 邮箱 · 手机 · 短信验证</small></span><em>4 页</em></button>
         <button class="ti" type="button" data-go="5"><i>2</i><span><b>安全设置</b><small>设置 · 验证器 · 扫码绑定 · 验证码</small></span><em>4 页</em></button>
         <button class="ti" type="button" data-go="9"><i>3</i><span><b>身份认证</b><small>开始 · 选择证件 · 等待审核</small></span><em>3 页</em></button>
-        <button class="ti" type="button" data-go="12"><i>4</i><span><b>充值加密货币</b><small>币种 · 网络 · 地址 · 划转</small></span><em>5 页</em></button>
-        <button class="ti" type="button" data-go="17"><i>5</i><span><b>设置杠杆</b><small>保证金模式 · 杠杆倍数</small></span><em>1 页</em></button>
+        <button class="ti" type="button" data-go="12"><i>4</i><span><b>充值加密货币</b><small>购买 · 地址 · Tron 提币 · 划转</small></span><em>8 页</em></button>
+        <button class="ti" type="button" data-go="17"><i>5</i><span><b>设置杠杆</b><small>打开页面 · 选择合约 · 保证金 · 杠杆</small></span><em>3 页</em></button>
       </div>
       <a class="cta" href="#" id="ref0">直接进入注册页面 →</a>
       <p style="font-size:12px;line-height:1.6;color:var(--tx3);margin:-3px 0 0">
@@ -446,7 +451,7 @@ p strong{color:var(--tx); font-weight:600}
 
   <!-- 01 注册 시작 -->
   <article class="card">
-    <div class="head"><span class="sect">注册 1</span><span class="num">01</span></div>
+    <div class="head"><span class="sect">注册 1</span><span class="src okx">OKX</span><span class="num">01</span></div>
     <h2>选择<br><em>国家/地区</em></h2>
     <figure class="shot">
       <div class="fr" style="--ar:1.124;">
@@ -472,7 +477,7 @@ p strong{color:var(--tx); font-weight:600}
 
   <!-- 02 이메일 -->
   <article class="card">
-    <div class="head"><span class="sect">注册 2</span><span class="num">02</span></div>
+    <div class="head"><span class="sect">注册 2</span><span class="src okx">OKX</span><span class="num">02</span></div>
     <h2>验证<br><em>邮箱</em></h2>
     <figure class="shot">
       <div class="fr" style="--ar:1.1826;">
@@ -498,7 +503,7 @@ p strong{color:var(--tx); font-weight:600}
 
   <!-- 03 휴대폰 번호 -->
   <article class="card">
-    <div class="head"><span class="sect">注册 3</span><span class="num">03</span></div>
+    <div class="head"><span class="sect">注册 3</span><span class="src okx">OKX</span><span class="num">03</span></div>
     <h2>输入<br><em>手机号</em></h2>
     <figure class="shot">
       <div class="fr" style="--ar:1.1102;">
@@ -520,7 +525,7 @@ p strong{color:var(--tx); font-weight:600}
 
   <!-- 04 문자 认证 -->
   <article class="card">
-    <div class="head"><span class="sect">注册 4</span><span class="num">04</span></div>
+    <div class="head"><span class="sect">注册 4</span><span class="src okx">OKX</span><span class="num">04</span></div>
     <h2>验证<br><em>手机号</em></h2>
     <figure class="shot">
       <div class="fr" style="--ar:1.3333;">
@@ -546,7 +551,7 @@ p strong{color:var(--tx); font-weight:600}
 
   <!-- 05 2FA -->
   <article class="card warn">
-    <div class="head"><span class="sect">安全 1</span><span class="num">05</span></div>
+    <div class="head"><span class="sect">安全 1</span><span class="src okx">OKX</span><span class="num">05</span></div>
     <h2>完成<br><em>安全设置</em></h2>
     <figure class="shot">
       <div class="fr" style="--ar:1.1208;">
@@ -570,9 +575,9 @@ p strong{color:var(--tx); font-weight:600}
     </div>
   </article>
 
-  <!-- 06 认证 앱 내려받기 -->
+  <!-- 06 验证器 내려받기 -->
   <article class="card">
-    <div class="head"><span class="sect">安全 2</span><span class="num">06</span></div>
+    <div class="head"><span class="sect">安全 2</span><span class="src okx">OKX</span><span class="num">06</span></div>
     <h2>下载<br><em>验证器 App</em></h2>
     <figure class="shot">
       <div class="fr" style="--ar:1.4058;">
@@ -596,9 +601,9 @@ p strong{color:var(--tx); font-weight:600}
     </div>
   </article>
 
-  <!-- 07 认证 앱 연결 -->
+  <!-- 07 验证器 연결 -->
   <article class="card warn">
-    <div class="head"><span class="sect">安全 3</span><span class="num">07</span></div>
+    <div class="head"><span class="sect">安全 3</span><span class="src okx">OKX</span><span class="num">07</span></div>
     <h2>绑定<br><em>验证器 App</em></h2>
     <figure class="shot">
       <div class="fr" style="--ar:1.2895;">
@@ -624,7 +629,7 @@ p strong{color:var(--tx); font-weight:600}
 
   <!-- 08 앱에서 코드 찾기 -->
   <article class="card">
-    <div class="head"><span class="sect">安全 4</span><span class="num">08</span></div>
+    <div class="head"><span class="sect">安全 4</span><span class="src app">验证器</span><span class="num">08</span></div>
     <h2>在 App 里<br><em>找到 OKX 验证码</em></h2>
     <figure class="shot">
       <div class="fr" style="--ar:2.0034;">
@@ -650,7 +655,7 @@ p strong{color:var(--tx); font-weight:600}
 
   <!-- 04 KYC -->
   <article class="card">
-    <div class="head"><span class="sect">身份认证 1</span><span class="num">09</span></div>
+    <div class="head"><span class="sect">身份认证 1</span><span class="src okx">OKX</span><span class="num">09</span></div>
     <h2>完成<br><em>身份认证</em></h2>
     <figure class="shot">
       <div class="fr" style="--ar:1.5287;">
@@ -676,7 +681,7 @@ p strong{color:var(--tx); font-weight:600}
 
   <!-- 10 신분증 고르기 -->
   <article class="card">
-    <div class="head"><span class="sect">身份认证 2</span><span class="num">10</span></div>
+    <div class="head"><span class="sect">身份认证 2</span><span class="src okx">OKX</span><span class="num">10</span></div>
     <h2>选择<br><em>证件类型</em></h2>
     <figure class="shot">
       <div class="fr" style="--ar:1.5596;">
@@ -702,7 +707,7 @@ p strong{color:var(--tx); font-weight:600}
 
   <!-- 11 심사 기다리기 -->
   <article class="card">
-    <div class="head"><span class="sect">身份认证 3</span><span class="num">11</span></div>
+    <div class="head"><span class="sect">身份认证 3</span><span class="src okx">OKX</span><span class="num">11</span></div>
     <h2>等待<br><em>审核</em></h2>
     <figure class="shot">
       <div class="fr" style="--ar:1.6410;">
@@ -746,10 +751,9 @@ p strong{color:var(--tx); font-weight:600}
     </div>
   </article>
 
-  <!-- 06 充值 주소 -->
-  <!-- 13 充值 화면 -->
+  <!-- 14 充值 화면 -->
   <article class="card">
-    <div class="head"><span class="sect">充值 2</span><span class="num">13</span></div>
+    <div class="head"><span class="sect">充值 3</span><span class="src okx">OKX</span><span class="num">14</span></div>
     <h2>打开<br><em>充值页面</em></h2>
     <figure class="shot">
       <div class="fr" style="--ar:1.7205;">
@@ -775,7 +779,7 @@ p strong{color:var(--tx); font-weight:600}
 
   <!-- 14 네트워크 고르기 -->
   <article class="card warn">
-    <div class="head"><span class="sect">充值 3</span><span class="num">14</span></div>
+    <div class="head"><span class="sect">充值 4</span><span class="src okx">OKX</span><span class="num">15</span></div>
     <h2>选择<br><em>Tron 网络</em></h2>
     <figure class="shot">
       <div class="fr" style="--ar:1.9296;">
@@ -798,7 +802,7 @@ p strong{color:var(--tx); font-weight:600}
   </article>
 
   <article class="card warn">
-    <div class="head"><span class="sect">充值 4</span><span class="num">15</span></div>
+    <div class="head"><span class="sect">充值 5</span><span class="src okx">OKX</span><span class="num">16</span></div>
     <h2>获取<br><em>充值地址</em></h2>
     <figure class="shot">
       <div class="fr" style="--ar:1.9559;">
@@ -823,8 +827,10 @@ p strong{color:var(--tx); font-weight:600}
   </article>
 
   <!-- 07 이체 -->
+
+
   <article class="card">
-    <div class="head"><span class="sect">充值 5</span><span class="num">16</span></div>
+    <div class="head"><span class="sect">充值 8</span><span class="src okx">OKX</span><span class="num">19</span></div>
     <h2>划转到<br><em>交易账户</em></h2>
     <figure class="shot">
       <div class="fr" style="--ar:1.4344;">
@@ -845,9 +851,59 @@ p strong{color:var(--tx); font-weight:600}
     </div>
   </article>
 
+  <!-- 20 合约 화면 열기 -->
+  <article class="card">
+    <div class="head"><span class="sect">合约 1</span><span class="src okx">OKX</span><span class="num">20</span></div>
+    <h2>打开<br><em>合约页面</em></h2>
+    <figure class="shot">
+      <div class="fr" style="--ar:1.1933;">
+        <img src="../shots/c23_fut_menu.jpg" alt="OKX 顶部 Trade 菜单展开 — Futures 项">
+        <b class="mark" data-n="1" style="--x:60.34%;--y:2.11%;--w:10.99%;--h:6.33%"></b>
+        <b class="mark" data-n="2" style="--x:44.13%;--y:51.78%;--w:51.49%;--h:12.33%"></b>
+      </div>
+      <span class="zoom">点击放大</span>
+    </figure>
+    <div class="body">
+      <ol class="steps">
+        <li><i>1</i><span>鼠标移到顶部菜单的 <b>Trade</b> 上。</span></li>
+        <li><i>2</i><span>点 <b>Futures</b> 进入合约交易页面。<br>网址以 okx.com/trade-swap 开头就对了。</span></li>
+      </ol>
+      <div class="tip">
+        <b>别和 Spot 搞混</b>
+        <p>Spot 是没有杠杆的现货交易。<br>本指南以 Futures 页面为准。</p>
+      </div>
+    </div>
+  </article>
+
+  <!-- 21 종목 고르기 -->
+  <article class="card">
+    <div class="head"><span class="sect">合约 2</span><span class="src okx">OKX</span><span class="num">21</span></div>
+    <h2>选择<br><em>合约品种</em></h2>
+    <figure class="shot">
+      <div class="fr" style="--ar:1.2734;">
+        <img src="../shots/c24_fut_symbol.jpg" alt="OKX 合约品种列表 — 搜索框和 BTC 行">
+        <b class="mark" data-n="1" style="--x:9.83%;--y:3.31%;--w:41.02%;--h:7.63%"></b>
+        <b class="mark" data-n="2" style="--x:3.62%;--y:15.40%;--w:92.77%;--h:9.06%"></b>
+        <b class="mark" data-n="3" style="--x:3.62%;--y:47.77%;--w:92.77%;--h:11.37%"></b>
+      </div>
+      <span class="zoom">点击放大</span>
+    </figure>
+    <div class="body">
+      <ol class="steps">
+        <li><i>1</i><span>点左上角的 <b>BTCUSDT Perpetual</b>，<br>会打开品种列表。</span></li>
+        <li><i>2</i><span>在 <b>Search crypto</b> 输入币种，<br>用英文简称：BTC、ETH、SOL。</span></li>
+        <li><i>3</i><span>点列表里的一行，页面就切换过去。<br><b>Perpetual</b> 指没有到期日的永续合约。</span></li>
+      </ol>
+      <div class="tip">
+        <b>新手先从 BTC、ETH 这类大品种开始</b>
+        <p>成交量大，容易成交，价格也不容易乱跳。</p>
+      </div>
+    </div>
+  </article>
+
   <!-- 08 杠杆 -->
   <article class="card">
-    <div class="head"><span class="sect">合约</span><span class="num">17</span></div>
+    <div class="head"><span class="sect">合约 3</span><span class="src okx">OKX</span><span class="num">22</span></div>
     <h2>设置保证金模式<br><em>和杠杆</em></h2>
     <figure class="shot">
       <div class="fr" style="--ar:2.1808;">
@@ -917,7 +973,7 @@ p strong{color:var(--tx); font-weight:600}
 
   /* 섹션 = .sect 라벨의 이름 부분("注册 3" → "注册")이 같은 연속 카드 묶음.
      표지는 어디에도 안 속함(目录). 페이저·탭·目录 버튼·섹션 끝 안내가 전부 여기서 나온다.
-     → 총 18장이라는 숫자는 화면 어디에도 안 보여준다(읽다 포기 방지). */
+     → 총 18 页이라는 숫자는 화면 어디에도 안 보여준다(읽다 포기 방지). */
   var secs = [], secOf = [];
   cards.forEach(function(c,i){
     var e = c.querySelector('.sect');
@@ -927,6 +983,8 @@ p strong{color:var(--tx); font-weight:600}
     if(!s || s.name !== name){ s = {name:name, from:i, to:i, n:0, i:secs.length}; secs.push(s); }
     s.to = i; s.n++;
     secOf[i] = {s:s, k:s.n};
+    if(/\d+$/.test(e.textContent.trim())) e.textContent = name + ' ' + s.n;   /* 라벨 번호 = 섹션 안 순서 */
+    var nm = c.querySelector('.num'); if(nm) nm.textContent = String(i).padStart(2,'0');
   });
   secs.forEach(function(s,i){
     var t = tabs[i];
@@ -939,7 +997,7 @@ p strong{color:var(--tx); font-weight:600}
     var em = b.querySelector('em'); if(em) em.textContent = s.n + (s.n === 1 ? PAGE_UNIT_1 : PAGE_UNIT);
   });
 
-  /* ── 섹션 보기 모드 (2026-09-08 사용자: "18장 다 깔아놓지 말고 目录마다 클릭했을 때 해당 카드들만") ──
+  /* ── 섹션 보기 모드 (2026-09-08 사용자: "18 页 다 깔아놓지 말고 目录마다 클릭했을 때 해당 카드들만") ──
      mode = -1(目录: 표지만) | 섹션 번호(그 섹션 카드만 트랙에). 다른 주제 카드는 hidden.
      섹션이 바뀔 때 history에 넣어서 폰 뒤로가기·브라우저 뒤로가기가 上一页 섹션/目录로 돌아간다.
      주소 #注册 처럼 섹션 딥링크도 된다. */

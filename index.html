@@ -126,6 +126,11 @@ html[lang="zh-CN"] :root, html[lang="zh-CN"] body{font-family:'Inter','Noto Sans
 .sect{font-size:11px; letter-spacing:.16em; font-weight:700; color:var(--jade); text-transform:uppercase}
 .card.warn .sect{color:var(--amber)}
 .num{margin-left:auto; font-size:13px; font-weight:800; color:#2a3944; font-variant-numeric:tabular-nums; letter-spacing:.08em}
+/* 어느 앱 화면인지 배지 (2026-09-08 사용자: "입금 2 화면이 국내거래소인지 OKX인지 헷갈린다") */
+.src{font-size:10px; font-weight:700; letter-spacing:.05em; line-height:1.2; color:var(--tx3); border:1px solid var(--line); border-radius:99px; padding:1px 7px; white-space:nowrap}
+.src.okx{color:var(--jade2); border-color:rgba(53,217,153,.32)}
+.src.bt{color:#ffb454; border-color:rgba(255,180,84,.4)}
+.src.app{color:#9fb0bd; border-color:#2a3944}
 h2{
   flex:none; font-size:20px; line-height:1.36; font-weight:800; letter-spacing:-.02em;
   text-wrap:balance; margin-bottom:12px;
@@ -434,8 +439,8 @@ p strong{color:var(--tx); font-weight:600}
         <button class="ti" type="button" data-go="1"><i>1</i><span><b>가입하기</b><small>국가 · 이메일 · 휴대폰 · 문자 인증</small></span><em>4장</em></button>
         <button class="ti" type="button" data-go="5"><i>2</i><span><b>보안 설정하기</b><small>설정 · 인증 앱 · QR 연결 · 코드</small></span><em>4장</em></button>
         <button class="ti" type="button" data-go="9"><i>3</i><span><b>본인 인증하기</b><small>시작 · 신분증 고르기 · 심사 기다리기</small></span><em>3장</em></button>
-        <button class="ti" type="button" data-go="12"><i>4</i><span><b>코인 넣기</b><small>코인 · 네트워크 · 주소 · 이체</small></span><em>5장</em></button>
-        <button class="ti" type="button" data-go="17"><i>5</i><span><b>레버리지 정하기</b><small>마진 모드 · 레버리지 배율</small></span><em>1장</em></button>
+        <button class="ti" type="button" data-go="12"><i>4</i><span><b>코인 넣기</b><small>사기 · 주소 · 트론 출금 · 이체</small></span><em>8장</em></button>
+        <button class="ti" type="button" data-go="17"><i>5</i><span><b>레버리지 정하기</b><small>화면 열기 · 종목 · 마진 · 레버리지</small></span><em>3장</em></button>
       </div>
       <a class="cta" href="#" id="ref0">가입 화면으로 바로 가기 →</a>
       <p style="font-size:12px;line-height:1.6;color:var(--tx3);margin:-3px 0 0">
@@ -446,7 +451,7 @@ p strong{color:var(--tx); font-weight:600}
 
   <!-- 01 가입 시작 -->
   <article class="card">
-    <div class="head"><span class="sect">가입 1</span><span class="num">01</span></div>
+    <div class="head"><span class="sect">가입 1</span><span class="src okx">OKX</span><span class="num">01</span></div>
     <h2>국가<br><em>고르기</em></h2>
     <figure class="shot">
       <div class="fr" style="--ar:1.124;">
@@ -472,7 +477,7 @@ p strong{color:var(--tx); font-weight:600}
 
   <!-- 02 이메일 -->
   <article class="card">
-    <div class="head"><span class="sect">가입 2</span><span class="num">02</span></div>
+    <div class="head"><span class="sect">가입 2</span><span class="src okx">OKX</span><span class="num">02</span></div>
     <h2>이메일<br><em>인증하기</em></h2>
     <figure class="shot">
       <div class="fr" style="--ar:1.1826;">
@@ -498,7 +503,7 @@ p strong{color:var(--tx); font-weight:600}
 
   <!-- 03 휴대폰 번호 -->
   <article class="card">
-    <div class="head"><span class="sect">가입 3</span><span class="num">03</span></div>
+    <div class="head"><span class="sect">가입 3</span><span class="src okx">OKX</span><span class="num">03</span></div>
     <h2>휴대폰 번호<br><em>입력하기</em></h2>
     <figure class="shot">
       <div class="fr" style="--ar:1.1102;">
@@ -520,7 +525,7 @@ p strong{color:var(--tx); font-weight:600}
 
   <!-- 04 문자 인증 -->
   <article class="card">
-    <div class="head"><span class="sect">가입 4</span><span class="num">04</span></div>
+    <div class="head"><span class="sect">가입 4</span><span class="src okx">OKX</span><span class="num">04</span></div>
     <h2>휴대폰 번호<br><em>인증하기</em></h2>
     <figure class="shot">
       <div class="fr" style="--ar:1.3333;">
@@ -546,7 +551,7 @@ p strong{color:var(--tx); font-weight:600}
 
   <!-- 05 2FA -->
   <article class="card warn">
-    <div class="head"><span class="sect">보안 1</span><span class="num">05</span></div>
+    <div class="head"><span class="sect">보안 1</span><span class="src okx">OKX</span><span class="num">05</span></div>
     <h2>보안 설정<br><em>채우기</em></h2>
     <figure class="shot">
       <div class="fr" style="--ar:1.1208;">
@@ -572,7 +577,7 @@ p strong{color:var(--tx); font-weight:600}
 
   <!-- 06 인증 앱 내려받기 -->
   <article class="card">
-    <div class="head"><span class="sect">보안 2</span><span class="num">06</span></div>
+    <div class="head"><span class="sect">보안 2</span><span class="src okx">OKX</span><span class="num">06</span></div>
     <h2>인증 앱<br><em>내려받기</em></h2>
     <figure class="shot">
       <div class="fr" style="--ar:1.4058;">
@@ -598,7 +603,7 @@ p strong{color:var(--tx); font-weight:600}
 
   <!-- 07 인증 앱 연결 -->
   <article class="card warn">
-    <div class="head"><span class="sect">보안 3</span><span class="num">07</span></div>
+    <div class="head"><span class="sect">보안 3</span><span class="src okx">OKX</span><span class="num">07</span></div>
     <h2>인증 앱<br><em>연결하기</em></h2>
     <figure class="shot">
       <div class="fr" style="--ar:1.2895;">
@@ -624,7 +629,7 @@ p strong{color:var(--tx); font-weight:600}
 
   <!-- 08 앱에서 코드 찾기 -->
   <article class="card">
-    <div class="head"><span class="sect">보안 4</span><span class="num">08</span></div>
+    <div class="head"><span class="sect">보안 4</span><span class="src app">인증 앱</span><span class="num">08</span></div>
     <h2>앱에서<br><em>OKX 코드 찾기</em></h2>
     <figure class="shot">
       <div class="fr" style="--ar:2.0034;">
@@ -650,7 +655,7 @@ p strong{color:var(--tx); font-weight:600}
 
   <!-- 04 KYC -->
   <article class="card">
-    <div class="head"><span class="sect">본인인증 1</span><span class="num">09</span></div>
+    <div class="head"><span class="sect">본인인증 1</span><span class="src okx">OKX</span><span class="num">09</span></div>
     <h2>본인 인증<br><em>끝내기</em></h2>
     <figure class="shot">
       <div class="fr" style="--ar:1.5287;">
@@ -676,7 +681,7 @@ p strong{color:var(--tx); font-weight:600}
 
   <!-- 10 신분증 고르기 -->
   <article class="card">
-    <div class="head"><span class="sect">본인인증 2</span><span class="num">10</span></div>
+    <div class="head"><span class="sect">본인인증 2</span><span class="src okx">OKX</span><span class="num">10</span></div>
     <h2>신분증<br><em>고르기</em></h2>
     <figure class="shot">
       <div class="fr" style="--ar:1.5596;">
@@ -702,7 +707,7 @@ p strong{color:var(--tx); font-weight:600}
 
   <!-- 11 심사 기다리기 -->
   <article class="card">
-    <div class="head"><span class="sect">본인인증 3</span><span class="num">11</span></div>
+    <div class="head"><span class="sect">본인인증 3</span><span class="src okx">OKX</span><span class="num">11</span></div>
     <h2>심사<br><em>기다리기</em></h2>
     <figure class="shot">
       <div class="fr" style="--ar:1.6410;">
@@ -733,23 +738,48 @@ p strong{color:var(--tx); font-weight:600}
     <div class="body">
       <p>OKX에는 은행 계좌를 연결하는 창구가 없습니다. 그래서 이렇게 돌아갑니다.</p>
       <div class="flow">
-        <div class="n"><b>국내 거래소</b><span>업비트·빗썸 등에서 원화로 테더(USDT) 매수</span></div>
+        <div class="n"><b>국내 거래소</b><span>빗썸·업비트 앱에서 원화로 테더(USDT) 매수</span></div>
         <div class="ar">▼</div>
         <div class="n"><b>코인으로 전송</b><span>산 USDT를 OKX 입금 주소로 출금</span></div>
         <div class="ar">▼</div>
         <div class="n on"><b>OKX 도착</b><span>여기서부터 거래</span></div>
       </div>
       <div class="tip">
-        <b>원화 넣고 바로는 못 보냅니다</b>
-        <p>국내 거래소는 원화 입금 뒤 일정 시간 코인 출금을 막아둡니다. 여유를 두고 준비하세요.</p>
+        <b>어느 앱 화면인지는 카드 위 배지로</b>
+        <p>주황 '빗썸 앱'은 빗썸에서, 초록 'OKX'는 OKX에서 하는 단계입니다.</p>
       </div>
     </div>
   </article>
 
-  <!-- 06 입금 주소 -->
-  <!-- 13 입금 화면 -->
+  <!-- 13 빗썸에서 USDT 사기 (한국판 전용 — 영문·중문 빌드에서 제외) -->
+  <article class="card" data-only="ko">
+    <div class="head"><span class="sect">입금 2</span><span class="src bt">빗썸 앱</span><span class="num">13</span></div>
+    <h2>빗썸에서<br><em>USDT 사기</em></h2>
+    <figure class="shot">
+      <div class="fr" style="--ar:0.9535;">
+        <img src="shots/c20_bt_buy.jpg" alt="빗썸 앱 테더(USDT) 매수 화면 — 시장가 · 총액 · 매수">
+        <b class="mark" data-n="1" style="--x:81.36%;--y:20.91%;--w:15.68%;--h:8.18%"></b>
+        <b class="mark" data-n="2" style="--x:42.90%;--y:77.78%;--w:54.13%;--h:8.59%"></b>
+        <b class="mark" data-n="3" style="--x:60.59%;--y:88.89%;--w:36.44%;--h:9.60%"></b>
+      </div>
+      <span class="zoom">탭하면 크게</span>
+    </figure>
+    <div class="body">
+      <ol class="steps">
+        <li><i>1</i><span>빗썸 앱에서 <b>테더(USDT)</b>를 찾아 <b>매수</b> 탭으로.<br><b>시장가</b>를 누르면 지금 가격에 바로 삽니다.</span></li>
+        <li><i>2</i><span><b>총액</b>에 살 금액(원)을 넣습니다.<br>수량은 자동으로 계산돼요.</span></li>
+        <li><i>3</i><span><b>매수</b>를 누르면 끝. 체결되면 <b>내역</b> 탭에 뜹니다.</span></li>
+      </ol>
+      <div class="tip">
+        <b>업비트도 같은 순서입니다</b>
+        <p>어느 앱이든 '시장가 → 금액 → 매수'. 1 USDT는 대략 1,300~1,400원대입니다.</p>
+      </div>
+    </div>
+  </article>
+
+  <!-- 14 입금 화면 -->
   <article class="card">
-    <div class="head"><span class="sect">입금 2</span><span class="num">13</span></div>
+    <div class="head"><span class="sect">입금 3</span><span class="src okx">OKX</span><span class="num">14</span></div>
     <h2>입금 화면<br><em>열기</em></h2>
     <figure class="shot">
       <div class="fr" style="--ar:1.7205;">
@@ -775,7 +805,7 @@ p strong{color:var(--tx); font-weight:600}
 
   <!-- 14 네트워크 고르기 -->
   <article class="card warn">
-    <div class="head"><span class="sect">입금 3</span><span class="num">14</span></div>
+    <div class="head"><span class="sect">입금 4</span><span class="src okx">OKX</span><span class="num">15</span></div>
     <h2>트론 네트워크<br><em>고르기</em></h2>
     <figure class="shot">
       <div class="fr" style="--ar:1.9296;">
@@ -791,14 +821,14 @@ p strong{color:var(--tx); font-weight:600}
         <li><i>2</i><span>오른쪽이 <b>도착 시간</b>과 <b>최소 입금액</b>입니다.</span></li>
       </ol>
       <div class="tip hard">
-        <b>업비트에서 출금할 때도 똑같이 Tron (TRC20)</b>
+        <b>빗썸·업비트에서 출금할 때도 똑같이 Tron (TRC20)</b>
         <p>보내는 쪽과 받는 쪽 네트워크가 다르면<br>코인이 사라지고 되돌릴 수 없습니다.</p>
       </div>
     </div>
   </article>
 
   <article class="card warn">
-    <div class="head"><span class="sect">입금 4</span><span class="num">15</span></div>
+    <div class="head"><span class="sect">입금 5</span><span class="src okx">OKX</span><span class="num">16</span></div>
     <h2>입금 주소<br><em>받기</em></h2>
     <figure class="shot">
       <div class="fr" style="--ar:1.9559;">
@@ -823,8 +853,60 @@ p strong{color:var(--tx); font-weight:600}
   </article>
 
   <!-- 07 이체 -->
+  <!-- 17 빗썸 입출금 → 출금하기 (한국판 전용) -->
+  <article class="card" data-only="ko">
+    <div class="head"><span class="sect">입금 6</span><span class="src bt">빗썸 앱</span><span class="num">17</span></div>
+    <h2>빗썸 USDT<br><em>출금 열기</em></h2>
+    <figure class="shot">
+      <div class="fr" style="--ar:1.5462;">
+        <img src="shots/c21_bt_wallet.jpg" alt="빗썸 앱 USDT 입출금 화면 — 출금가능 수량과 출금하기 버튼(잔액은 가림)">
+        <b class="mark" data-n="1" style="--x:36.50%;--y:7.70%;--w:26.50%;--h:10.30%"></b>
+        <b class="mark" data-n="2" style="--x:3.30%;--y:64.10%;--w:92.90%;--h:11.50%"></b>
+        <b class="mark" data-n="3" style="--x:58.00%;--y:84.00%;--w:29.00%;--h:12.20%"></b>
+      </div>
+      <span class="zoom">탭하면 크게</span>
+    </figure>
+    <div class="body">
+      <ol class="steps">
+        <li><i>1</i><span>OKX 주소를 복사했으면 빗썸 앱으로 돌아와<br><b>USDT 입출금</b> 화면을 엽니다.</span></li>
+        <li><i>2</i><span><b>출금가능</b> 수량을 확인합니다.<br>원화를 넣은 직후엔 잠겨 있을 수 있어요.</span></li>
+        <li><i>3</i><span><b>출금하기</b>를 누릅니다.</span></li>
+      </ol>
+      <div class="tip">
+        <b>원화 넣고 바로는 못 보냅니다</b>
+        <p>국내 거래소는 원화 입금 뒤 일정 시간 코인 출금을 막아둡니다. 여유를 두고 준비하세요.</p>
+      </div>
+    </div>
+  </article>
+
+  <!-- 18 빗썸 출금 화면 (한국판 전용) -->
+  <article class="card warn" data-only="ko">
+    <div class="head"><span class="sect">입금 7</span><span class="src bt">빗썸 앱</span><span class="num">18</span></div>
+    <h2>트론으로<br><em>출금하기</em></h2>
+    <figure class="shot">
+      <div class="fr" style="--ar:1.0354;">
+        <img src="shots/c22_bt_withdraw.jpg" alt="빗썸 앱 USDT 출금 화면 — 네트워크 Tron · 보낼 주소 · 출금 수량(수량은 가림)">
+        <b class="mark" data-n="1" style="--x:5.90%;--y:7.70%;--w:88.10%;--h:12.60%"></b>
+        <b class="mark" data-n="2" style="--x:5.90%;--y:35.40%;--w:88.10%;--h:13.10%"></b>
+        <b class="mark" data-n="3" style="--x:5.90%;--y:70.80%;--w:88.10%;--h:12.30%"></b>
+      </div>
+      <span class="zoom">탭하면 크게</span>
+    </figure>
+    <div class="body">
+      <ol class="steps">
+        <li><i>1</i><span><b>네트워크</b>를 <b>Tron</b>으로 바꿉니다.<br>Ethereum으로 되어 있으면 반드시 바꾸세요.</span></li>
+        <li><i>2</i><span><b>보낼 주소</b>에 OKX에서 복사한 주소를 붙여넣습니다.</span></li>
+        <li><i>3</i><span><b>출금 수량</b>을 넣고 <b>다음</b>. 인증을 거치면<br>1~3분 뒤 OKX Funding 계정에 들어옵니다.</span></li>
+      </ol>
+      <div class="tip hard">
+        <b>네트워크가 다르면 코인이 사라집니다</b>
+        <p>OKX에서 Tron (TRC20)을 골랐으니 여기도 Tron. 트론은 빗썸 출금 수수료가 없고, 100만원 이상이면 트래블룰 확인 화면이 한 번 더 나옵니다.</p>
+      </div>
+    </div>
+  </article>
+
   <article class="card">
-    <div class="head"><span class="sect">입금 5</span><span class="num">16</span></div>
+    <div class="head"><span class="sect">입금 8</span><span class="src okx">OKX</span><span class="num">19</span></div>
     <h2>거래 계정으로<br><em>옮기기</em></h2>
     <figure class="shot">
       <div class="fr" style="--ar:1.4344;">
@@ -845,9 +927,59 @@ p strong{color:var(--tx); font-weight:600}
     </div>
   </article>
 
+  <!-- 20 선물 화면 열기 -->
+  <article class="card">
+    <div class="head"><span class="sect">선물 1</span><span class="src okx">OKX</span><span class="num">20</span></div>
+    <h2>선물 화면<br><em>열기</em></h2>
+    <figure class="shot">
+      <div class="fr" style="--ar:1.1933;">
+        <img src="shots/c23_fut_menu.jpg" alt="OKX 상단 Trade 메뉴를 펼친 화면 — Futures 항목">
+        <b class="mark" data-n="1" style="--x:60.34%;--y:2.11%;--w:10.99%;--h:6.33%"></b>
+        <b class="mark" data-n="2" style="--x:44.13%;--y:51.78%;--w:51.49%;--h:12.33%"></b>
+      </div>
+      <span class="zoom">탭하면 크게</span>
+    </figure>
+    <div class="body">
+      <ol class="steps">
+        <li><i>1</i><span>위쪽 메뉴 <b>Trade</b>에 마우스를 올립니다.</span></li>
+        <li><i>2</i><span><b>Futures</b>를 누르면 선물 거래 화면이 열립니다.<br>주소가 okx.com/trade-swap 으로 시작하면 맞아요.</span></li>
+      </ol>
+      <div class="tip">
+        <b>Spot과 헷갈리지 마세요</b>
+        <p>Spot은 레버리지 없는 현물 거래입니다.<br>이 가이드는 Futures 화면 기준입니다.</p>
+      </div>
+    </div>
+  </article>
+
+  <!-- 21 종목 고르기 -->
+  <article class="card">
+    <div class="head"><span class="sect">선물 2</span><span class="src okx">OKX</span><span class="num">21</span></div>
+    <h2>종목<br><em>고르기</em></h2>
+    <figure class="shot">
+      <div class="fr" style="--ar:1.2734;">
+        <img src="shots/c24_fut_symbol.jpg" alt="OKX 선물 종목 선택 목록 — 검색창과 BTC 항목">
+        <b class="mark" data-n="1" style="--x:9.83%;--y:3.31%;--w:41.02%;--h:7.63%"></b>
+        <b class="mark" data-n="2" style="--x:3.62%;--y:15.40%;--w:92.77%;--h:9.06%"></b>
+        <b class="mark" data-n="3" style="--x:3.62%;--y:47.77%;--w:92.77%;--h:11.37%"></b>
+      </div>
+      <span class="zoom">탭하면 크게</span>
+    </figure>
+    <div class="body">
+      <ol class="steps">
+        <li><i>1</i><span>왼쪽 위 <b>BTCUSDT Perpetual</b>을 누르면<br>종목 목록이 열립니다.</span></li>
+        <li><i>2</i><span><b>Search crypto</b>에 코인 이름을 칩니다.<br>BTC, ETH, SOL처럼 영문 약자로.</span></li>
+        <li><i>3</i><span>목록에서 누르면 화면이 그 종목으로 바뀝니다.<br><b>Perpetual</b>은 만기가 없는 무기한 선물이란 뜻.</span></li>
+      </ol>
+      <div class="tip">
+        <b>처음이면 BTC·ETH 같은 큰 종목으로</b>
+        <p>거래량이 많아 체결이 잘 되고 가격이 덜 튑니다.</p>
+      </div>
+    </div>
+  </article>
+
   <!-- 08 레버리지 -->
   <article class="card">
-    <div class="head"><span class="sect">선물</span><span class="num">17</span></div>
+    <div class="head"><span class="sect">선물 3</span><span class="src okx">OKX</span><span class="num">22</span></div>
     <h2>마진 모드와<br><em>레버리지 정하기</em></h2>
     <figure class="shot">
       <div class="fr" style="--ar:2.1808;">
@@ -927,6 +1059,8 @@ p strong{color:var(--tx); font-weight:600}
     if(!s || s.name !== name){ s = {name:name, from:i, to:i, n:0, i:secs.length}; secs.push(s); }
     s.to = i; s.n++;
     secOf[i] = {s:s, k:s.n};
+    if(/\d+$/.test(e.textContent.trim())) e.textContent = name + ' ' + s.n;   /* 라벨 번호 = 섹션 안 순서 */
+    var nm = c.querySelector('.num'); if(nm) nm.textContent = String(i).padStart(2,'0');
   });
   secs.forEach(function(s,i){
     var t = tabs[i];
