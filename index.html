@@ -47,7 +47,7 @@ header{
   position:relative; z-index:3; flex:none;
   padding:10px 20px 6px; display:grid; grid-template-columns:1fr auto 1fr; align-items:center; gap:12px;
 }
-.brand{display:flex; align-items:center; gap:9px; font-weight:800; font-size:13px; letter-spacing:.14em}
+.brand{display:flex; align-items:center; gap:9px; font-weight:800; font-size:13px; letter-spacing:.14em; cursor:pointer}
 .dot{width:8px; height:8px; border-radius:50%; background:var(--jade); box-shadow:0 0 12px var(--jade)}
 .brand i{font-style:normal}
 /* ── 상단 섹션 탭 (가입·보안·인증·입금·선물) — 밑줄이 그 섹션 안 진행률 ── */
@@ -63,6 +63,8 @@ header{
   background:linear-gradient(90deg,var(--jade-dim),var(--jade2));
   transition:width .35s cubic-bezier(.4,0,.2,1);
 }
+.tab.home{margin-right:6px; padding-right:12px; border-right:1px solid var(--line); border-radius:0}
+.tab.home::after{right:12px}
 .tab.done{color:var(--tx)}
 .tab.on{color:var(--jade)}
 .tab:hover{color:var(--tx)}
@@ -258,16 +260,15 @@ p strong{color:var(--tx); font-weight:600}
 .fine.page strong{color:#8d9aa4}
 .ctl{
   position:relative; z-index:3; flex:none;
-  display:grid; grid-template-columns:minmax(0,1fr) auto minmax(0,1fr); align-items:center;
+  display:flex; align-items:center; justify-content:center;
   padding:10px 20px calc(14px + env(safe-area-inset-bottom));
 }
 .ctl .mid{display:flex; align-items:center; justify-content:center; gap:12px}
-/* 목차로 돌아가기 — 하단 바 왼쪽(2026-09-08 사용자: 마지막 장 안내줄 대신 하단 번호 옆 버튼) */
+/* 목차로 돌아가기 — 화살표 바로 왼쪽 (2026-09-08 사용자: 하단 번호 옆 버튼. 왼쪽 끝에 두면 PC에서 못 찾음) */
 .nav.home2{
-  justify-self:start; width:auto; height:36px; border-radius:99px; padding:0 14px; white-space:nowrap;
+  width:auto; height:36px; border-radius:99px; padding:0 14px; margin-right:4px; white-space:nowrap;
   font-family:inherit; font-size:13px; font-weight:700; color:var(--tx2); letter-spacing:.02em;
 }
-.nav.home2 svg{display:none; width:16px; height:16px}
 .nav.home2:hover:not(:disabled){color:var(--jade)}
 .nav{
   width:40px; height:40px; flex:none; border-radius:50%;
@@ -327,10 +328,10 @@ p strong{color:var(--tx); font-weight:600}
   .pager{min-width:140px}
 }
 @media (max-width:380px){
-  /* 좁은 폰: 목차 버튼은 글자 대신 아이콘(가운데 묶음과 겹치지 않게) */
-  .nav.home2{width:36px; padding:0; border-radius:50%}
-  .nav.home2 span{display:none}
-  .nav.home2 svg{display:block}
+  /* 좁은 폰: 목차·화살표·페이저가 한 줄에 다 들어가게 */
+  .pager{min-width:128px}
+  .ctl .mid{gap:8px}
+  .nav.home2{padding:0 12px; margin-right:2px}
 }
 @media (prefers-reduced-motion:reduce){
   .track{scroll-behavior:auto}
@@ -385,8 +386,9 @@ p strong{color:var(--tx); font-weight:600}
 <body>
 
 <header>
-  <div class="brand"><span class="dot"></span><span>OKX<i class="bt"> START GUIDE</i></span></div>
+  <div class="brand" id="brand" title="목차로"><span class="dot"></span><span>OKX<i class="bt"> START GUIDE</i></span></div>
   <nav class="tabs" id="tabs" aria-label="단계">
+    <button class="tab home" type="button" data-toc data-title="목차">목차<i></i></button>
     <button class="tab" type="button" data-title="가입">가입<i></i></button>
     <button class="tab" type="button" data-title="보안 설정">보안<i></i></button>
     <button class="tab" type="button" data-title="본인 인증">인증<i></i></button>
@@ -856,8 +858,8 @@ p strong{color:var(--tx); font-weight:600}
 </div>
 
 <div class="ctl">
-  <button class="nav home2" id="home" aria-label="목차로 돌아가기"><svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h10"/></svg><span>목차</span></button>
   <div class="mid">
+    <button class="nav home2" id="home" aria-label="목차로 돌아가기">목차</button>
     <button class="nav" id="prev" aria-label="이전"><svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg></button>
     <div class="pager" id="pager">
       <span class="lab" id="plab"></span>
@@ -865,7 +867,6 @@ p strong{color:var(--tx); font-weight:600}
     </div>
     <button class="nav" id="next" aria-label="다음"><svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></button>
   </div>
-  <span></span>
 </div>
 
 <div class="lb" id="lb"><button class="x" id="lbx" aria-label="닫기">✕</button></div>
@@ -998,6 +999,7 @@ p strong{color:var(--tx); font-weight:600}
   tabs.forEach(function(t,i){ t.addEventListener('click', function(){ if(secs[i]) go(secs[i].from); }); });
   if(tocTab) tocTab.addEventListener('click', function(){ go(0); });
   home.addEventListener('click', function(){ go(0); });
+  document.getElementById('brand').addEventListener('click', function(){ go(0); });
   /* 목차 버튼·섹션 끝 버튼 = data-go="카드 번호" */
   document.addEventListener('click', function(e){
     var b = e.target && e.target.closest ? e.target.closest('[data-go]') : null;
