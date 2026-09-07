@@ -363,7 +363,8 @@ p strong{color:var(--tx); font-weight:600}
   .brand{display:none}
   .tabs .langs{display:none}
   .lsel{display:block}
-  .tab{padding:5px 8px 8px}
+  .tab{padding:5px 7px 8px}
+  html[lang="zh-CN"] .tab{font-size:13.5px}   /* 중문 글꼴이 넓어 360px에서 4px 삐져나옴 */
   html[lang="en"] .tab{font-size:12.5px; padding:5px 6px 8px}
   html[lang="en"] .tab::after{left:6px; right:6px}
   html[lang="en"] .tab i{left:6px}
